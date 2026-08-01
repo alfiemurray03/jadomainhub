@@ -19,25 +19,25 @@ const quickLinks = [
     title: 'Domain Transfer',
     description: 'Move your domains to us easily',
     icon: Globe,
-    href: 'https://shop.jadomainhub.jagroupservices.co.uk/products/domain-transfer',
+    href: 'https://shop.jadomainhub.co.uk/products/domain-transfer',
   },
   {
     title: 'Web Hosting',
     description: 'Fast & reliable cPanel hosting',
     icon: Server,
-    href: 'https://shop.jadomainhub.jagroupservices.co.uk/products/cpanel',
+    href: 'https://shop.jadomainhub.co.uk/products/cpanel',
   },
   {
     title: 'Website Builder',
     description: 'Create your website with ease',
     icon: Layout,
-    href: 'https://shop.jadomainhub.jagroupservices.co.uk/products/website-builder',
+    href: 'https://shop.jadomainhub.co.uk/products/website-builder',
   },
   {
     title: 'Business Email',
     description: 'Professional Microsoft 365 email',
     icon: Mail,
-    href: 'https://shop.jadomainhub.jagroupservices.co.uk/products/microsoft-365',
+    href: 'https://shop.jadomainhub.co.uk/products/microsoft-365',
   },
   {
     title: 'My Account',
@@ -89,22 +89,15 @@ export default function HomePage() {
         <meta name="twitter:card" content="summary_large_image" />
       </Helmet>
 
-      {/* ── HERO ── */}
       <section className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden">
-        {/* Background image */}
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat scale-105"
           style={{ backgroundImage: `url('/airo-assets/images/pages/home/hero')` }}
         />
-        {/* Layered overlays for depth */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/75 via-black/55 to-black/80" />
         <div className="absolute inset-0 bg-gradient-to-r from-primary/40 via-transparent to-secondary/30" />
-
-        {/* Animated glow orbs */}
         <div className="absolute left-1/4 top-1/3 h-96 w-96 -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/20 blur-3xl" />
         <div className="absolute right-1/4 bottom-1/3 h-64 w-64 rounded-full bg-secondary/20 blur-3xl" />
-
-        {/* Dot grid */}
         <div
           className="absolute inset-0 opacity-[0.07]"
           style={{
@@ -114,7 +107,6 @@ export default function HomePage() {
         />
 
         <div className="container relative mx-auto px-4 text-center">
-          {/* Badge */}
           <motion.div
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
@@ -125,7 +117,6 @@ export default function HomePage() {
             GoDaddy Reseller &middot; UK Based &middot; Operated by JA Group Services Ltd
           </motion.div>
 
-          {/* Headline */}
           <h1 className="sr-only">JA Domain Hub — Domain Registration &amp; Web Services</h1>
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -150,7 +141,6 @@ export default function HomePage() {
             JA Domain Hub is a service operated by JA Group Services Ltd. Register, transfer and manage domain names through our GoDaddy reseller platform — backed by enterprise infrastructure and UK-based support.
           </motion.p>
 
-          {/* CTA Buttons */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -162,7 +152,7 @@ export default function HomePage() {
               className="h-14 rounded-2xl bg-white px-10 text-base font-semibold text-primary shadow-2xl transition-transform hover:scale-105 hover:bg-white/95 hover:text-primary"
               asChild
             >
-              <a href="https://shop.jadomainhub.jagroupservices.co.uk/products/domain-registration" target="_blank" rel="noopener noreferrer">
+              <a href="https://shop.jadomainhub.co.uk/products/domain-registration" target="_blank" rel="noopener noreferrer">
                 Search Domains
                 <ArrowRight className="ml-2 h-5 w-5" />
               </a>
@@ -175,11 +165,10 @@ export default function HomePage() {
             transition={{ duration: 0.5, delay: 0.5 }}
             className="mt-5 text-xs text-white/60"
           >
-            Searches and purchases are completed on shop.jadomainhub.jagroupservices.co.uk
+            Searches and purchases are completed on shop.jadomainhub.co.uk
           </motion.p>
         </div>
 
-        {/* Scrolling TLD ticker */}
         <div className="absolute bottom-0 left-0 right-0">
           <div className="border-t border-white/10 bg-black/40 backdrop-blur-sm py-3 overflow-hidden">
             <div className="flex whitespace-nowrap" style={{ animation: 'ticker 18s linear infinite' }}>
@@ -193,7 +182,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── QUICK ACCESS ── */}
       <section className="py-24">
         <div className="container mx-auto px-4">
           <motion.div
@@ -237,9 +225,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── WHY US ── */}
       <section className="relative overflow-hidden bg-muted/40 py-24">
-        {/* Decorative background shape */}
         <div className="absolute -right-32 -top-32 h-96 w-96 rounded-full bg-primary/5 blur-3xl" />
         <div className="absolute -left-32 -bottom-32 h-96 w-96 rounded-full bg-secondary/5 blur-3xl" />
 
@@ -284,9 +270,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── CTA BANNER ── */}
       <section className="relative overflow-hidden bg-primary py-24">
-        {/* Layered background effects */}
         <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary to-secondary/60" />
         <div
           className="absolute inset-0 opacity-[0.08]"
@@ -317,7 +301,7 @@ export default function HomePage() {
                 className="h-14 rounded-2xl bg-white px-10 text-base font-semibold text-primary shadow-xl transition-transform hover:scale-105 hover:bg-white/95 hover:text-primary"
                 asChild
               >
-                <a href="https://shop.jadomainhub.jagroupservices.co.uk/products/domain-registration" target="_blank" rel="noopener noreferrer">
+                <a href="https://shop.jadomainhub.co.uk/products/domain-registration" target="_blank" rel="noopener noreferrer">
                   Find Your Domain
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </a>
