@@ -19,25 +19,25 @@ const quickLinks = [
     title: 'Domain Transfer',
     description: 'Move your domains to us easily',
     icon: Globe,
-    href: 'https://shop.jadomainhub.co.uk/products/domain-transfer',
+    href: 'https://shop.jadomainhub.jagroupservices.co.uk/products/domain-transfer',
   },
   {
     title: 'Web Hosting',
     description: 'Fast & reliable cPanel hosting',
     icon: Server,
-    href: 'https://shop.jadomainhub.co.uk/products/cpanel',
+    href: 'https://shop.jadomainhub.jagroupservices.co.uk/products/cpanel',
   },
   {
     title: 'Website Builder',
     description: 'Create your website with ease',
     icon: Layout,
-    href: 'https://shop.jadomainhub.co.uk/products/website-builder',
+    href: 'https://shop.jadomainhub.jagroupservices.co.uk/products/website-builder',
   },
   {
     title: 'Business Email',
     description: 'Professional Microsoft 365 email',
     icon: Mail,
-    href: 'https://shop.jadomainhub.co.uk/products/microsoft-365',
+    href: 'https://shop.jadomainhub.jagroupservices.co.uk/products/microsoft-365',
   },
   {
     title: 'My Account',
@@ -152,7 +152,7 @@ export default function HomePage() {
               className="h-14 rounded-2xl bg-white px-10 text-base font-semibold text-primary shadow-2xl transition-transform hover:scale-105 hover:bg-white/95 hover:text-primary"
               asChild
             >
-              <a href="https://shop.jadomainhub.co.uk/products/domain-registration" target="_blank" rel="noopener noreferrer">
+              <a href="https://shop.jadomainhub.jagroupservices.co.uk/products/domain-registration" target="_blank" rel="noopener noreferrer">
                 Search Domains
                 <ArrowRight className="ml-2 h-5 w-5" />
               </a>
@@ -165,7 +165,7 @@ export default function HomePage() {
             transition={{ duration: 0.5, delay: 0.5 }}
             className="mt-5 text-xs text-white/60"
           >
-            Searches and purchases are completed on shop.jadomainhub.co.uk
+            Searches and purchases are completed on shop.jadomainhub.jagroupservices.co.uk
           </motion.p>
         </div>
 
@@ -301,7 +301,7 @@ export default function HomePage() {
                 className="h-14 rounded-2xl bg-white px-10 text-base font-semibold text-primary shadow-xl transition-transform hover:scale-105 hover:bg-white/95 hover:text-primary"
                 asChild
               >
-                <a href="https://shop.jadomainhub.co.uk/products/domain-registration" target="_blank" rel="noopener noreferrer">
+                <a href="https://shop.jadomainhub.jagroupservices.co.uk/products/domain-registration" target="_blank" rel="noopener noreferrer">
                   Find Your Domain
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </a>
