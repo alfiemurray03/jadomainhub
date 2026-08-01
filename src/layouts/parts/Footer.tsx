@@ -29,17 +29,19 @@ export default function Footer() {
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
           <div className="lg:col-span-1">
             <div className="mb-6">
-              <a href="/" className="inline-block transition-opacity hover:opacity-90" aria-label="JA Domain Hub home">
-                <motion.img
-                  src="/assets/ja-domain-hub-logo.svg"
-                  alt="JA Domain Hub"
-                  className="h-auto w-full max-w-[290px]"
-                  initial={{ x: -20, opacity: 0 }}
-                  whileInView={{ x: 0, opacity: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.8, ease: 'easeOut' }}
-                />
-              </a>
+              <motion.a
+                href="/"
+                className="inline-block transition-opacity hover:opacity-90"
+                aria-label="JA Domain Hub home"
+                initial={{ x: -20, opacity: 0 }}
+                whileInView={{ x: 0, opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, ease: 'easeOut' }}
+              >
+                <span className="text-xl font-black tracking-tight text-foreground md:text-2xl">
+                  JA DOMAIN HUB
+                </span>
+              </motion.a>
             </div>
 
             <div className="flex items-center gap-2 text-sm text-muted-foreground">
