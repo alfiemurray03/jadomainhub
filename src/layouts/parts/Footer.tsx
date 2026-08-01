@@ -28,31 +28,18 @@ export default function Footer() {
       <div className="container mx-auto px-4 py-12">
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
           <div className="lg:col-span-1">
-            <div className="mb-6 space-y-4">
-              <motion.div
-                initial={{ x: -20, opacity: 0 }}
-                whileInView={{ x: 0, opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8, ease: 'easeOut' }}
-              >
-                <a href="/" className="inline-block">
-                  <span className="text-2xl font-black tracking-tight text-foreground">JA DOMAIN HUB</span>
-                </a>
-                <p className="mt-1 text-xs text-muted-foreground">A service of JA Group Services Ltd</p>
-              </motion.div>
-              <div className="border-t pt-4">
-                <a href="https://jagroupservices.co.uk" target="_blank" rel="noopener noreferrer" className="block transition-opacity hover:opacity-80">
-                  <motion.img
-                    src="/assets/ja-group-logo.svg"
-                    alt="JA Group Services Ltd"
-                    className="h-12 w-auto md:h-14 lg:h-16"
-                    initial={{ x: -20, opacity: 0 }}
-                    whileInView={{ x: 0, opacity: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.8, delay: 0.2, ease: 'easeOut' }}
-                  />
-                </a>
-              </div>
+            <div className="mb-6">
+              <a href="/" className="inline-block transition-opacity hover:opacity-90" aria-label="JA Domain Hub home">
+                <motion.img
+                  src="/assets/ja-domain-hub-logo.svg"
+                  alt="JA Domain Hub"
+                  className="h-auto w-full max-w-[290px]"
+                  initial={{ x: -20, opacity: 0 }}
+                  whileInView={{ x: 0, opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.8, ease: 'easeOut' }}
+                />
+              </a>
             </div>
 
             <div className="flex items-center gap-2 text-sm text-muted-foreground">
