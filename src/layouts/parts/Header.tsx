@@ -24,33 +24,33 @@ export default function Header() {
 
   const menuItems = {
     domains: [
-      { name: 'Domain Registration', href: 'https://shop.jadomainhub.co.uk/products/domain-registration' },
+      { name: 'Domain Registration', href: 'https://shop.jadomainhub.jagroupservices.co.uk/products/domain-registration' },
       { name: 'Bulk Registration', href: 'https://www.secureserver.net/domains/bulk-domain-search?plid=599857' },
-      { name: 'Domain Transfer', href: 'https://shop.jadomainhub.co.uk/products/domain-transfer' },
+      { name: 'Domain Transfer', href: 'https://shop.jadomainhub.jagroupservices.co.uk/products/domain-transfer' },
       { name: 'Bulk Transfer', href: 'https://www.secureserver.net/domains/bulk-domain-transfer.aspx?plid=599857' },
     ],
     websites: [
-      { name: 'Website Builder', href: 'https://shop.jadomainhub.co.uk/products/website-builder' },
-      { name: 'WordPress', href: 'https://shop.jadomainhub.co.uk/products/wordpress' },
+      { name: 'Website Builder', href: 'https://shop.jadomainhub.jagroupservices.co.uk/products/website-builder' },
+      { name: 'WordPress', href: 'https://shop.jadomainhub.jagroupservices.co.uk/products/wordpress' },
     ],
     hosting: [
-      { name: 'cPanel Hosting', href: 'https://shop.jadomainhub.co.uk/products/cpanel' },
-      { name: 'WordPress Hosting', href: 'https://shop.jadomainhub.co.uk/products/wordpress' },
-      { name: 'Web Hosting Plus', href: 'https://shop.jadomainhub.co.uk/products/business' },
-      { name: 'VPS Hosting', href: 'https://shop.jadomainhub.co.uk/products/vps' },
+      { name: 'cPanel Hosting', href: 'https://shop.jadomainhub.jagroupservices.co.uk/products/cpanel' },
+      { name: 'WordPress Hosting', href: 'https://shop.jadomainhub.jagroupservices.co.uk/products/wordpress' },
+      { name: 'Web Hosting Plus', href: 'https://shop.jadomainhub.jagroupservices.co.uk/products/business' },
+      { name: 'VPS Hosting', href: 'https://shop.jadomainhub.jagroupservices.co.uk/products/vps' },
     ],
     security: [
-      { name: 'Website Security', href: 'https://shop.jadomainhub.co.uk/products/website-security' },
-      { name: 'SSL Certificates', href: 'https://shop.jadomainhub.co.uk/products/ssl' },
-      { name: 'Managed SSL Service', href: 'https://shop.jadomainhub.co.uk/products/ssl-managed' },
-      { name: 'Website Backup', href: 'https://shop.jadomainhub.co.uk/products/website-backup' },
+      { name: 'Website Security', href: 'https://shop.jadomainhub.jagroupservices.co.uk/products/website-security' },
+      { name: 'SSL Certificates', href: 'https://shop.jadomainhub.jagroupservices.co.uk/products/ssl' },
+      { name: 'Managed SSL Service', href: 'https://shop.jadomainhub.jagroupservices.co.uk/products/ssl-managed' },
+      { name: 'Website Backup', href: 'https://shop.jadomainhub.jagroupservices.co.uk/products/website-backup' },
     ],
     marketing: [
-      { name: 'Email Marketing', href: 'https://shop.jadomainhub.co.uk/products/email-marketing' },
-      { name: 'SEO', href: 'https://shop.jadomainhub.co.uk/products/seo' },
+      { name: 'Email Marketing', href: 'https://shop.jadomainhub.jagroupservices.co.uk/products/email-marketing' },
+      { name: 'SEO', href: 'https://shop.jadomainhub.jagroupservices.co.uk/products/seo' },
     ],
     email: [
-      { name: 'Microsoft 365', href: 'https://shop.jadomainhub.co.uk/products/microsoft-365' },
+      { name: 'Microsoft 365', href: 'https://shop.jadomainhub.jagroupservices.co.uk/products/microsoft-365' },
     ],
     managed: [
       { name: 'Managed Websites', href: '/managed-websites' },
