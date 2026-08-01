@@ -26,16 +26,14 @@ export default function Footer() {
   return (
     <footer className="border-t bg-primary/5 backdrop-blur-sm">
       <div className="container mx-auto px-4 py-12">
-        {/* Main Footer Content */}
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
-          {/* Brand Column */}
           <div className="lg:col-span-1">
             <div className="mb-6 space-y-4">
               <motion.div
                 initial={{ x: -20, opacity: 0 }}
                 whileInView={{ x: 0, opacity: 1 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.8, ease: "easeOut" }}
+                transition={{ duration: 0.8, ease: 'easeOut' }}
               >
                 <a href="/" className="inline-block">
                   <span className="text-2xl font-black tracking-tight text-foreground">JA DOMAIN HUB</span>
@@ -45,13 +43,13 @@ export default function Footer() {
               <div className="border-t pt-4">
                 <a href="https://jagroupservices.co.uk" target="_blank" rel="noopener noreferrer" className="block transition-opacity hover:opacity-80">
                   <motion.img
-                    src="/assets/ja-group-logo.png"
+                    src="/assets/ja-group-logo.svg"
                     alt="JA Group Services Ltd"
                     className="h-12 w-auto md:h-14 lg:h-16"
                     initial={{ x: -20, opacity: 0 }}
                     whileInView={{ x: 0, opacity: 1 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+                    transition={{ duration: 0.8, delay: 0.2, ease: 'easeOut' }}
                   />
                 </a>
               </div>
@@ -63,23 +61,18 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Company Links */}
           <div>
             <h3 className="mb-4 text-sm font-semibold">Company</h3>
             <ul className="space-y-3">
               {footerLinks.company.map((link) => (
                 <li key={link.name}>
-                  <a
-                    href={link.href}
-                    className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-                  >
+                  <a href={link.href} className="text-sm text-muted-foreground transition-colors hover:text-foreground">
                     {link.name}
                   </a>
                 </li>
               ))}
             </ul>
 
-            {/* Contact Info */}
             <div className="mt-6 space-y-2 border-t pt-4">
               <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-muted-foreground">Contact</p>
               <a href="tel:02038342790" className="flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground">
@@ -93,7 +86,6 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Resources Links */}
           <div>
             <h3 className="mb-4 text-sm font-semibold">Resources</h3>
             <ul className="space-y-3">
@@ -111,7 +103,6 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Legal Links */}
           <div>
             <h3 className="mb-4 text-sm font-semibold">Legal</h3>
             <ul className="space-y-3">
@@ -144,7 +135,6 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Bottom Copyright */}
         <div className="mt-12 border-t pt-8">
           <div className="space-y-3 text-center">
             <p className="text-sm text-muted-foreground">
@@ -167,9 +157,7 @@ export default function Footer() {
               </a>{' '}
               apply to your use of this website.
             </p>
-            <p className="text-sm text-muted-foreground">
-              © {currentYear} JA Group Services Ltd. All rights reserved.
-            </p>
+            <p className="text-sm text-muted-foreground">© {currentYear} JA Group Services Ltd. All rights reserved.</p>
           </div>
         </div>
       </div>
