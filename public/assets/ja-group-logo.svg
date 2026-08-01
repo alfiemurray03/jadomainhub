@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="520" height="110" viewBox="0 0 520 110" role="img" aria-labelledby="title desc">
+  <title id="title">JA Group Services Ltd</title>
+  <desc id="desc">JA Group Services Ltd wordmark</desc>
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0f3d91"/>
+      <stop offset="1" stop-color="#5b34da"/>
+    </linearGradient>
+  </defs>
+  <rect x="4" y="4" width="102" height="102" rx="24" fill="url(#g)"/>
+  <path d="M31 31h19v30c0 14-8 22-22 22-5 0-10-1-14-4l6-14c2 2 5 3 8 3 5 0 7-3 7-9V31h-4zm31 0h18l24 52H84l-4-10H60l-4 10H38l24-52zm3 29h10l-5-13-5 13z" fill="#fff"/>
+  <text x="128" y="53" font-family="Arial, Helvetica, sans-serif" font-size="31" font-weight="800" fill="#111827">JA GROUP</text>
+  <text x="128" y="82" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" letter-spacing="1.5" fill="#4b5563">SERVICES LTD</text>
+</svg>
