@@ -1,0 +1,32 @@
+{
+  "pages/home/hero": {
+    "mediaType": "image",
+    "currentUrl": "https://img1.wsimg.com/isteam/getty/1456147420",
+    "searchQuery": "digital technology network abstract dark blue glowing connections",
+    "alternatives": [
+      "https://img1.wsimg.com/isteam/getty/1746262903",
+      "https://img1.wsimg.com/isteam/getty/1408906495",
+      "https://img1.wsimg.com/isteam/getty/1456147437",
+      "https://img1.wsimg.com/isteam/getty/1455787216"
+    ],
+    "userModified": false,
+    "createdAt": "2026-04-28T15:47:19.016Z",
+    "lastUpdated": "2026-04-28T15:47:19.016Z",
+    "gettyId": "1456147420",
+    "alternativeGettyIds": [
+      "1746262903",
+      "1408906495",
+      "1456147437",
+      "1455787216"
+    ],
+    "requestedSize": {
+      "width": 1920,
+      "height": 1080,
+      "fit": "cover"
+    },
+    "orientations": "horizontal",
+    "compositions": "wide_shot",
+    "moods": "bold,dramatic",
+    "graphicalStyles": "photography"
+  }
+}

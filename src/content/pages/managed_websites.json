@@ -1,0 +1,36 @@
+{
+  "services": [
+    {
+      "title": "Website Setup & Configuration",
+      "description": "Full website setup including domain connection, hosting configuration, platform installation and initial technical setup.",
+      "id": "RbfB0P2mygnWqQB3PVOyg"
+    },
+    {
+      "title": "Ongoing Management",
+      "description": "Ongoing management and maintenance of your website, including updates, monitoring and technical administration.",
+      "id": "5ykLzQxck8Wn92kMuE5ZG"
+    },
+    {
+      "title": "Security & Backups",
+      "description": "Security configuration, SSL management, regular backups and technical protection of your website environment.",
+      "id": "QLoMSfBzZqC9b7HHYJ5fb"
+    },
+    {
+      "title": "Technical Support",
+      "description": "Direct technical support from JA Group Services Ltd for your managed website, alongside platform support through our GoDaddy reseller infrastructure.",
+      "id": "UBPYdGGSfj0QGUVZSLF-a"
+    }
+  ],
+  "ownershipPoints": [
+    "Website systems, templates and platform setup",
+    "Technical configuration and code",
+    "Admin structure and management tools",
+    "Processes and operational frameworks"
+  ],
+  "customerPoints": [
+    "Domain names you register or own",
+    "Your branding, logo and visual identity",
+    "Written content and copy you provide",
+    "Images and media materials you supply"
+  ]
+}
