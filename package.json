@@ -19,8 +19,7 @@
     "clean": "rm -rf dist node_modules/.vite",
     "reset": "npm run clean && npm install",
     "db:generate": "drizzle-kit generate",
-    "db:migrate": "drizzle-kit migrate",
-    "audit": "better-npm-audit audit --level high --registry=https://registry.npmjs.org"
+    "db:migrate": "drizzle-kit migrate"
   },
   "dependencies": {
     "@babel/core": "^7.26.4",
@@ -96,8 +95,7 @@
     "@lexical/utils": "^0.43.0",
     "lexical": "^0.43.0",
     "rehype-raw": "^7.0.0",
-    "embla-carousel-autoplay": "^8.6.0",
-    "rrweb-snapshot": "^2.0.0-alpha.18"
+    "embla-carousel-autoplay": "^8.6.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.16.0",
@@ -143,9 +141,7 @@
     "jsdom": "^29.0.2",
     "eslint-plugin-no-unsanitized": "^4.1.2",
     "eslint-plugin-security": "^3.0.1",
-    "lockfile-lint": "~4.13.2",
-    "@testing-library/dom": "^10.4.1",
-    "better-npm-audit": "^3.11.0"
+    "lockfile-lint": "~4.13.2"
   },
   "engines": {
     "node": ">=18.17.0",
