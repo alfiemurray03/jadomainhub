@@ -1,2 +1,4 @@
 User-agent: *
-Disallow: /
+Allow: /
+
+Sitemap: https://jadomainhub.jagroupservices.co.uk/sitemap.xml
