@@ -1,36 +1,36 @@
 {
   "services": [
     {
-      "title": "Website Setup & Configuration",
-      "description": "Full website setup including domain connection, hosting configuration, platform installation and initial technical setup.",
+      "title": "Website Planning & Build",
+      "description": "A tailored website structure, responsive page build and technical setup based on your organisation, goals and agreed requirements.",
       "id": "RbfB0P2mygnWqQB3PVOyg"
     },
     {
-      "title": "Ongoing Management",
-      "description": "Ongoing management and maintenance of your website, including updates, monitoring and technical administration.",
+      "title": "Domain, Hosting & Launch Setup",
+      "description": "Connection and configuration of the agreed domain, hosting environment, forms, essential integrations and launch arrangements.",
       "id": "5ykLzQxck8Wn92kMuE5ZG"
     },
     {
-      "title": "Security & Backups",
-      "description": "Security configuration, SSL management, regular backups and technical protection of your website environment.",
+      "title": "Ongoing Website Management",
+      "description": "Agreed website updates, technical administration, monitoring and maintenance so your website remains current and operational.",
       "id": "QLoMSfBzZqC9b7HHYJ5fb"
     },
     {
-      "title": "Technical Support",
-      "description": "Direct technical support from JA Group Services Ltd for your managed website, alongside platform support through our GoDaddy reseller infrastructure.",
+      "title": "Security, Backups & Support",
+      "description": "Security configuration, backup arrangements and direct technical support from JA Group Services Ltd where included in your service plan.",
       "id": "UBPYdGGSfj0QGUVZSLF-a"
     }
   ],
   "ownershipPoints": [
-    "Website systems, templates and platform setup",
-    "Technical configuration and code",
-    "Admin structure and management tools",
-    "Processes and operational frameworks"
+    "The design, build and technical work agreed in your quotation",
+    "Responsive configuration for desktop, tablet and mobile devices",
+    "Website deployment, launch support and agreed integrations",
+    "Ongoing maintenance, monitoring and updates included in your service plan"
   ],
   "customerPoints": [
-    "Domain names you register or own",
-    "Your branding, logo and visual identity",
-    "Written content and copy you provide",
-    "Images and media materials you supply"
+    "Your business goals, required features and preferred timescale",
+    "Approved branding, written content, images and other materials",
+    "Access or authority for relevant domains and third-party services",
+    "Timely feedback, approvals and a nominated project contact"
   ]
 }
