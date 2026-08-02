@@ -42,7 +42,7 @@ function unavailableConfig() {
     maintenanceEnabled: true,
     assistantName: 'JA Domain Hub Support Centre',
     greeting: 'Guided domain support is available through JA Domain Hub.',
-    maintenanceMessage: 'The live Head Office adviser connection is temporarily unavailable. Please email hello@jagroupservices.co.uk or call 020 3834 2790.',
+    maintenanceMessage: 'The live Head Office adviser connection is temporarily unavailable. Please email contact@jagroupservices.co.uk or call 020 3834 2790.',
   };
 }
 
@@ -106,7 +106,7 @@ export async function onRequest(context) {
     if (method === 'GET' && path === 'knowledge') {
       return json({ success: true, connected: false, articles: [] });
     }
-    return json({ success: false, error: 'The live Head Office adviser connection is temporarily unavailable. Please email hello@jagroupservices.co.uk or call 020 3834 2790.' }, 503);
+    return json({ success: false, error: 'The live Head Office adviser connection is temporarily unavailable. Please email contact@jagroupservices.co.uk or call 020 3834 2790.' }, 503);
   }
 
   const controller = new AbortController();
