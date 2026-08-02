@@ -1,5 +1,27 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState, type CSSProperties } from 'react';
 import { BookOpen, CheckCircle2, ChevronLeft, ExternalLink, LifeBuoy, Send, ShieldAlert, UserRound, Wrench, X } from 'lucide-react';
+
+type AppearanceConfig = {
+  accentColour?: string;
+  launcherColour?: string;
+  launcherTextColour?: string;
+  headerBackground?: string;
+  headerTextColour?: string;
+  panelBackground?: string;
+  panelTextColour?: string;
+  position?: 'bottom-right' | 'bottom-left';
+  theme?: 'auto' | 'light' | 'dark';
+  messageStyle?: 'rounded' | 'compact' | 'square';
+  panelWidth?: number;
+  panelHeight?: number;
+  borderRadius?: number;
+  launcherSize?: number;
+  launcherLabel?: string;
+  headerSubtitle?: string;
+  inputPlaceholder?: string;
+  showLauncherLabel?: boolean;
+  showPoweredBy?: boolean;
+};
 
 type BranchConfig = {
   assistantEnabled?: boolean;
@@ -9,6 +31,7 @@ type BranchConfig = {
   greeting?: string;
   maintenanceMessage?: string;
   emergencyNotice?: string;
+  appearance?: AppearanceConfig;
 };
 
 type SupportMessage = {
@@ -32,6 +55,27 @@ type Guide = {
 
 const API = '/api/customer-service';
 const DEFAULT_NAME = 'JA Domain Hub Support Assistant';
+const DEFAULT_APPEARANCE: Required<AppearanceConfig> = {
+  accentColour: '#047857',
+  launcherColour: '#047857',
+  launcherTextColour: '#ffffff',
+  headerBackground: '#0f172a',
+  headerTextColour: '#ffffff',
+  panelBackground: '#ffffff',
+  panelTextColour: '#0f172a',
+  position: 'bottom-right',
+  theme: 'auto',
+  messageStyle: 'rounded',
+  panelWidth: 470,
+  panelHeight: 780,
+  borderRadius: 18,
+  launcherSize: 56,
+  launcherLabel: 'Domain support',
+  headerSubtitle: 'Self-service first · Head Office support when needed',
+  inputPlaceholder: 'Describe what is still happening…',
+  showLauncherLabel: true,
+  showPoweredBy: true,
+};
 
 const GUIDES: Guide[] = [
   {
@@ -201,6 +245,8 @@ export default function DomainSupportTroubleshootingCentre() {
 
   const hidden = typeof window !== 'undefined' && (window.location.pathname.startsWith('/admin') || window.location.pathname.startsWith('/reseller'));
   const assistantName = config.assistantName || DEFAULT_NAME;
+  const appearance = useMemo(() => ({ ...DEFAULT_APPEARANCE, ...(config.appearance || {}) }), [config.appearance]);
+  const onLeft = appearance.position === 'bottom-left';
 
   useEffect(() => {
     let active = true;
@@ -306,55 +352,83 @@ export default function DomainSupportTroubleshootingCentre() {
 
   if (!ready || hidden || !config.assistantEnabled) return null;
 
+  const panelStyle: CSSProperties = {
+    width: `min(calc(100vw - 1.5rem), ${appearance.panelWidth}px)`,
+    height: `min(calc(100vh - 7rem), ${appearance.panelHeight}px)`,
+    borderRadius: appearance.borderRadius,
+    backgroundColor: appearance.panelBackground,
+    color: appearance.panelTextColour,
+  };
+  const cardRadius = appearance.messageStyle === 'square' ? 4 : appearance.messageStyle === 'compact' ? 10 : Math.max(12, appearance.borderRadius - 2);
+
   return (
     <>
-      <button type="button" onClick={() => setOpen(value => !value)} className="fixed bottom-5 right-5 z-[80] flex h-14 w-14 items-center justify-center rounded-full bg-emerald-700 text-white shadow-2xl transition hover:bg-emerald-800 focus:outline-none focus:ring-4 focus:ring-emerald-200 dark:focus:ring-emerald-900" aria-label={open ? 'Close Domain Hub support' : 'Open Domain Hub support'}>
-        {open ? <X className="h-6 w-6" /> : <LifeBuoy className="h-6 w-6" />}
-      </button>
+      <div className={`fixed bottom-5 z-[80] flex items-center gap-2 ${onLeft ? 'left-5' : 'right-5'}`}>
+        {appearance.showLauncherLabel && appearance.launcherLabel && !open && (
+          <span className="hidden rounded-full border border-slate-200 bg-white px-3 py-2 text-xs font-semibold text-slate-700 shadow-lg sm:block">{appearance.launcherLabel}</span>
+        )}
+        <button
+          type="button"
+          onClick={() => setOpen(value => !value)}
+          style={{ width: appearance.launcherSize, height: appearance.launcherSize, backgroundColor: appearance.launcherColour, color: appearance.launcherTextColour }}
+          className="flex items-center justify-center rounded-full shadow-2xl transition hover:brightness-110 focus:outline-none focus:ring-4 focus:ring-emerald-200"
+          aria-label={open ? 'Close Domain Hub support' : 'Open Domain Hub support'}
+        >
+          {open ? <X className="h-6 w-6" /> : <LifeBuoy className="h-6 w-6" />}
+        </button>
+      </div>
 
       {open && (
-        <section role="dialog" aria-label={assistantName} className="fixed inset-x-3 bottom-24 z-[79] flex max-h-[min(780px,calc(100vh-8rem))] flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white text-slate-950 shadow-2xl sm:left-auto sm:right-5 sm:w-[470px] dark:border-slate-700 dark:bg-slate-950 dark:text-white">
-          <header className="flex items-center justify-between bg-slate-900 px-4 py-3 text-white">
-            <div className="flex items-center gap-3"><span className="flex h-9 w-9 items-center justify-center rounded-full bg-white/10"><Wrench className="h-5 w-5" /></span><div><p className="text-sm font-bold">{assistantName}</p><p className="text-[11px] text-slate-300">Self-service first · Head Office support when needed</p></div></div>
+        <section
+          role="dialog"
+          aria-label={assistantName}
+          style={panelStyle}
+          className={`fixed inset-x-3 bottom-20 z-[79] flex max-h-[calc(100vh-7rem)] flex-col overflow-hidden border border-slate-200 shadow-2xl sm:left-auto ${onLeft ? 'sm:left-5' : 'sm:right-5'}`}
+        >
+          <header className="flex items-center justify-between px-4 py-3" style={{ backgroundColor: appearance.headerBackground, color: appearance.headerTextColour }}>
+            <div className="flex items-center gap-3">
+              <span className="flex h-9 w-9 items-center justify-center rounded-full bg-white/10"><Wrench className="h-5 w-5" /></span>
+              <div><p className="text-sm font-bold">{assistantName}</p>{appearance.showPoweredBy && <p className="text-[11px] opacity-75">{appearance.headerSubtitle}</p>}</div>
+            </div>
             <button type="button" onClick={() => setOpen(false)} className="rounded-lg p-2 hover:bg-white/10" aria-label="Close"><X className="h-4 w-4" /></button>
           </header>
 
-          {config.emergencyNotice && <div className="border-b border-amber-200 bg-amber-50 px-4 py-3 text-xs text-amber-950 dark:border-amber-900 dark:bg-amber-950/40 dark:text-amber-100">{config.emergencyNotice}</div>}
+          {config.emergencyNotice && <div className="border-b border-amber-200 bg-amber-50 px-4 py-3 text-xs text-amber-950">{config.emergencyNotice}</div>}
 
-          <div className="flex-1 overflow-y-auto bg-slate-50 p-4 dark:bg-slate-900/60">
+          <div className="flex-1 overflow-y-auto p-4" style={{ backgroundColor: appearance.panelBackground, color: appearance.panelTextColour }}>
             {config.maintenanceEnabled ? (
-              <div className="rounded-xl border border-amber-200 bg-amber-50 p-4 text-sm text-amber-950 dark:border-amber-900 dark:bg-amber-950/40 dark:text-amber-100">{config.maintenanceMessage || 'The Domain Hub Support Centre is temporarily unavailable while maintenance is completed.'}</div>
+              <div className="border border-amber-200 bg-amber-50 p-4 text-sm text-amber-950" style={{ borderRadius: cardRadius }}>{config.maintenanceMessage || 'The Domain Hub Support Centre is temporarily unavailable while maintenance is completed.'}</div>
             ) : !selected ? (
               <div>
-                <div className="mb-4 rounded-2xl border border-slate-200 bg-white p-4 text-sm leading-6 shadow-sm dark:border-slate-700 dark:bg-slate-800">
+                <div className="mb-4 border border-slate-200 p-4 text-sm leading-6 shadow-sm" style={{ borderRadius: cardRadius }}>
                   <strong className="block text-base">How can we help?</strong>
-                  <span className="mt-1 block text-slate-600 dark:text-slate-300">{config.greeting || 'Choose the closest issue. We will show safe troubleshooting steps based on official GoDaddy guidance before you need to contact us.'}</span>
+                  <span className="mt-1 block opacity-75">{config.greeting || 'Choose the closest issue. We will show safe troubleshooting steps based on official GoDaddy guidance before you need to contact us.'}</span>
                 </div>
-                <div className="space-y-2">{GUIDES.map(guide => <button key={guide.id} type="button" onClick={() => selectGuide(guide)} className="w-full rounded-xl border border-slate-200 bg-white p-4 text-left transition hover:border-emerald-400 hover:bg-emerald-50 dark:border-slate-700 dark:bg-slate-800 dark:hover:border-emerald-700 dark:hover:bg-emerald-950/30"><strong className="block text-sm">{guide.title}</strong><span className="mt-1 block text-xs leading-5 text-slate-600 dark:text-slate-300">{guide.summary}</span></button>)}</div>
+                <div className="space-y-2">{GUIDES.map(guide => <button key={guide.id} type="button" onClick={() => selectGuide(guide)} className="w-full border p-4 text-left transition hover:brightness-95" style={{ borderRadius: cardRadius, borderColor: `${appearance.accentColour}40`, backgroundColor: appearance.panelBackground, color: appearance.panelTextColour }}><strong className="block text-sm">{guide.title}</strong><span className="mt-1 block text-xs leading-5 opacity-75">{guide.summary}</span></button>)}</div>
               </div>
             ) : (
               <div className="space-y-4">
-                <button type="button" onClick={() => setSelected(null)} className="flex items-center gap-1 text-xs font-bold text-emerald-700 dark:text-emerald-300"><ChevronLeft className="h-4 w-4" />Choose another issue</button>
-                <div className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm dark:border-slate-700 dark:bg-slate-800"><strong className="block text-base">{selected.title}</strong><p className="mt-1 text-sm leading-6 text-slate-600 dark:text-slate-300">{selected.summary}</p></div>
+                <button type="button" onClick={() => setSelected(null)} className="flex items-center gap-1 text-xs font-bold" style={{ color: appearance.accentColour }}><ChevronLeft className="h-4 w-4" />Choose another issue</button>
+                <div className="border border-slate-200 p-4 shadow-sm" style={{ borderRadius: cardRadius }}><strong className="block text-base">{selected.title}</strong><p className="mt-1 text-sm leading-6 opacity-75">{selected.summary}</p></div>
 
-                {selected.warning && <div className="flex gap-3 rounded-xl border border-amber-200 bg-amber-50 p-4 text-xs leading-5 text-amber-950 dark:border-amber-900 dark:bg-amber-950/40 dark:text-amber-100"><ShieldAlert className="mt-0.5 h-5 w-5 shrink-0" /><span><strong className="block">Important before changing anything</strong>{selected.warning}</span></div>}
+                {selected.warning && <div className="flex gap-3 border border-amber-200 bg-amber-50 p-4 text-xs leading-5 text-amber-950" style={{ borderRadius: cardRadius }}><ShieldAlert className="mt-0.5 h-5 w-5 shrink-0" /><span><strong className="block">Important before changing anything</strong>{selected.warning}</span></div>}
 
-                <div className="rounded-2xl border border-slate-200 bg-white p-4 dark:border-slate-700 dark:bg-slate-800">
-                  <div className="mb-3 flex items-center gap-2"><BookOpen className="h-4 w-4 text-emerald-700 dark:text-emerald-300" /><strong className="text-sm">Troubleshooting checks</strong></div>
-                  <div className="space-y-2">{selected.steps.map((step, index) => <label key={step} className="flex cursor-pointer gap-3 rounded-xl border border-slate-200 p-3 text-xs leading-5 dark:border-slate-700"><input type="checkbox" checked={completed.includes(index)} onChange={() => toggleStep(index)} className="mt-1 h-4 w-4 accent-emerald-700" /><span>{step}</span></label>)}</div>
-                  <a href={selected.sourceUrl} target="_blank" rel="noopener noreferrer" className="mt-4 flex items-center justify-between rounded-xl border border-blue-200 bg-blue-50 px-3 py-3 text-xs font-semibold text-blue-900 dark:border-blue-900 dark:bg-blue-950/30 dark:text-blue-100"><span><strong className="block">Official supporting guide</strong>{selected.sourceTitle}</span><ExternalLink className="h-4 w-4 shrink-0" /></a>
-                  <p className="mt-2 text-[10px] leading-4 text-slate-500 dark:text-slate-400">JA Domain Hub explanation last reviewed {selected.reviewed}. The official provider page may be updated independently.</p>
+                <div className="border border-slate-200 p-4" style={{ borderRadius: cardRadius }}>
+                  <div className="mb-3 flex items-center gap-2"><BookOpen className="h-4 w-4" style={{ color: appearance.accentColour }} /><strong className="text-sm">Troubleshooting checks</strong></div>
+                  <div className="space-y-2">{selected.steps.map((step, index) => <label key={step} className="flex cursor-pointer gap-3 border border-slate-200 p-3 text-xs leading-5" style={{ borderRadius: Math.max(4, cardRadius - 4) }}><input type="checkbox" checked={completed.includes(index)} onChange={() => toggleStep(index)} className="mt-1 h-4 w-4" style={{ accentColor: appearance.accentColour }} /><span>{step}</span></label>)}</div>
+                  <a href={selected.sourceUrl} target="_blank" rel="noopener noreferrer" className="mt-4 flex items-center justify-between border px-3 py-3 text-xs font-semibold" style={{ borderRadius: Math.max(4, cardRadius - 4), borderColor: `${appearance.accentColour}55`, backgroundColor: `${appearance.accentColour}12`, color: appearance.panelTextColour }}><span><strong className="block">Official supporting guide</strong>{selected.sourceTitle}</span><ExternalLink className="h-4 w-4 shrink-0" /></a>
+                  <p className="mt-2 text-[10px] leading-4 opacity-60">JA Domain Hub explanation last reviewed {selected.reviewed}. The official provider page may be updated independently.</p>
                 </div>
 
-                {!resolved && !adviserRequested && <div className="grid gap-2 sm:grid-cols-2"><button type="button" onClick={() => setResolved(true)} className="flex items-center justify-center gap-2 rounded-xl bg-emerald-700 px-4 py-3 text-xs font-bold text-white"><CheckCircle2 className="h-4 w-4" />The issue is resolved</button><button type="button" onClick={() => document.getElementById('domain-support-description')?.focus()} className="flex items-center justify-center gap-2 rounded-xl border border-slate-300 bg-white px-4 py-3 text-xs font-bold dark:border-slate-700 dark:bg-slate-800"><UserRound className="h-4 w-4" />I still need help</button></div>}
+                {!resolved && !adviserRequested && <div className="grid gap-2 sm:grid-cols-2"><button type="button" onClick={() => setResolved(true)} className="flex items-center justify-center gap-2 px-4 py-3 text-xs font-bold text-white" style={{ borderRadius: Math.max(4, cardRadius - 4), backgroundColor: appearance.accentColour }}><CheckCircle2 className="h-4 w-4" />The issue is resolved</button><button type="button" onClick={() => document.getElementById('domain-support-description')?.focus()} className="flex items-center justify-center gap-2 border border-slate-300 px-4 py-3 text-xs font-bold" style={{ borderRadius: Math.max(4, cardRadius - 4) }}><UserRound className="h-4 w-4" />I still need help</button></div>}
 
-                {resolved && <div className="rounded-xl border border-emerald-200 bg-emerald-50 p-4 text-sm text-emerald-950 dark:border-emerald-900 dark:bg-emerald-950/30 dark:text-emerald-100"><strong className="block">Great — no enquiry has been created.</strong>You can return to the troubleshooting list if another issue appears.</div>}
+                {resolved && <div className="border border-emerald-200 bg-emerald-50 p-4 text-sm text-emerald-950" style={{ borderRadius: cardRadius }}><strong className="block">Great — no enquiry has been created.</strong>You can return to the troubleshooting list if another issue appears.</div>}
 
-                {!resolved && !adviserRequested && <div className="rounded-2xl border border-slate-200 bg-white p-4 dark:border-slate-700 dark:bg-slate-800"><label htmlFor="domain-support-description" className="text-xs font-bold">Tell the Head Office adviser what is still happening</label><textarea id="domain-support-description" value={description} onChange={event => setDescription(event.target.value)} rows={4} maxLength={3000} placeholder="Include the affected domain, what you expected, any error message and whether the website, email or both are affected. Never include a password or private key." className="mt-2 w-full rounded-xl border border-slate-300 bg-white p-3 text-sm text-slate-950 outline-none focus:border-emerald-600 focus:ring-2 focus:ring-emerald-100 dark:border-slate-700 dark:bg-slate-900 dark:text-white dark:focus:ring-emerald-950" /><button type="button" onClick={requestAdviser} disabled={busy || description.trim().length < 5} className="mt-3 flex w-full items-center justify-center gap-2 rounded-xl bg-slate-900 px-4 py-3 text-xs font-bold text-white disabled:opacity-50"><Send className="h-4 w-4" />Send troubleshooting record to Head Office</button></div>}
+                {!resolved && !adviserRequested && <div className="border border-slate-200 p-4" style={{ borderRadius: cardRadius }}><label htmlFor="domain-support-description" className="text-xs font-bold">Tell the Head Office adviser what is still happening</label><textarea id="domain-support-description" value={description} onChange={event => setDescription(event.target.value)} rows={4} maxLength={3000} placeholder={appearance.inputPlaceholder} className="mt-2 w-full border border-slate-300 bg-white p-3 text-sm text-slate-950 outline-none" style={{ borderRadius: Math.max(4, cardRadius - 4) }} /><button type="button" onClick={requestAdviser} disabled={busy || description.trim().length < 5} className="mt-3 flex w-full items-center justify-center gap-2 px-4 py-3 text-xs font-bold text-white disabled:opacity-50" style={{ borderRadius: Math.max(4, cardRadius - 4), backgroundColor: appearance.accentColour }}><Send className="h-4 w-4" />Send troubleshooting record to Head Office</button></div>}
 
-                {adviserRequested && <div className="rounded-xl border border-emerald-200 bg-emerald-50 p-4 text-sm text-emerald-950 dark:border-emerald-900 dark:bg-emerald-950/30 dark:text-emerald-100"><strong className="block">A Head Office Customer Adviser has been requested.</strong>The selected guide, completed checks and your description have been included. You should not need to repeat them.</div>}
-                {messages.filter(message => message.senderType !== 'customer').map(message => <div key={message.id} className="rounded-xl border border-slate-200 bg-white p-4 text-sm leading-6 dark:border-slate-700 dark:bg-slate-800"><span className="mb-1 block text-[10px] font-bold uppercase tracking-wide text-slate-500">{message.senderName}</span>{message.body}</div>)}
-                {error && <div className="rounded-xl border border-red-200 bg-red-50 p-3 text-xs text-red-900 dark:border-red-900 dark:bg-red-950/30 dark:text-red-100">{error}</div>}
+                {adviserRequested && <div className="border border-emerald-200 bg-emerald-50 p-4 text-sm text-emerald-950" style={{ borderRadius: cardRadius }}><strong className="block">A Head Office Customer Adviser has been requested.</strong>The selected guide, completed checks and your description have been included. You should not need to repeat them.</div>}
+                {messages.filter(message => message.senderType !== 'customer').map(message => <div key={message.id} className="border border-slate-200 p-4 text-sm leading-6" style={{ borderRadius: cardRadius }}><span className="mb-1 block text-[10px] font-bold uppercase tracking-wide opacity-60">{message.senderName}</span>{message.body}</div>)}
+                {error && <div className="border border-red-200 bg-red-50 p-3 text-xs text-red-900" style={{ borderRadius: cardRadius }}>{error}</div>}
               </div>
             )}
           </div>
