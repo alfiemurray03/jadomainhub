@@ -1,0 +1,24 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+
+const bridge = fs.readFileSync('functions/api/customer-service/[[path]].js', 'utf8');
+const centre = fs.readFileSync('src/components/DomainSupportTroubleshootingCentre.tsx', 'utf8');
+const layout = fs.readFileSync('src/layouts/RootLayout.tsx', 'utf8');
+
+assert.match(bridge, /HEAD_OFFICE_SUPPORT_CENTRE_ENABLED/);
+assert.match(bridge, /CUSTOMEROPS_API_KEY/);
+assert.match(bridge, /\/api\/v1\/platform\/support\//);
+assert.match(bridge, /sameOrigin/);
+assert.doesNotMatch(bridge, /Bearer\s+[A-Za-z0-9._-]{20,}/);
+
+assert.match(centre, /GoDaddy: Manage DNS records/);
+assert.match(centre, /GoDaddy: Change my domain nameservers/);
+assert.match(centre, /GoDaddy: Add or edit an A record/);
+assert.match(centre, /GoDaddy: What is Domain Protection\?/);
+assert.match(centre, /self_service_not_resolved/);
+assert.match(centre, /request_human/);
+assert.match(centre, /Head Office Customer Adviser/);
+assert.match(centre, /Never include a password or private key/);
+assert.match(layout, /DomainSupportTroubleshootingCentre/);
+
+console.log('JA Domain Hub troubleshooting centre checks passed.');
