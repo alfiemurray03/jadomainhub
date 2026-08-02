@@ -3,6 +3,7 @@ import { type ReactElement } from 'react';
 import Footer from '@/layouts/parts/Footer';
 import Header from '@/layouts/parts/Header';
 import Website from '@/layouts/Website';
+import DomainSupportTroubleshootingCentre from '@/components/DomainSupportTroubleshootingCentre';
 
 /**
  * Root layout component that wraps all pages with consistent header and footer
@@ -35,6 +36,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
         {children}
       </main>
       <Footer />
+      <DomainSupportTroubleshootingCentre />
     </Website>
   );
 }
