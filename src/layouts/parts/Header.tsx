@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import CustomerWebsitesMenu, { MobileCustomerWebsitesMenu } from '@/components/CustomerWebsitesMenu';
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -82,7 +83,7 @@ export default function Header() {
           </span>
         </a>
 
-        <NavigationMenu className="hidden md:flex">
+        <NavigationMenu className="hidden xl:flex">
           <NavigationMenuList>
             {(['domains', 'websites', 'hosting', 'security', 'marketing', 'email', 'managed'] as const).map((category) => (
               <NavigationMenuItem key={category}>
@@ -114,17 +115,18 @@ export default function Header() {
           </NavigationMenuList>
         </NavigationMenu>
 
-        <div className="hidden shrink-0 md:flex">
+        <div className="hidden shrink-0 items-center gap-2 xl:flex">
           <Button variant="default" className="rounded-xl" asChild>
             <a href="https://account.secureserver.net/products?plid=599857" target="_blank" rel="noopener noreferrer">
               Account
             </a>
           </Button>
+          <CustomerWebsitesMenu />
         </div>
 
         <button
           type="button"
-          className={`${mobileIconColor} md:hidden transition-colors`}
+          className={`${mobileIconColor} transition-colors xl:hidden`}
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           aria-label="Toggle menu"
         >
@@ -133,7 +135,7 @@ export default function Header() {
       </div>
 
       {mobileMenuOpen && (
-        <div className="border-t border-border/20 bg-white shadow-lg md:hidden">
+        <div className="border-t border-border/20 bg-white shadow-lg xl:hidden">
           <div className="container mx-auto space-y-1 px-4 py-4">
             {Object.entries(menuItems).map(([category, items]) => (
               <div key={category}>
@@ -176,6 +178,8 @@ export default function Header() {
             >
               Contact
             </a>
+
+            <MobileCustomerWebsitesMenu onNavigate={() => setMobileMenuOpen(false)} />
 
             <div className="pt-4">
               <Button variant="default" className="w-full rounded-xl" asChild>
