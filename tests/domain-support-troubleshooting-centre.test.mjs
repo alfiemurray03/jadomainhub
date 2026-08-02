@@ -24,7 +24,7 @@ assert.match(centre, /GoDaddy: What is Domain Protection\?/);
 assert.match(centre, /self_service_not_resolved/);
 assert.match(centre, /request_human/);
 assert.match(centre, /Head Office Customer Adviser/);
-assert.match(centre, /Never include a password or private key/);
+assert.match(centre, /Do not send private keys, certificate passwords or account credentials through chat or email/);
 assert.match(centre, /AppearanceConfig/);
 assert.match(centre, /launcherColour/);
 assert.match(centre, /headerBackground/);
