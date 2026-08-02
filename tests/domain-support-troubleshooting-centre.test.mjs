@@ -9,6 +9,11 @@ assert.match(bridge, /HEAD_OFFICE_SUPPORT_CENTRE_ENABLED/);
 assert.match(bridge, /CUSTOMEROPS_API_KEY/);
 assert.match(bridge, /\/api\/v1\/platform\/support\//);
 assert.match(bridge, /sameOrigin/);
+assert.match(bridge, /unavailableConfig/);
+assert.match(bridge, /assistantEnabled: true/);
+assert.match(bridge, /maintenanceEnabled: true/);
+assert.match(bridge, /hello@jagroupservices\.co\.uk/);
+assert.match(bridge, /020 3834 2790/);
 assert.doesNotMatch(bridge, /Bearer\s+[A-Za-z0-9._-]{20,}/);
 
 assert.match(centre, /GoDaddy: Manage DNS records/);
@@ -21,4 +26,4 @@ assert.match(centre, /Head Office Customer Adviser/);
 assert.match(centre, /Never include a password or private key/);
 assert.match(layout, /DomainSupportTroubleshootingCentre/);
 
-console.log('JA Domain Hub troubleshooting centre checks passed.');
+console.log('JA Domain Hub troubleshooting centre visibility checks passed.');
