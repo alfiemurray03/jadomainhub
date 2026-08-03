@@ -6,23 +6,7 @@ import Website from '@/layouts/Website';
 import DomainSupportTroubleshootingCentre from '@/components/DomainSupportTroubleshootingCentre';
 
 /**
- * Root layout component that wraps all pages with consistent header and footer
- *
- * This component provides a centralized layout structure for the entire application,
- * ensuring consistent navigation and footer across all pages. It uses the Website
- * layout component and includes Header and Footer components.
- *
- * To customize the header or footer, directly edit the Header.tsx and Footer.tsx files
- * in the layouts/parts directory.
- *
- * @param children - Child routes to render (typically <Outlet /> from react-router-dom)
- *
- * @example
- * ```tsx
- * <RootLayout>
- *   <Outlet />
- * </RootLayout>
- * ```
+ * Root layout component that wraps all pages with consistent header and footer.
  */
 interface RootLayoutProps {
   children: ReactElement;
@@ -32,7 +16,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <Website>
       <Header />
-      <main className="flex-1">
+      <main className="flex-1 pt-16 md:pt-[76px]">
         {children}
       </main>
       <Footer />

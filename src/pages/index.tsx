@@ -1,325 +1,441 @@
-import { motion } from 'motion/react';
+import { Helmet } from '@dr.pogodin/react-helmet';
+import type { LucideIcon } from 'lucide-react';
 import {
   ArrowRight,
-  Globe,
-  Server,
-  Layout,
-  Mail,
-  User,
-  ShieldCheck,
-  Zap,
-  HeadphonesIcon,
   BadgeCheck,
-  ChevronRight,
+  Building2,
+  ExternalLink,
+  Globe2,
+  Headphones,
+  LayoutTemplate,
+  LockKeyhole,
+  Mail,
+  Network,
+  Server,
+  ShieldCheck,
+  ShoppingBag,
+  Wrench,
 } from 'lucide-react';
+import { motion } from 'motion/react';
+
 import { Button } from '@/components/ui/button';
 
-const quickLinks = [
-  {
-    title: 'Domain Transfer',
-    description: 'Move your domains to us easily',
-    icon: Globe,
-    href: 'https://shop.jadomainhub.jagroupservices.co.uk/products/domain-transfer',
-  },
-  {
-    title: 'Web Hosting',
-    description: 'Fast & reliable cPanel hosting',
-    icon: Server,
-    href: 'https://shop.jadomainhub.jagroupservices.co.uk/products/cpanel',
-  },
-  {
-    title: 'Website Builder',
-    description: 'Create your website with ease',
-    icon: Layout,
-    href: 'https://shop.jadomainhub.jagroupservices.co.uk/products/website-builder',
-  },
-  {
-    title: 'Business Email',
-    description: 'Professional Microsoft 365 email',
-    icon: Mail,
-    href: 'https://shop.jadomainhub.jagroupservices.co.uk/products/microsoft-365',
-  },
-  {
-    title: 'My Account',
-    description: 'Manage all your services',
-    icon: User,
-    href: 'https://account.secureserver.net/products?plid=599857',
-  },
-];
+const site = 'https://jadomainhub.jagroupservices.co.uk';
+const store = 'https://store.jadomainhub.jagroupservices.co.uk';
 
-const features = [
+const services: Array<{
+  icon: LucideIcon;
+  title: string;
+  description: string;
+  href: string;
+  external?: boolean;
+}> = [
+  {
+    icon: Globe2,
+    title: 'Domains',
+    description: 'Search, register or transfer domain names through our authorised reseller storefront.',
+    href: `${store}/products/domain-registration`,
+    external: true,
+  },
+  {
+    icon: Server,
+    title: 'Web Hosting',
+    description: 'Explore cPanel, WordPress, Web Hosting Plus and VPS hosting options.',
+    href: `${store}/products/cpanel`,
+    external: true,
+  },
+  {
+    icon: Mail,
+    title: 'Business Email',
+    description: 'Set up professional email and Microsoft 365 products for your organisation.',
+    href: `${store}/products/microsoft-365`,
+    external: true,
+  },
   {
     icon: ShieldCheck,
-    title: 'GoDaddy Reseller',
-    description: 'JA Domain Hub operates as a GoDaddy Reseller, providing access to domain, hosting, email and SSL services through GoDaddy reseller infrastructure.',
+    title: 'Website Security',
+    description: 'Access SSL certificates, website security, backup and managed SSL services.',
+    href: `${store}/products/website-security`,
+    external: true,
   },
   {
-    icon: Zap,
-    title: 'Instant Activation',
-    description: 'Domains and hosting go live fast so you can get online without delay.',
+    icon: LayoutTemplate,
+    title: 'Website Tools',
+    description: 'Choose website-builder and WordPress options from the self-service storefront.',
+    href: `${store}/products/website-builder`,
+    external: true,
   },
   {
-    icon: HeadphonesIcon,
-    title: '24/7 Platform Support',
-    description: 'Round-the-clock technical support available through the GoDaddy reseller platform whenever you need it.',
-  },
-  {
-    icon: BadgeCheck,
-    title: 'UK-Based Business',
-    description: 'Operated by JA Group Services Ltd, registered in England and Wales. A UK business you can deal with directly.',
+    icon: Wrench,
+    title: 'Managed Websites',
+    description: 'A tailored design, build and management service delivered directly by JA Group Services Ltd.',
+    href: '/managed-websites',
   },
 ];
 
-const tlds = ['.co.uk', '.com', '.uk', '.net', '.org', '.io', '.store', '.online', '.shop', '.tech'];
+const benefits = [
+  {
+    icon: Network,
+    title: 'Authorised reseller infrastructure',
+    description: 'Domain, hosting, email and security products are supplied through established provider systems.',
+  },
+  {
+    icon: Headphones,
+    title: 'Clear support routes',
+    description: 'Use JA Domain Hub for customer enquiries and provider support for platform-level technical assistance.',
+  },
+  {
+    icon: Building2,
+    title: 'Operated by a UK company',
+    description: 'JA Domain Hub is operated by JA Group Services Ltd, registered in England and Wales.',
+  },
+  {
+    icon: LockKeyhole,
+    title: 'Transparent service roles',
+    description: 'We explain which services are delivered by JA Group Services and which rely on third-party platforms.',
+  },
+];
 
-import { Helmet } from '@dr.pogodin/react-helmet';
+const steps = [
+  {
+    number: '01',
+    title: 'Choose the service',
+    description: 'Browse the relevant domain, hosting, email, security or website category.',
+  },
+  {
+    number: '02',
+    title: 'Continue to the storefront',
+    description: 'Self-service products open on the JA Domain Hub storefront for selection and purchase.',
+  },
+  {
+    number: '03',
+    title: 'Manage your products',
+    description: 'Use the provider account area to manage products, renewals and technical settings.',
+  },
+  {
+    number: '04',
+    title: 'Get the right support',
+    description: 'Contact JA Domain Hub or the platform support route depending on the help required.',
+  },
+];
 
 export default function HomePage() {
-  const site = 'https://jadomainhub.jagroupservices.co.uk';
   return (
     <>
       <Helmet>
-        <title>JA Domain Hub — Domain Registration &amp; Web Services</title>
-        <meta name="description" content="JA Domain Hub is a GoDaddy Reseller operated by JA Group Services Ltd. Register domains, get web hosting, business email and SSL — UK-based support." />
-        <link rel="canonical" href={site} />
-        <meta property="og:title" content="JA Domain Hub — Domain Registration &amp; Web Services" />
-        <meta property="og:description" content="JA Domain Hub is a GoDaddy Reseller operated by JA Group Services Ltd. Register domains, get web hosting, business email and SSL — UK-based support." />
-        <meta property="og:url" content={site} />
+        <title>JA Domain Hub | Domains, Hosting, Email and Website Services</title>
+        <meta
+          name="description"
+          content="JA Domain Hub provides access to domain registration, hosting, business email, SSL and website services through authorised reseller infrastructure, operated by JA Group Services Ltd."
+        />
+        <link rel="canonical" href={`${site}/`} />
+        <meta property="og:title" content="JA Domain Hub | Domains, Hosting, Email and Website Services" />
+        <meta
+          property="og:description"
+          content="Domains, hosting, email, security and managed website services from JA Domain Hub, operated by JA Group Services Ltd."
+        />
+        <meta property="og:url" content={`${site}/`} />
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary_large_image" />
       </Helmet>
 
-      <section className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden">
-        <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat scale-105"
-          style={{ backgroundImage: `url('/airo-assets/images/pages/home/hero')` }}
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/75 via-black/55 to-black/80" />
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/40 via-transparent to-secondary/30" />
-        <div className="absolute left-1/4 top-1/3 h-96 w-96 -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/20 blur-3xl" />
-        <div className="absolute right-1/4 bottom-1/3 h-64 w-64 rounded-full bg-secondary/20 blur-3xl" />
-        <div
-          className="absolute inset-0 opacity-[0.07]"
-          style={{
-            backgroundImage: `radial-gradient(circle, white 1px, transparent 1px)`,
-            backgroundSize: '36px 36px',
-          }}
-        />
+      <div className="min-h-screen bg-background text-foreground">
+        <section className="relative overflow-hidden border-b border-white/10 bg-gradient-to-br from-[#06152E] via-[#0A1F44] to-[#173C88] py-14 sm:py-16 lg:py-24">
+          <div className="pointer-events-none absolute inset-0">
+            <div className="absolute -right-28 -top-36 h-96 w-96 rounded-full bg-blue-400/10 blur-3xl" />
+            <div className="absolute -bottom-44 left-1/3 h-80 w-80 rounded-full bg-cyan-300/5 blur-3xl" />
+            <div className="absolute inset-y-0 left-0 w-1 bg-blue-500" />
+            <div
+              className="absolute inset-0 opacity-[0.05]"
+              style={{
+                backgroundImage: 'radial-gradient(circle, white 1px, transparent 1px)',
+                backgroundSize: '30px 30px',
+              }}
+            />
+          </div>
 
-        <div className="container relative mx-auto px-4 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-5 py-2 text-sm font-medium text-white backdrop-blur-md"
-          >
-            <span className="h-2 w-2 rounded-full bg-green-400 animate-pulse" />
-            GoDaddy Reseller &middot; UK Based &middot; Operated by JA Group Services Ltd
-          </motion.div>
+          <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="grid items-center gap-10 lg:grid-cols-[1.12fr_0.88fr] lg:gap-16">
+              <motion.div
+                initial={{ opacity: 0, y: 18 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+              >
+                <div className="mb-5 inline-flex items-center gap-2 border-l-2 border-blue-400 pl-3 text-xs font-bold uppercase tracking-[0.2em] text-blue-200 sm:text-sm">
+                  Domains · Hosting · Email · Website Services
+                </div>
 
-          <h1 className="sr-only">JA Domain Hub — Domain Registration &amp; Web Services</h1>
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.1 }}
-            className="mb-6 text-5xl font-bold leading-[1.1] tracking-tight text-white lg:text-7xl"
-            aria-hidden="true"
-          >
-            Your Domain.
-            <br />
-            <span className="bg-gradient-to-r from-white via-white/90 to-white/60 bg-clip-text text-transparent">
-              Your Brand.
-            </span>
-          </motion.div>
+                <h1 className="max-w-4xl text-4xl font-extrabold leading-tight tracking-tight text-white sm:text-5xl lg:text-6xl">
+                  Build and manage your online presence
+                </h1>
 
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="mx-auto mb-10 max-w-2xl text-lg text-white/90 lg:text-xl"
-          >
-            JA Domain Hub is a service operated by JA Group Services Ltd. Register, transfer and manage domain names through our GoDaddy reseller platform — backed by enterprise infrastructure and UK-based support.
-          </motion.p>
+                <div className="mt-6 max-w-3xl space-y-4 text-base leading-relaxed text-white/80 sm:text-lg">
+                  <p>
+                    JA Domain Hub provides access to domain names, hosting, business email, website security and online-service tools through authorised reseller infrastructure.
+                  </p>
+                  <p>
+                    The service is operated by JA Group Services Ltd, with clear routes for purchasing products, managing accounts and getting support.
+                  </p>
+                </div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center"
-          >
-            <Button
-              size="lg"
-              className="h-14 rounded-2xl bg-white px-10 text-base font-semibold text-primary shadow-2xl transition-transform hover:scale-105 hover:bg-white/95 hover:text-primary"
-              asChild
-            >
-              <a href="https://shop.jadomainhub.jagroupservices.co.uk/products/domain-registration" target="_blank" rel="noopener noreferrer">
-                Search Domains
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </a>
-            </Button>
-          </motion.div>
+                <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+                  <Button asChild size="lg" className="min-h-12 bg-white px-7 font-bold text-[#0A1F44] hover:bg-blue-50">
+                    <a href={`${store}/products/domain-registration`} target="_blank" rel="noopener noreferrer">
+                      Search for a Domain
+                      <ArrowRight className="ml-2 h-4 w-4" />
+                    </a>
+                  </Button>
+                  <Button
+                    asChild
+                    size="lg"
+                    variant="outline"
+                    className="min-h-12 border-white/35 bg-white/5 px-7 font-semibold text-white hover:bg-white/10 hover:text-white"
+                  >
+                    <a href="/managed-websites">Managed Website Service</a>
+                  </Button>
+                </div>
+              </motion.div>
 
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.5 }}
-            className="mt-5 text-xs text-white/60"
-          >
-            Searches and purchases are completed on shop.jadomainhub.jagroupservices.co.uk
-          </motion.p>
-        </div>
+              <motion.aside
+                initial={{ opacity: 0, x: 18 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5, delay: 0.1 }}
+                className="overflow-hidden rounded-2xl border border-white/15 bg-white/10 shadow-2xl backdrop-blur-md"
+                aria-label="JA Domain Hub quick access"
+              >
+                <div className="border-b border-white/15 px-5 py-5 sm:px-6">
+                  <p className="text-xs font-bold uppercase tracking-[0.18em] text-blue-200">Quick access</p>
+                  <h2 className="mt-2 text-2xl font-bold text-white">Start with what you need</h2>
+                </div>
 
-        <div className="absolute bottom-0 left-0 right-0">
-          <div className="border-t border-white/10 bg-black/40 backdrop-blur-sm py-3 overflow-hidden">
-            <div className="flex whitespace-nowrap" style={{ animation: 'ticker 18s linear infinite' }}>
-              {[...tlds, ...tlds, ...tlds, ...tlds].map((tld, i) => (
-                <span key={i} className="mx-6 text-sm font-medium text-white/50 tracking-widest">
-                  {tld}
-                </span>
+                <div className="divide-y divide-white/10">
+                  <QuickAccessRow icon={Globe2} label="Register a domain" href={`${store}/products/domain-registration`} />
+                  <QuickAccessRow icon={Server} label="Browse web hosting" href={`${store}/products/cpanel`} />
+                  <QuickAccessRow icon={Mail} label="Set up business email" href={`${store}/products/microsoft-365`} />
+                  <QuickAccessRow icon={ShoppingBag} label="Open the storefront" href={store} />
+                </div>
+
+                <div className="border-t border-white/15 bg-black/10 px-5 py-4 sm:px-6">
+                  <a
+                    href="https://account.secureserver.net/products?plid=599857"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 text-sm font-semibold text-white hover:text-blue-200"
+                  >
+                    Manage existing products
+                    <ExternalLink className="h-4 w-4" />
+                  </a>
+                </div>
+              </motion.aside>
+            </div>
+          </div>
+        </section>
+
+        <section className="border-b border-border bg-card py-8">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+              <CorporateFact icon={BadgeCheck} label="Service model" value="Authorised reseller platform" />
+              <CorporateFact icon={Building2} label="Operator" value="JA Group Services Ltd" />
+              <CorporateFact icon={Headphones} label="Support" value="Customer and platform routes" />
+              <CorporateFact icon={ShieldCheck} label="Transparency" value="Clear provider responsibilities" />
+            </div>
+          </div>
+        </section>
+
+        <section className="border-b border-border bg-background py-14 sm:py-16 lg:py-20">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <SectionHeading
+              eyebrow="Services"
+              title="Everything you need to establish your digital presence"
+              description="Choose a self-service product from the storefront or speak to JA Group Services about a tailored managed website."
+            />
+
+            <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
+              {services.map(({ icon: Icon, title, description, href, external }, index) => (
+                <motion.a
+                  key={title}
+                  href={href}
+                  {...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+                  initial={{ opacity: 0, y: 16 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: index * 0.04 }}
+                  className="group rounded-2xl border border-border bg-card p-6 text-card-foreground shadow-sm transition-all duration-200 hover:-translate-y-1 hover:border-primary/30 hover:shadow-lg"
+                >
+                  <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-primary/10">
+                    <Icon className="h-5 w-5 text-primary" />
+                  </div>
+                  <h3 className="mt-5 text-xl font-bold text-card-foreground">{title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{description}</p>
+                  <span className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-primary">
+                    Explore service
+                    {external ? <ExternalLink className="h-4 w-4" /> : <ArrowRight className="h-4 w-4" />}
+                  </span>
+                </motion.a>
               ))}
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section className="py-24">
-        <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="mb-12 text-center"
-          >
-            <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-primary">Services</p>
-            <h2 className="mb-3 text-3xl font-bold lg:text-4xl">Quick Access</h2>
-            <p className="text-muted-foreground">Jump straight to what you need</p>
-          </motion.div>
+        <section className="border-b border-border bg-secondary py-14 sm:py-16 lg:py-20">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <SectionHeading
+              eyebrow="How it works"
+              title="A simple route from selection to support"
+              description="The website explains the service, the storefront handles self-service purchases and the account area handles ongoing product management."
+            />
 
-          <div className="mx-auto grid max-w-5xl gap-4 sm:grid-cols-2 lg:grid-cols-5">
-            {quickLinks.map((link, index) => {
-              const Icon = link.icon;
-              return (
-                <motion.a
-                  key={index}
-                  href={link.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  initial={{ opacity: 0, y: 24 }}
+            <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+              {steps.map(({ number, title, description }, index) => (
+                <motion.article
+                  key={number}
+                  initial={{ opacity: 0, y: 16 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  whileHover={{ y: -4 }}
-                  transition={{ delay: index * 0.08, duration: 0.4 }}
-                  className="group flex flex-col items-center rounded-2xl border-2 border-border bg-card p-6 text-center shadow-sm transition-all duration-200 hover:border-primary hover:shadow-xl"
+                  transition={{ duration: 0.4, delay: index * 0.05 }}
+                  className="relative overflow-hidden rounded-2xl border border-border bg-card p-6 text-card-foreground shadow-sm"
                 >
-                  <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/10 transition-colors group-hover:bg-primary group-hover:text-white">
-                    <Icon className="h-6 w-6 text-primary transition-colors group-hover:text-white" />
+                  <div className="absolute right-5 top-4 text-4xl font-extrabold text-primary/10">{number}</div>
+                  <div className="relative">
+                    <div className="mb-5 h-1 w-10 rounded-full bg-primary" />
+                    <h3 className="text-lg font-bold text-card-foreground">{title}</h3>
+                    <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{description}</p>
                   </div>
-                  <h3 className="mb-1 font-semibold">{link.title}</h3>
-                  <p className="text-xs text-muted-foreground">{link.description}</p>
-                  <ChevronRight className="mt-3 h-4 w-4 text-muted-foreground/50 transition-colors group-hover:text-primary" />
-                </motion.a>
-              );
-            })}
+                </motion.article>
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section className="relative overflow-hidden bg-muted/40 py-24">
-        <div className="absolute -right-32 -top-32 h-96 w-96 rounded-full bg-primary/5 blur-3xl" />
-        <div className="absolute -left-32 -bottom-32 h-96 w-96 rounded-full bg-secondary/5 blur-3xl" />
+        <section className="border-b border-border bg-background py-14 sm:py-16 lg:py-20">
+          <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.86fr_1.14fr] lg:items-center lg:px-8">
+            <motion.div
+              initial={{ opacity: 0, y: 14 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.42 }}
+            >
+              <p className="text-sm font-bold uppercase tracking-[0.18em] text-primary">Why JA Domain Hub</p>
+              <h2 className="mt-3 text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+                Provider-backed products with a clear company behind the service
+              </h2>
+              <p className="mt-5 leading-relaxed text-muted-foreground sm:text-lg">
+                JA Domain Hub combines established reseller systems with the governance, customer-service routes and accountability of JA Group Services Ltd.
+              </p>
+              <Button asChild variant="outline" className="mt-7 min-h-11 border-primary font-semibold text-primary hover:bg-primary/10">
+                <a href="/about-us">
+                  About JA Domain Hub
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </a>
+              </Button>
+            </motion.div>
 
-        <div className="container relative mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="mb-14 text-center"
-          >
-            <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-primary">Why Us</p>
-            <h2 className="mb-3 text-3xl font-bold lg:text-4xl">Why Choose JA Domain Hub?</h2>
-            <p className="mx-auto max-w-xl text-muted-foreground">
-              We combine the power of world-class infrastructure with a personal, UK-based service.
-            </p>
-          </motion.div>
-
-          <div className="mx-auto grid max-w-4xl gap-6 sm:grid-cols-2">
-            {features.map((feature, index) => {
-              const Icon = feature.icon;
-              return (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 24 }}
+            <div className="grid gap-4 sm:grid-cols-2">
+              {benefits.map(({ icon: Icon, title, description }, index) => (
+                <motion.article
+                  key={title}
+                  initial={{ opacity: 0, y: 16 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ delay: index * 0.1, duration: 0.5 }}
-                  className="flex gap-5 rounded-2xl border border-border bg-card p-6 shadow-sm"
+                  transition={{ duration: 0.4, delay: index * 0.05 }}
+                  className="rounded-2xl border border-border bg-card p-5 text-card-foreground shadow-sm sm:p-6"
                 >
-                  <div className="mt-0.5 flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-primary/10">
+                  <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-primary/10">
                     <Icon className="h-5 w-5 text-primary" />
                   </div>
-                  <div>
-                    <h3 className="mb-1.5 font-semibold">{feature.title}</h3>
-                    <p className="text-sm leading-relaxed text-muted-foreground">{feature.description}</p>
-                  </div>
-                </motion.div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      <section className="relative overflow-hidden bg-primary py-24">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary to-secondary/60" />
-        <div
-          className="absolute inset-0 opacity-[0.08]"
-          style={{
-            backgroundImage: `radial-gradient(circle, white 1px, transparent 1px)`,
-            backgroundSize: '28px 28px',
-          }}
-        />
-        <div className="absolute left-0 top-0 h-full w-1/3 bg-gradient-to-r from-white/5 to-transparent" />
-
-        <div className="container relative mx-auto px-4 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-          >
-            <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-white/60">Get Started Today</p>
-            <h2 className="mb-4 text-3xl font-bold text-white lg:text-5xl">
-              Ready to Get Online?
-            </h2>
-            <p className="mx-auto mb-10 max-w-xl text-white/70 text-lg">
-              Find your perfect domain name and get your business online today.
-            </p>
-            <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-              <Button
-                size="lg"
-                className="h-14 rounded-2xl bg-white px-10 text-base font-semibold text-primary shadow-xl transition-transform hover:scale-105 hover:bg-white/95 hover:text-primary"
-                asChild
-              >
-                <a href="https://shop.jadomainhub.jagroupservices.co.uk/products/domain-registration" target="_blank" rel="noopener noreferrer">
-                  Find Your Domain
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </a>
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="h-14 rounded-2xl border-white/30 bg-white/10 px-10 text-base font-semibold text-white backdrop-blur-sm transition-transform hover:scale-105 hover:bg-white/20 hover:text-white"
-                asChild
-              >
-                <a href="/contact-us">
-                  Contact Us
-                </a>
-              </Button>
+                  <h3 className="mt-5 text-lg font-bold text-card-foreground">{title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{description}</p>
+                </motion.article>
+              ))}
             </div>
-          </motion.div>
-        </div>
-      </section>
+          </div>
+        </section>
+
+        <section className="relative overflow-hidden bg-primary py-16 sm:py-20">
+          <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary to-blue-700" />
+          <div
+            className="absolute inset-0 opacity-[0.08]"
+            style={{
+              backgroundImage: 'radial-gradient(circle, white 1px, transparent 1px)',
+              backgroundSize: '28px 28px',
+            }}
+          />
+          <div className="relative mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4 }}
+            >
+              <p className="text-sm font-bold uppercase tracking-[0.18em] text-white/65">Get started</p>
+              <h2 className="mx-auto mt-3 max-w-3xl text-3xl font-bold text-white sm:text-4xl lg:text-5xl">
+                Choose a product or discuss a managed website
+              </h2>
+              <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-white/75 sm:text-lg">
+                Use the storefront for self-service products or contact JA Group Services Ltd for a website quotation based on your requirements.
+              </p>
+              <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
+                <Button asChild size="lg" className="min-h-12 bg-white px-7 font-bold text-primary hover:bg-blue-50">
+                  <a href={store} target="_blank" rel="noopener noreferrer">
+                    Open the Storefront
+                    <ExternalLink className="ml-2 h-4 w-4" />
+                  </a>
+                </Button>
+                <Button asChild size="lg" variant="outline" className="min-h-12 border-white/35 bg-white/5 px-7 font-semibold text-white hover:bg-white/10 hover:text-white">
+                  <a href="/contact-us">Contact Us</a>
+                </Button>
+              </div>
+            </motion.div>
+          </div>
+        </section>
+      </div>
     </>
+  );
+}
+
+function QuickAccessRow({ icon: Icon, label, href }: { icon: LucideIcon; label: string; href: string }) {
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="flex items-center justify-between gap-4 px-5 py-4 text-white transition-colors hover:bg-white/10 sm:px-6"
+    >
+      <span className="flex items-center gap-3 text-sm font-semibold">
+        <Icon className="h-5 w-5 text-blue-200" />
+        {label}
+      </span>
+      <ExternalLink className="h-4 w-4 text-white/50" />
+    </a>
+  );
+}
+
+function CorporateFact({ icon: Icon, label, value }: { icon: LucideIcon; label: string; value: string }) {
+  return (
+    <div className="flex items-start gap-3">
+      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-primary/10">
+        <Icon className="h-5 w-5 text-primary" />
+      </div>
+      <div>
+        <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">{label}</p>
+        <p className="mt-1 text-sm font-bold text-foreground">{value}</p>
+      </div>
+    </div>
+  );
+}
+
+function SectionHeading({ eyebrow, title, description }: { eyebrow: string; title: string; description: string }) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 14 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.42 }}
+      className="mb-10 max-w-3xl sm:mb-12"
+    >
+      <p className="text-sm font-bold uppercase tracking-[0.18em] text-primary">{eyebrow}</p>
+      <h2 className="mt-3 text-3xl font-bold tracking-tight text-foreground sm:text-4xl">{title}</h2>
+      <p className="mt-4 text-base leading-relaxed text-muted-foreground sm:text-lg">{description}</p>
+    </motion.div>
   );
 }
