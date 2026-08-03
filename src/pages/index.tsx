@@ -4,7 +4,6 @@ import {
   ArrowRight,
   BadgeCheck,
   Building2,
-  CheckCircle2,
   ExternalLink,
   Globe2,
   Headphones,
@@ -141,7 +140,7 @@ export default function HomePage() {
       </Helmet>
 
       <div className="min-h-screen bg-background text-foreground">
-        <section className="relative overflow-hidden border-b border-white/10 bg-gradient-to-br from-[#06152E] via-[#0A1F44] to-[#173C88] py-14 sm:py-18 lg:py-24">
+        <section className="relative overflow-hidden border-b border-white/10 bg-gradient-to-br from-[#06152E] via-[#0A1F44] to-[#173C88] py-14 sm:py-16 lg:py-24">
           <div className="pointer-events-none absolute inset-0">
             <div className="absolute -right-28 -top-36 h-96 w-96 rounded-full bg-blue-400/10 blur-3xl" />
             <div className="absolute -bottom-44 left-1/3 h-80 w-80 rounded-full bg-cyan-300/5 blur-3xl" />
