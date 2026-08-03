@@ -1,25 +1,33 @@
-import { useState, useRef } from 'react';
+import { useRef, useState } from 'react';
 import { motion } from 'motion/react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
-import { Phone, Mail, Clock, ExternalLink, Headphones, Send, CheckCircle, AlertCircle, ShieldCheck } from 'lucide-react';
+import { Phone, Mail, Clock, ExternalLink, Headphones, Send, CheckCircle, AlertCircle, ShieldCheck, Building2 } from 'lucide-react';
 import { Helmet } from '@dr.pogodin/react-helmet';
 
 type FormStatus = 'idle' | 'submitting' | 'success' | 'error';
+
+function initialEnquiryType(): string {
+  if (typeof window === 'undefined') return '';
+  return new URLSearchParams(window.location.search).get('enquiry') === 'managed-website'
+    ? 'Managed website'
+    : '';
+}
 
 export default function ContactUsPage() {
   const site = 'https://jadomainhub.jagroupservices.co.uk';
   const [status, setStatus] = useState<FormStatus>('idle');
   const [errorMsg, setErrorMsg] = useState('');
+  const [enquiryType, setEnquiryType] = useState(initialEnquiryType);
   const honeypotRef = useRef<HTMLInputElement>(null);
+  const isManagedWebsiteEnquiry = enquiryType === 'Managed website';
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
 
-    // Honeypot check — if filled, silently do nothing
     if (honeypotRef.current?.value) return;
 
     const form = e.currentTarget;
@@ -27,7 +35,6 @@ export default function ContactUsPage() {
 
     const name = (data.get('name') as string).trim();
     const email = (data.get('email') as string).trim();
-    const enquiryType = data.get('enquiry-type') as string;
     const message = (data.get('message') as string).trim();
 
     if (!email || !message) {
@@ -47,7 +54,9 @@ export default function ContactUsPage() {
           conversation: {
             messages_attributes: [{ body: message }],
             data: {
-              __gd_contact_form_title: 'Contact Us — JA Domain Hub',
+              __gd_contact_form_title: isManagedWebsiteEnquiry
+                ? 'Managed Website Enquiry — JA Domain Hub'
+                : 'Contact Us — JA Domain Hub',
               'Enquiry type': enquiryType,
             },
           },
@@ -71,18 +80,34 @@ export default function ContactUsPage() {
   return (
     <div className="flex min-h-screen flex-col">
       <Helmet>
-        <title>Contact JA Domain Hub Support</title>
-        <meta name="description" content="Contact JA Group Services Ltd, the first-line customer support provider for JA Domain Hub products and services." />
+        <title>{isManagedWebsiteEnquiry ? 'Request a Managed Website Quotation' : 'Contact JA Domain Hub Support'}</title>
+        <meta
+          name="description"
+          content={
+            isManagedWebsiteEnquiry
+              ? 'Tell JA Group Services Ltd about your Managed Website requirements and request a tailored quotation.'
+              : 'Contact JA Group Services Ltd, the first-line customer support provider for JA Domain Hub products and services.'
+          }
+        />
         <link rel="canonical" href={`${site}/contact-us`} />
-        <meta property="og:title" content="Contact JA Domain Hub Support" />
-        <meta property="og:description" content="JA Group Services Ltd is the first point of contact for JA Domain Hub customer support." />
+        <meta
+          property="og:title"
+          content={isManagedWebsiteEnquiry ? 'Request a Managed Website Quotation' : 'Contact JA Domain Hub Support'}
+        />
+        <meta
+          property="og:description"
+          content={
+            isManagedWebsiteEnquiry
+              ? 'Start a tailored Managed Website enquiry with JA Group Services Ltd.'
+              : 'JA Group Services Ltd is the first point of contact for JA Domain Hub customer support.'
+          }
+        />
         <meta property="og:url" content={`${site}/contact-us`} />
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary_large_image" />
       </Helmet>
 
-      {/* Hero */}
-      <section className="pt-28 pb-16 lg:pt-36 lg:pb-20">
+      <section className="pb-16 pt-28 lg:pb-20 lg:pt-36">
         <div className="container mx-auto px-4">
           <div className="mx-auto max-w-3xl text-center">
             <motion.div
@@ -91,24 +116,27 @@ export default function ContactUsPage() {
               transition={{ duration: 0.6 }}
             >
               <div className="mx-auto mb-5 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-4 py-2 text-sm font-semibold text-primary">
-                <Headphones className="h-4 w-4" />
-                First-line support from JA Group Services Ltd
+                {isManagedWebsiteEnquiry ? <Building2 className="h-4 w-4" /> : <Headphones className="h-4 w-4" />}
+                {isManagedWebsiteEnquiry
+                  ? 'Managed Websites by JA Group Services Ltd'
+                  : 'First-line support from JA Group Services Ltd'}
               </div>
-              <h1 className="mb-4 text-4xl font-bold tracking-tight lg:text-6xl">Contact Support</h1>
+              <h1 className="mb-4 text-4xl font-bold tracking-tight lg:text-6xl">
+                {isManagedWebsiteEnquiry ? 'Request a Managed Website quotation' : 'Contact Support'}
+              </h1>
               <p className="text-lg text-muted-foreground lg:text-xl">
-                Contact us first for help with JA Domain Hub products and services. We will investigate, assist and coordinate provider escalation where required.
+                {isManagedWebsiteEnquiry
+                  ? 'Tell us about your organisation, the website you need and your preferred timescale. We will review the project and explain the recommended next step.'
+                  : 'Contact us first for help with JA Domain Hub products and services. We will investigate, assist and coordinate provider escalation where required.'}
               </p>
             </motion.div>
           </div>
         </div>
       </section>
 
-      {/* Contact Form + Info */}
       <section className="pb-20">
         <div className="container mx-auto px-4">
           <div className="mx-auto grid max-w-5xl gap-10 lg:grid-cols-5">
-
-            {/* Contact Form */}
             <motion.div
               className="lg:col-span-3"
               initial={{ opacity: 0, y: 20 }}
@@ -118,9 +146,13 @@ export default function ContactUsPage() {
             >
               <Card className="border-2">
                 <CardContent className="p-8">
-                  <h2 className="mb-2 text-2xl font-bold">Send a Support Request</h2>
+                  <h2 className="mb-2 text-2xl font-bold">
+                    {isManagedWebsiteEnquiry ? 'Tell us about your website project' : 'Send a Support Request'}
+                  </h2>
                   <p className="mb-6 text-sm text-muted-foreground">
-                    Tell JA Group Services what is happening. We will review the issue and manage the next step with you.
+                    {isManagedWebsiteEnquiry
+                      ? 'Include the purpose of the website, expected pages, important features, existing domain or website, available content and any target launch date.'
+                      : 'Tell JA Group Services what is happening. We will review the issue and manage the next step with you.'}
                   </p>
 
                   {status === 'success' ? (
@@ -131,9 +163,11 @@ export default function ContactUsPage() {
                     >
                       <CheckCircle className="h-12 w-12 text-primary" />
                       <div>
-                        <p className="text-lg font-semibold">Support request sent</p>
+                        <p className="text-lg font-semibold">
+                          {isManagedWebsiteEnquiry ? 'Website enquiry sent' : 'Support request sent'}
+                        </p>
                         <p className="mt-1 text-sm text-muted-foreground">
-                          Thanks for getting in touch. JA Group Services will respond during office hours (Mon–Fri, 9am–5pm GMT).
+                          JA Group Services will review your message and respond during office hours (Mon–Fri, 9am–5pm GMT).
                         </p>
                       </div>
                       <Button variant="outline" onClick={() => setStatus('idle')}>
@@ -142,7 +176,6 @@ export default function ContactUsPage() {
                     </motion.div>
                   ) : (
                     <form onSubmit={handleSubmit} noValidate className="space-y-5">
-                      {/* Honeypot */}
                       <input
                         ref={honeypotRef}
                         type="text"
@@ -171,7 +204,8 @@ export default function ContactUsPage() {
                         <select
                           id="enquiry-type"
                           name="enquiry-type"
-                          defaultValue=""
+                          value={enquiryType}
+                          onChange={(event) => setEnquiryType(event.target.value)}
                           className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
                         >
                           <option value="" disabled>Select an enquiry type</option>
@@ -193,8 +227,12 @@ export default function ContactUsPage() {
                         <Textarea
                           id="message"
                           name="message"
-                          placeholder="Tell us what is happening and what help you need..."
-                          rows={5}
+                          placeholder={
+                            isManagedWebsiteEnquiry
+                              ? 'Tell us about the organisation, the website you need, important features, existing systems and your preferred launch date...'
+                              : 'Tell us what is happening and what help you need...'
+                          }
+                          rows={isManagedWebsiteEnquiry ? 8 : 5}
                           required
                           className="resize-none"
                         />
@@ -221,7 +259,7 @@ export default function ContactUsPage() {
                         ) : (
                           <>
                             <Send className="mr-2 h-4 w-4" />
-                            Send Support Request
+                            {isManagedWebsiteEnquiry ? 'Send Website Enquiry' : 'Send Support Request'}
                           </>
                         )}
                       </Button>
@@ -231,9 +269,7 @@ export default function ContactUsPage() {
               </Card>
             </motion.div>
 
-            {/* Contact Info */}
             <div className="space-y-6 lg:col-span-2">
-              {/* JA Group Services */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -267,7 +303,6 @@ export default function ContactUsPage() {
                 </Card>
               </motion.div>
 
-              {/* Provider support */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -306,7 +341,6 @@ export default function ContactUsPage() {
         </div>
       </section>
 
-      {/* Outside hours note */}
       <section className="bg-muted/30 py-14">
         <div className="container mx-auto px-4">
           <motion.div
