@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
-import { Phone, Mail, Clock, ExternalLink, Headphones, Send, CheckCircle, AlertCircle } from 'lucide-react';
+import { Phone, Mail, Clock, ExternalLink, Headphones, Send, CheckCircle, AlertCircle, ShieldCheck } from 'lucide-react';
 import { Helmet } from '@dr.pogodin/react-helmet';
 
 type FormStatus = 'idle' | 'submitting' | 'success' | 'error';
@@ -71,11 +71,11 @@ export default function ContactUsPage() {
   return (
     <div className="flex min-h-screen flex-col">
       <Helmet>
-        <title>Contact Us — JA Domain Hub</title>
-        <meta name="description" content="Get in touch with JA Domain Hub. Contact JA Group Services by phone, email or our contact form. 24/7 platform support also available." />
+        <title>Contact JA Domain Hub Support</title>
+        <meta name="description" content="Contact JA Group Services Ltd, the first-line customer support provider for JA Domain Hub products and services." />
         <link rel="canonical" href={`${site}/contact-us`} />
-        <meta property="og:title" content="Contact Us — JA Domain Hub" />
-        <meta property="og:description" content="Get in touch with JA Domain Hub. Contact JA Group Services by phone, email or our contact form." />
+        <meta property="og:title" content="Contact JA Domain Hub Support" />
+        <meta property="og:description" content="JA Group Services Ltd is the first point of contact for JA Domain Hub customer support." />
         <meta property="og:url" content={`${site}/contact-us`} />
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary_large_image" />
@@ -90,9 +90,13 @@ export default function ContactUsPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <h1 className="mb-4 text-4xl font-bold tracking-tight lg:text-6xl">Contact Us</h1>
+              <div className="mx-auto mb-5 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-4 py-2 text-sm font-semibold text-primary">
+                <Headphones className="h-4 w-4" />
+                First-line support from JA Group Services Ltd
+              </div>
+              <h1 className="mb-4 text-4xl font-bold tracking-tight lg:text-6xl">Contact Support</h1>
               <p className="text-lg text-muted-foreground lg:text-xl">
-                We're here to help. Send us a message or reach us directly.
+                Contact us first for help with JA Domain Hub products and services. We will investigate, assist and coordinate provider escalation where required.
               </p>
             </motion.div>
           </div>
@@ -114,9 +118,9 @@ export default function ContactUsPage() {
             >
               <Card className="border-2">
                 <CardContent className="p-8">
-                  <h2 className="mb-2 text-2xl font-bold">Send a Message</h2>
+                  <h2 className="mb-2 text-2xl font-bold">Send a Support Request</h2>
                   <p className="mb-6 text-sm text-muted-foreground">
-                    Fill in the form and we'll get back to you during office hours.
+                    Tell JA Group Services what is happening. We will review the issue and manage the next step with you.
                   </p>
 
                   {status === 'success' ? (
@@ -127,9 +131,9 @@ export default function ContactUsPage() {
                     >
                       <CheckCircle className="h-12 w-12 text-primary" />
                       <div>
-                        <p className="text-lg font-semibold">Message sent</p>
+                        <p className="text-lg font-semibold">Support request sent</p>
                         <p className="mt-1 text-sm text-muted-foreground">
-                          Thanks for getting in touch. We'll respond during office hours (Mon–Fri, 9am–5pm GMT).
+                          Thanks for getting in touch. JA Group Services will respond during office hours (Mon–Fri, 9am–5pm GMT).
                         </p>
                       </div>
                       <Button variant="outline" onClick={() => setStatus('idle')}>
@@ -189,7 +193,7 @@ export default function ContactUsPage() {
                         <Textarea
                           id="message"
                           name="message"
-                          placeholder="How can we help you?"
+                          placeholder="Tell us what is happening and what help you need..."
                           rows={5}
                           required
                           className="resize-none"
@@ -217,7 +221,7 @@ export default function ContactUsPage() {
                         ) : (
                           <>
                             <Send className="mr-2 h-4 w-4" />
-                            Send Message
+                            Send Support Request
                           </>
                         )}
                       </Button>
@@ -236,13 +240,15 @@ export default function ContactUsPage() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.1 }}
               >
-                <Card className="border-2">
+                <Card className="border-2 border-primary/25 bg-primary/5">
                   <CardContent className="p-6">
-                    <div className="mb-4 inline-flex rounded-xl bg-primary/10 p-3">
-                      <Mail className="h-5 w-5 text-primary" />
+                    <div className="mb-4 inline-flex rounded-xl bg-primary p-3 text-primary-foreground">
+                      <Headphones className="h-5 w-5" />
                     </div>
-                    <h3 className="mb-1 text-lg font-bold">JA Group Services</h3>
-                    <p className="mb-4 text-xs text-muted-foreground">UK-based team for service, domain and account enquiries.</p>
+                    <h3 className="mb-1 text-lg font-bold">JA Group Services — First-line Support</h3>
+                    <p className="mb-4 text-xs leading-relaxed text-muted-foreground">
+                      Your first point of contact for service, domain, hosting, billing, account and Managed Website enquiries.
+                    </p>
                     <div className="space-y-3">
                       <a href="tel:02038342790" className="flex items-center gap-3 text-sm text-muted-foreground transition-colors hover:text-foreground">
                         <Phone className="h-4 w-4 shrink-0 text-primary" />
@@ -261,7 +267,7 @@ export default function ContactUsPage() {
                 </Card>
               </motion.div>
 
-              {/* Platform Support */}
+              {/* Provider support */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -271,11 +277,11 @@ export default function ContactUsPage() {
                 <Card className="border-2">
                   <CardContent className="p-6">
                     <div className="mb-4 inline-flex rounded-xl bg-primary/10 p-3">
-                      <Headphones className="h-5 w-5 text-primary" />
+                      <ShieldCheck className="h-5 w-5 text-primary" />
                     </div>
-                    <h3 className="mb-1 text-lg font-bold">Platform Support</h3>
-                    <p className="mb-4 text-xs text-muted-foreground">
-                      24/7 technical support via GoDaddy reseller infrastructure.
+                    <h3 className="mb-1 text-lg font-bold">Provider Escalation &amp; Help Centre</h3>
+                    <p className="mb-4 text-xs leading-relaxed text-muted-foreground">
+                      JA Group Services will coordinate or direct provider escalation where underlying platform action is required. The provider Help Centre is also available for urgent out-of-hours technical assistance.
                     </p>
                     <div className="space-y-3">
                       <a
@@ -285,7 +291,7 @@ export default function ContactUsPage() {
                         className="flex items-center gap-3 text-sm text-muted-foreground transition-colors hover:text-foreground"
                       >
                         <ExternalLink className="h-4 w-4 shrink-0 text-primary" />
-                        Help Center (24/7)
+                        Provider Help Centre (24/7)
                       </a>
                       <div className="flex items-center gap-3 text-sm text-muted-foreground">
                         <Clock className="h-4 w-4 shrink-0 text-primary" />
@@ -311,14 +317,14 @@ export default function ContactUsPage() {
             className="mx-auto max-w-2xl text-center"
           >
             <p className="text-muted-foreground">
-              Outside our office hours, or for immediate technical assistance with domain services, please use our{' '}
+              JA Group Services remains your normal first point of contact. Outside our office hours, customers needing immediate provider-level technical assistance may also use the{' '}
               <a
                 href="https://www.secureserver.net/help?pl_id=599857&prog_id=599857"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="font-semibold text-primary hover:underline"
               >
-                platform Help Center
+                provider Help Centre
               </a>{' '}
               which is available 24/7.
             </p>
