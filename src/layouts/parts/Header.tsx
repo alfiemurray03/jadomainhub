@@ -30,25 +30,41 @@ export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mobileDropdownOpen, setMobileDropdownOpen] = useState<string | null>(null);
 
-  const closeMobileMenu = () => setMobileMenuOpen(false);
+  const closeMobileMenu = () => {
+    setMobileMenuOpen(false);
+    setMobileDropdownOpen(null);
+  };
 
   useEffect(() => {
     if (!mobileMenuOpen) return;
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
 
     const closeOnEscape = (event: KeyboardEvent) => {
       if (event.key === 'Escape') closeMobileMenu();
     };
 
+    const closeAtDesktop = () => {
+      if (window.innerWidth >= 1280) closeMobileMenu();
+    };
+
     window.addEventListener('keydown', closeOnEscape);
-    return () => window.removeEventListener('keydown', closeOnEscape);
+    window.addEventListener('resize', closeAtDesktop);
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener('keydown', closeOnEscape);
+      window.removeEventListener('resize', closeAtDesktop);
+    };
   }, [mobileMenuOpen]);
 
   return (
     <header className="fixed left-0 right-0 top-0 z-50 border-b border-border bg-card/95 shadow-sm backdrop-blur-xl">
-      <div className="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-8">
-        <div className="flex h-16 items-center justify-between gap-3 md:h-[68px]">
-          <a href="/" className="group flex shrink-0 items-center py-1" aria-label="JA Domain Hub — home">
-            <BrandWordmark className="text-lg transition-transform duration-200 group-hover:scale-[1.02] sm:text-xl" />
+      <div className="mx-auto max-w-[1440px] px-3 min-[380px]:px-4 sm:px-6 lg:px-8">
+        <div className="flex h-16 items-center justify-between gap-2 md:h-[68px] md:gap-3">
+          <a href="/" className="group flex min-w-0 shrink items-center py-1" aria-label="JA Domain Hub — home">
+            <BrandWordmark className="max-w-full text-[15px] transition-transform duration-200 group-hover:scale-[1.02] min-[360px]:text-base sm:text-xl" />
           </a>
 
           <NavigationMenu className="hidden xl:flex">
@@ -115,12 +131,12 @@ export default function Header() {
             <CustomerWebsitesMenu />
           </div>
 
-          <div className="flex shrink-0 items-center gap-2 xl:hidden">
-            <ThemeToggle />
+          <div className="flex shrink-0 items-center gap-1.5 xl:hidden">
+            <ThemeToggle className="h-11 w-11" />
             <button
               type="button"
               onClick={() => setMobileMenuOpen((open) => !open)}
-              className="flex h-10 w-10 items-center justify-center rounded-xl border border-border text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+              className="flex h-11 w-11 items-center justify-center rounded-xl border border-border text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
               aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'}
               aria-expanded={mobileMenuOpen}
               aria-controls="mobile-menu"
@@ -132,8 +148,15 @@ export default function Header() {
       </div>
 
       {mobileMenuOpen && (
-        <div id="mobile-menu" className="absolute left-0 right-0 top-full max-h-[calc(100dvh-4rem)] overflow-y-auto border-t border-border bg-card shadow-2xl xl:hidden">
-          <nav className="mx-auto flex max-w-7xl flex-col gap-1 px-4 py-4 sm:px-6" aria-label="Mobile navigation">
+        <div
+          id="mobile-menu"
+          className="absolute left-0 right-0 top-full h-[calc(100dvh-4rem)] overflow-y-auto overscroll-contain border-t border-border bg-card shadow-2xl xl:hidden md:h-[calc(100dvh-4.25rem)]"
+        >
+          <nav
+            className="mx-auto flex max-w-7xl flex-col gap-1 px-4 py-4 sm:px-6"
+            style={{ paddingBottom: 'calc(1rem + env(safe-area-inset-bottom))' }}
+            aria-label="Mobile navigation"
+          >
             <a href="tel:02038342790" className="mb-2 flex min-h-12 items-center gap-2 rounded-xl border border-border bg-muted px-4 py-3 text-sm font-semibold text-foreground">
               <Phone className="h-4 w-4 text-primary" />
               020 3834 2790
@@ -150,10 +173,11 @@ export default function Header() {
                   <button
                     type="button"
                     onClick={() => setMobileDropdownOpen(mobileDropdownOpen === category.id ? null : category.id)}
-                    className="flex min-h-11 w-full items-center justify-between rounded-xl px-3 py-2 text-left text-sm font-semibold text-foreground hover:bg-muted"
+                    className="flex min-h-12 w-full items-center justify-between rounded-xl px-3 py-2 text-left text-sm font-semibold text-foreground hover:bg-muted"
+                    aria-expanded={mobileDropdownOpen === category.id}
                   >
                     {category.label}
-                    <ChevronDown className={`h-4 w-4 transition-transform ${mobileDropdownOpen === category.id ? 'rotate-180' : ''}`} />
+                    <ChevronDown className={`h-4 w-4 shrink-0 transition-transform ${mobileDropdownOpen === category.id ? 'rotate-180' : ''}`} />
                   </button>
                   {mobileDropdownOpen === category.id && (
                     <div className="space-y-1 pt-1">
@@ -162,7 +186,7 @@ export default function Header() {
                           key={product.id}
                           href={product.localPath}
                           onClick={closeMobileMenu}
-                          className="block rounded-xl px-3 py-2.5 text-sm text-muted-foreground hover:bg-muted hover:text-foreground"
+                          className="block min-h-11 rounded-xl px-3 py-3 text-sm text-muted-foreground hover:bg-muted hover:text-foreground"
                         >
                           {product.shortTitle}
                         </a>
@@ -177,7 +201,7 @@ export default function Header() {
             <a href="/contact-us" onClick={closeMobileMenu} className="flex min-h-12 items-center rounded-xl px-3 py-3 text-sm font-medium text-foreground hover:bg-muted">Contact Us</a>
             <MobileCustomerWebsitesMenu onNavigate={closeMobileMenu} />
 
-            <Button className="mt-2 w-full rounded-xl" asChild>
+            <Button className="mt-2 min-h-12 w-full rounded-xl" asChild>
               <a href="https://account.secureserver.net/products?plid=599857" target="_blank" rel="noopener noreferrer">Open Account</a>
             </Button>
           </nav>

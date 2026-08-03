@@ -107,24 +107,24 @@ export default function ContactUsPage() {
         <meta name="twitter:card" content="summary_large_image" />
       </Helmet>
 
-      <section className="pb-16 pt-28 lg:pb-20 lg:pt-36">
-        <div className="container mx-auto px-4">
+      <section className="pb-12 pt-12 sm:pb-16 sm:pt-16 lg:pb-20 lg:pt-20">
+        <div className="container mx-auto">
           <div className="mx-auto max-w-3xl text-center">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <div className="mx-auto mb-5 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-4 py-2 text-sm font-semibold text-primary">
-                {isManagedWebsiteEnquiry ? <Building2 className="h-4 w-4" /> : <Headphones className="h-4 w-4" />}
-                {isManagedWebsiteEnquiry
+              <div className="mx-auto mb-5 inline-flex max-w-full items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-3 py-2 text-xs font-semibold leading-relaxed text-primary sm:px-4 sm:text-sm">
+                {isManagedWebsiteEnquiry ? <Building2 className="h-4 w-4 shrink-0" /> : <Headphones className="h-4 w-4 shrink-0" />}
+                <span>{isManagedWebsiteEnquiry
                   ? 'Managed Websites by JA Group Services Ltd'
-                  : 'First-line support from JA Group Services Ltd'}
+                  : 'First-line support from JA Group Services Ltd'}</span>
               </div>
-              <h1 className="mb-4 text-4xl font-bold tracking-tight lg:text-6xl">
+              <h1 className="mb-4 text-3xl font-bold tracking-tight sm:text-4xl lg:text-6xl">
                 {isManagedWebsiteEnquiry ? 'Request a Managed Website quotation' : 'Contact Support'}
               </h1>
-              <p className="text-lg text-muted-foreground lg:text-xl">
+              <p className="text-base leading-relaxed text-muted-foreground sm:text-lg lg:text-xl">
                 {isManagedWebsiteEnquiry
                   ? 'Tell us about your organisation, the website you need and your preferred timescale. We will review the project and explain the recommended next step.'
                   : 'Contact us first for help with JA Domain Hub products and services. We will investigate, assist and coordinate provider escalation where required.'}
@@ -134,22 +134,22 @@ export default function ContactUsPage() {
         </div>
       </section>
 
-      <section className="pb-20">
-        <div className="container mx-auto px-4">
-          <div className="mx-auto grid max-w-5xl gap-10 lg:grid-cols-5">
+      <section className="pb-14 sm:pb-20">
+        <div className="container mx-auto">
+          <div className="mx-auto grid max-w-5xl gap-8 lg:grid-cols-5 lg:gap-10">
             <motion.div
-              className="lg:col-span-3"
+              className="min-w-0 lg:col-span-3"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
             >
               <Card className="border-2">
-                <CardContent className="p-8">
-                  <h2 className="mb-2 text-2xl font-bold">
+                <CardContent className="p-5 sm:p-8">
+                  <h2 className="mb-2 text-xl font-bold sm:text-2xl">
                     {isManagedWebsiteEnquiry ? 'Tell us about your website project' : 'Send a Support Request'}
                   </h2>
-                  <p className="mb-6 text-sm text-muted-foreground">
+                  <p className="mb-6 text-sm leading-relaxed text-muted-foreground">
                     {isManagedWebsiteEnquiry
                       ? 'Include the purpose of the website, expected pages, important features, existing domain or website, available content and any target launch date.'
                       : 'Tell JA Group Services what is happening. We will review the issue and manage the next step with you.'}
@@ -159,18 +159,18 @@ export default function ContactUsPage() {
                     <motion.div
                       initial={{ opacity: 0, scale: 0.95 }}
                       animate={{ opacity: 1, scale: 1 }}
-                      className="flex flex-col items-center gap-4 rounded-2xl bg-primary/5 py-12 text-center"
+                      className="flex flex-col items-center gap-4 rounded-2xl bg-primary/5 px-4 py-10 text-center sm:py-12"
                     >
                       <CheckCircle className="h-12 w-12 text-primary" />
                       <div>
                         <p className="text-lg font-semibold">
                           {isManagedWebsiteEnquiry ? 'Website enquiry sent' : 'Support request sent'}
                         </p>
-                        <p className="mt-1 text-sm text-muted-foreground">
+                        <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
                           JA Group Services will review your message and respond during office hours (Mon–Fri, 9am–5pm GMT).
                         </p>
                       </div>
-                      <Button variant="outline" onClick={() => setStatus('idle')}>
+                      <Button variant="outline" onClick={() => setStatus('idle')} className="min-h-11 w-full sm:w-auto">
                         Send another message
                       </Button>
                     </motion.div>
@@ -189,13 +189,13 @@ export default function ContactUsPage() {
                       <div className="grid gap-5 sm:grid-cols-2">
                         <div className="space-y-1.5">
                           <Label htmlFor="name">Full name</Label>
-                          <Input id="name" name="name" placeholder="Your name" autoComplete="name" />
+                          <Input id="name" name="name" placeholder="Your name" autoComplete="name" className="min-h-11" />
                         </div>
                         <div className="space-y-1.5">
                           <Label htmlFor="email">
                             Email address <span className="text-destructive">*</span>
                           </Label>
-                          <Input id="email" name="email" type="email" placeholder="you@example.com" required autoComplete="email" />
+                          <Input id="email" name="email" type="email" placeholder="you@example.com" required autoComplete="email" className="min-h-11" />
                         </div>
                       </div>
 
@@ -206,7 +206,7 @@ export default function ContactUsPage() {
                           name="enquiry-type"
                           value={enquiryType}
                           onChange={(event) => setEnquiryType(event.target.value)}
-                          className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+                          className="flex min-h-11 w-full rounded-md border border-input bg-background px-3 py-2 text-base ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 sm:text-sm"
                         >
                           <option value="" disabled>Select an enquiry type</option>
                           <option value="Domain registration">Domain registration</option>
@@ -229,28 +229,23 @@ export default function ContactUsPage() {
                           name="message"
                           placeholder={
                             isManagedWebsiteEnquiry
-                              ? 'Tell us about the organisation, the website you need, important features, existing systems and your preferred launch date...'
+                              ? 'Tell us about the organisation, website, important features, existing systems and preferred launch date...'
                               : 'Tell us what is happening and what help you need...'
                           }
                           rows={isManagedWebsiteEnquiry ? 8 : 5}
                           required
-                          className="resize-none"
+                          className="min-h-36 resize-y"
                         />
                       </div>
 
                       {status === 'error' && (
-                        <div className="flex items-center gap-2 rounded-lg border border-destructive/30 bg-destructive/10 px-4 py-3 text-sm text-destructive">
-                          <AlertCircle className="h-4 w-4 shrink-0" />
-                          {errorMsg}
+                        <div className="flex items-start gap-2 rounded-lg border border-destructive/30 bg-destructive/10 px-4 py-3 text-sm text-destructive">
+                          <AlertCircle className="mt-0.5 h-4 w-4 shrink-0" />
+                          <span>{errorMsg}</span>
                         </div>
                       )}
 
-                      <Button
-                        type="submit"
-                        className="w-full"
-                        disabled={status === 'submitting'}
-                        size="lg"
-                      >
+                      <Button type="submit" className="min-h-12 w-full" disabled={status === 'submitting'} size="lg">
                         {status === 'submitting' ? (
                           <>
                             <span className="mr-2 h-4 w-4 animate-spin rounded-full border-2 border-current border-t-transparent" />
@@ -258,7 +253,7 @@ export default function ContactUsPage() {
                           </>
                         ) : (
                           <>
-                            <Send className="mr-2 h-4 w-4" />
+                            <Send className="mr-2 h-4 w-4 shrink-0" />
                             {isManagedWebsiteEnquiry ? 'Send Website Enquiry' : 'Send Support Request'}
                           </>
                         )}
@@ -269,7 +264,7 @@ export default function ContactUsPage() {
               </Card>
             </motion.div>
 
-            <div className="space-y-6 lg:col-span-2">
+            <div className="min-w-0 space-y-6 lg:col-span-2">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -277,7 +272,7 @@ export default function ContactUsPage() {
                 transition={{ duration: 0.5, delay: 0.1 }}
               >
                 <Card className="border-2 border-primary/25 bg-primary/5">
-                  <CardContent className="p-6">
+                  <CardContent className="p-5 sm:p-6">
                     <div className="mb-4 inline-flex rounded-xl bg-primary p-3 text-primary-foreground">
                       <Headphones className="h-5 w-5" />
                     </div>
@@ -285,16 +280,16 @@ export default function ContactUsPage() {
                     <p className="mb-4 text-xs leading-relaxed text-muted-foreground">
                       Your first point of contact for service, domain, hosting, billing, account and Managed Website enquiries.
                     </p>
-                    <div className="space-y-3">
-                      <a href="tel:02038342790" className="flex items-center gap-3 text-sm text-muted-foreground transition-colors hover:text-foreground">
+                    <div className="space-y-1">
+                      <a href="tel:02038342790" className="flex min-h-11 items-center gap-3 text-sm text-muted-foreground transition-colors hover:text-foreground">
                         <Phone className="h-4 w-4 shrink-0 text-primary" />
                         020 3834 2790
                       </a>
-                      <a href="mailto:jadomainhub@jagroupservices.co.uk" className="flex items-center gap-3 text-sm text-muted-foreground transition-colors hover:text-foreground">
+                      <a href="mailto:jadomainhub@jagroupservices.co.uk" className="flex min-h-11 items-center gap-3 break-all text-sm text-muted-foreground transition-colors hover:text-foreground">
                         <Mail className="h-4 w-4 shrink-0 text-primary" />
-                        jadomainhub@jagroupservices.co.uk
+                        <span>jadomainhub@jagroupservices.co.uk</span>
                       </a>
-                      <div className="flex items-center gap-3 text-sm text-muted-foreground">
+                      <div className="flex min-h-11 items-center gap-3 text-sm text-muted-foreground">
                         <Clock className="h-4 w-4 shrink-0 text-primary" />
                         Mon – Fri, 9:00 AM – 5:00 PM (GMT)
                       </div>
@@ -310,7 +305,7 @@ export default function ContactUsPage() {
                 transition={{ duration: 0.5, delay: 0.2 }}
               >
                 <Card className="border-2">
-                  <CardContent className="p-6">
+                  <CardContent className="p-5 sm:p-6">
                     <div className="mb-4 inline-flex rounded-xl bg-primary/10 p-3">
                       <ShieldCheck className="h-5 w-5 text-primary" />
                     </div>
@@ -318,17 +313,17 @@ export default function ContactUsPage() {
                     <p className="mb-4 text-xs leading-relaxed text-muted-foreground">
                       JA Group Services will coordinate or direct provider escalation where underlying platform action is required. The provider Help Centre is also available for urgent out-of-hours technical assistance.
                     </p>
-                    <div className="space-y-3">
+                    <div className="space-y-1">
                       <a
                         href="https://www.secureserver.net/help?pl_id=599857&prog_id=599857"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-3 text-sm text-muted-foreground transition-colors hover:text-foreground"
+                        className="flex min-h-11 items-center gap-3 text-sm text-muted-foreground transition-colors hover:text-foreground"
                       >
                         <ExternalLink className="h-4 w-4 shrink-0 text-primary" />
                         Provider Help Centre (24/7)
                       </a>
-                      <div className="flex items-center gap-3 text-sm text-muted-foreground">
+                      <div className="flex min-h-11 items-center gap-3 text-sm text-muted-foreground">
                         <Clock className="h-4 w-4 shrink-0 text-primary" />
                         Available 24 hours, 7 days a week
                       </div>
@@ -341,8 +336,8 @@ export default function ContactUsPage() {
         </div>
       </section>
 
-      <section className="bg-muted/30 py-14">
-        <div className="container mx-auto px-4">
+      <section className="bg-muted/30 py-10 sm:py-14">
+        <div className="container mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -350,7 +345,7 @@ export default function ContactUsPage() {
             transition={{ duration: 0.5 }}
             className="mx-auto max-w-2xl text-center"
           >
-            <p className="text-muted-foreground">
+            <p className="text-sm leading-relaxed text-muted-foreground sm:text-base">
               JA Group Services remains your normal first point of contact. Outside our office hours, customers needing immediate provider-level technical assistance may also use the{' '}
               <a
                 href="https://www.secureserver.net/help?pl_id=599857&prog_id=599857"
