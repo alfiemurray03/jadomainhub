@@ -9,6 +9,7 @@ const NotFoundPage = isDevelopment ? lazy(() => import('../export-plugins/PageNo
 // Lazy load all other pages
 const AboutUsPage = lazy(() => import('./pages/about-us'));
 const ContactUsPage = lazy(() => import('./pages/contact-us'));
+const ServicesPage = lazy(() => import('./pages/services'));
 const DomainRegistrationPage = lazy(() => import('./pages/products/domain-registration'));
 const DomainTransferPage = lazy(() => import('./pages/products/domain-transfer'));
 const BulkRegistrationPage = lazy(() => import('./pages/products/bulk-registration'));
@@ -42,6 +43,10 @@ export const routes: RouteObject[] = [
   {
     path: '/contact-us',
     element: <ContactUsPage />,
+  },
+  {
+    path: '/services',
+    element: <ServicesPage />,
   },
   {
     path: '/products/domain-registration',
@@ -134,6 +139,7 @@ export type Path =
   | '/'
   | '/about-us'
   | '/contact-us'
+  | '/services'
   | '/products/domain-registration'
   | '/products/domain-transfer'
   | '/products/bulk-registration'
