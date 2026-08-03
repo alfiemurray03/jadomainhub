@@ -68,7 +68,7 @@ export default function JAGroupServicesIDPage() {
             <div className="bg-gradient-to-br from-slate-950 via-blue-950 to-blue-800 px-6 py-10 text-white sm:px-10 sm:py-12">
               <BrandWordmark className="mb-8 inline-flex rounded-xl bg-white px-3 py-2 text-lg" />
               <p className="text-xs font-bold uppercase tracking-[0.18em] text-blue-200">JA Domain Hub connection</p>
-              <h1 className="mt-3 max-w-3xl text-3xl font-extrabold tracking-tight sm:text-5xl">Your JA Group Services ID</h1>
+              <h1 className="mt-3 max-w-3xl text-3xl font-extrabold tracking-tight !text-white sm:text-5xl">Your JA Group Services ID</h1>
               <p className="mt-4 max-w-2xl text-base leading-7 text-blue-100 sm:text-lg">
                 JA Domain Hub uses your central JA Group Services identity. Personal information and security controls are managed from the central dashboard.
               </p>
