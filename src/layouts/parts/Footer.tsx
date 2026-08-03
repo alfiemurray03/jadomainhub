@@ -1,6 +1,8 @@
 import { Building2, Cookie, ExternalLink, Mail, Phone, ShieldCheck } from 'lucide-react';
 
 const linkClass = 'text-sm text-muted-foreground transition-colors hover:text-foreground';
+const storefrontTermsUrl =
+  'https://store.jadomainhub.jagroupservices.co.uk/legal-agreement?id=utos';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -22,7 +24,9 @@ export default function Footer() {
 
             <div className="mt-5 flex items-start gap-2 rounded-xl border border-border bg-muted/40 p-3 text-xs leading-relaxed text-muted-foreground">
               <ShieldCheck className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
-              <span>JA Domain Hub operates as a GoDaddy Reseller and is not GoDaddy, a registry or an ICANN-accredited registrar.</span>
+              <span>
+                For storefront services, JA Domain Hub acts as an agent of Wild West Domains, LLC. JA Domain Hub is not itself an ICANN-accredited registrar.
+              </span>
             </div>
           </div>
 
@@ -66,7 +70,8 @@ export default function Footer() {
             <ul className="space-y-2.5">
               <li><a href="/about-us" className={linkClass}>About JA Domain Hub</a></li>
               <li><a href="https://jagroupservices.co.uk" target="_blank" rel="noopener noreferrer" className={`${linkClass} inline-flex items-center gap-1`}>JA Group Services Ltd <ExternalLink className="h-3 w-3" /></a></li>
-              <li><a href="/terms-of-service" className={linkClass}>Terms of Service</a></li>
+              <li><a href="/terms-of-service" className={linkClass}>Legal Terms &amp; Agreements</a></li>
+              <li><a href={storefrontTermsUrl} target="_blank" rel="noopener noreferrer" className={`${linkClass} inline-flex items-center gap-1`}>Storefront Universal Terms <ExternalLink className="h-3 w-3" /></a></li>
               <li><a href="/privacy-policy" className={linkClass}>Privacy Policy</a></li>
               <li><a href="/cookies-policy" className={linkClass}>Cookies Policy</a></li>
               <li>
@@ -98,7 +103,7 @@ export default function Footer() {
               <p className="text-xs leading-relaxed">Registered Address: 167–169 Great Portland Street, 5th Floor, London, W1W 5PF</p>
             </div>
             <p className="max-w-xl text-xs leading-relaxed lg:text-right">
-              Products purchased through the storefront may be subject to provider terms, renewal rules, cancellation rules, refund rules and technical service conditions in addition to the applicable JA Domain Hub terms.
+              Use of the storefront and purchases made through it are governed by the Wild West Domains/GoDaddy Universal Terms of Service and applicable product agreements. Managed Websites is a separate service supplied directly by JA Group Services Ltd under a written quotation or service agreement.
             </p>
           </div>
         </div>
