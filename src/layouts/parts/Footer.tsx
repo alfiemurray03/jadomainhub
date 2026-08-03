@@ -7,7 +7,7 @@ export default function Footer() {
 
   return (
     <footer className="border-t border-border bg-card text-card-foreground" role="contentinfo">
-      <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-[1440px] px-4 py-14 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-[1.25fr_repeat(3,minmax(0,1fr))]">
           <div>
             <a href="/" className="mb-5 inline-flex items-center" aria-label="JA Domain Hub — home">
@@ -17,7 +17,7 @@ export default function Footer() {
             </a>
 
             <p className="max-w-sm text-sm leading-relaxed text-muted-foreground">
-              Domain registration, hosting, email and website services provided through authorised reseller infrastructure, with customer support from JA Group Services Ltd.
+              Browse domain registration, hosting, email, security and website services before continuing to the authorised reseller storefront.
             </p>
 
             <div className="mt-5 flex items-start gap-2 rounded-xl border border-border bg-muted/40 p-3 text-xs leading-relaxed text-muted-foreground">
@@ -27,12 +27,14 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="mb-4 text-xs font-semibold uppercase tracking-widest text-muted-foreground">Services</h3>
+            <h3 className="mb-4 text-xs font-semibold uppercase tracking-widest text-muted-foreground">Browse Services</h3>
             <ul className="space-y-2.5">
-              <li><a href="https://store.jadomainhub.jagroupservices.co.uk/products/domain-registration" target="_blank" rel="noopener noreferrer" className={`${linkClass} inline-flex items-center gap-1`}>Domain Registration <ExternalLink className="h-3 w-3" /></a></li>
-              <li><a href="https://store.jadomainhub.jagroupservices.co.uk/products/domain-transfer" target="_blank" rel="noopener noreferrer" className={`${linkClass} inline-flex items-center gap-1`}>Domain Transfer <ExternalLink className="h-3 w-3" /></a></li>
-              <li><a href="https://store.jadomainhub.jagroupservices.co.uk/products/cpanel" target="_blank" rel="noopener noreferrer" className={`${linkClass} inline-flex items-center gap-1`}>Web Hosting <ExternalLink className="h-3 w-3" /></a></li>
-              <li><a href="https://store.jadomainhub.jagroupservices.co.uk/products/microsoft-365" target="_blank" rel="noopener noreferrer" className={`${linkClass} inline-flex items-center gap-1`}>Microsoft 365 <ExternalLink className="h-3 w-3" /></a></li>
+              <li><a href="/services" className="text-sm font-semibold text-primary transition-colors hover:text-primary/80">All Services &amp; Products</a></li>
+              <li><a href="/products/domain-registration" className={linkClass}>Domain Registration</a></li>
+              <li><a href="/products/domain-transfer" className={linkClass}>Domain Transfer</a></li>
+              <li><a href="/products/cpanel" className={linkClass}>Web Hosting</a></li>
+              <li><a href="/products/website-security" className={linkClass}>Website Security</a></li>
+              <li><a href="/products/microsoft-365" className={linkClass}>Microsoft 365</a></li>
               <li><a href="/managed-websites" className={linkClass}>Managed Websites</a></li>
             </ul>
           </div>
@@ -40,6 +42,7 @@ export default function Footer() {
           <div>
             <h3 className="mb-4 text-xs font-semibold uppercase tracking-widest text-muted-foreground">Support &amp; Account</h3>
             <ul className="space-y-2.5">
+              <li><a href="https://store.jadomainhub.jagroupservices.co.uk" target="_blank" rel="noopener noreferrer" className={`${linkClass} inline-flex items-center gap-1`}>Open Storefront <ExternalLink className="h-3 w-3" /></a></li>
               <li><a href="https://www.secureserver.net/help?pl_id=599857&prog_id=599857" target="_blank" rel="noopener noreferrer" className={`${linkClass} inline-flex items-center gap-1`}>Help Centre <ExternalLink className="h-3 w-3" /></a></li>
               <li><a href="https://account.secureserver.net/products?plid=599857" target="_blank" rel="noopener noreferrer" className={`${linkClass} inline-flex items-center gap-1`}>My Account <ExternalLink className="h-3 w-3" /></a></li>
               <li><a href="https://www.secureserver.net/whois?plid=599857" target="_blank" rel="noopener noreferrer" className={`${linkClass} inline-flex items-center gap-1`}>WHOIS Lookup <ExternalLink className="h-3 w-3" /></a></li>

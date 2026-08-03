@@ -1,153 +1,191 @@
+import { Helmet } from '@dr.pogodin/react-helmet';
+import { ArrowRight, CheckCircle2, Globe2 } from 'lucide-react';
 import { motion } from 'motion/react';
-import { Button } from '@/components/ui/button';
+
+import DomainSearch from '@/components/DomainSearch';
 import { Card, CardContent } from '@/components/ui/card';
-import { Input } from '@/components/ui/input';
-import { Search, ArrowRight } from 'lucide-react';
+
+const features = [
+  {
+    title: 'Domain Forwarding and Masking',
+    description:
+      'Direct a domain name you own to the website or online destination you choose.',
+  },
+  {
+    title: 'Domain Locking',
+    description:
+      'Help prevent accidental or unauthorised transfers by keeping the domain locked until you choose otherwise.',
+  },
+  {
+    title: 'DNS Management',
+    description:
+      'Manage nameservers and DNS records for websites, email and other connected services from the account area.',
+  },
+  {
+    title: 'Registration Contact Management',
+    description:
+      'Update the relevant domain contacts or arrange an eligible change of registrant through the provider platform.',
+  },
+  {
+    title: 'Status and Renewal Controls',
+    description:
+      'Review domain status, renewal settings and important account notifications in one place.',
+  },
+  {
+    title: 'Account-Based Management',
+    description:
+      'Manage registered domains and connected products through the secure reseller-platform account area.',
+  },
+];
+
+const relatedServices = [
+  {
+    title: 'Domain Transfer',
+    description: 'Move an existing domain into the reseller platform.',
+    href: '/products/domain-transfer',
+  },
+  {
+    title: 'Bulk Domain Registration',
+    description: 'Search for and register multiple domains in one workflow.',
+    href: '/products/bulk-registration',
+  },
+  {
+    title: 'Microsoft 365',
+    description: 'Add professional email after choosing your domain.',
+    href: '/products/microsoft-365',
+  },
+];
 
 export default function DomainRegistrationPage() {
-  const features = [
-    {
-      title: 'Domain Forwarding and Masking',
-      description:
-        'Direct any domain name you own to your website. Anyone who types that domain name into their browser is taken directly to your website.',
-    },
-    {
-      title: 'Domain Locking',
-      description:
-        'Domain locking prevents accidental or intentional transfers of domain ownership and stops anyone from redirecting your nameservers.',
-    },
-    {
-      title: 'Total DNS Control',
-      description:
-        'Manage your domain nameserver (DNS) records and set your email, FTP, sub-domains and website location all from one control panel.',
-    },
-    {
-      title: 'Change of Registration',
-      description:
-        'Assign your domain name to someone else or change the contacts for your domain online anytime.',
-    },
-    {
-      title: 'Status Alerts',
-      description:
-        "Monitor the status of your domain and get instant alerts if there's been a change.",
-    },
-    {
-      title: 'Auto Renew Protection',
-      description:
-        'No need to watch expiration dates to make sure you renew on time! Auto renew keeps your domains, hosting, website builders, and other products in your name and under your control.',
-    },
-  ];
-
   return (
-    <div className="flex min-h-screen flex-col">
-      <title>Domain Registration - JA Domain Hub</title>
-      <meta
-        name="description"
-        content="Register your domain name with JA Domain Hub. Each domain name comes with everything you need to get online."
-      />
+    <>
+      <Helmet>
+        <title>Domain Registration &amp; Search | JA Domain Hub</title>
+        <meta
+          name="description"
+          content="Search for a domain name through JA Domain Hub and continue directly to availability results on the authorised reseller storefront."
+        />
+        <link rel="canonical" href="https://jadomainhub.jagroupservices.co.uk/products/domain-registration" />
+      </Helmet>
 
-      {/* Hero Section with Search */}
-      <section className="relative overflow-hidden py-24 lg:py-32">
-        <div className="container mx-auto px-4">
-          <div className="mx-auto max-w-5xl">
+      <div className="min-h-screen bg-background text-foreground">
+        <section className="relative overflow-hidden border-b border-white/10 bg-gradient-to-br from-[#06152E] via-[#0A1F44] to-[#173C88] py-14 sm:py-16 lg:py-20">
+          <div className="pointer-events-none absolute inset-0">
+            <div className="absolute -right-24 -top-28 h-80 w-80 rounded-full bg-blue-400/10 blur-3xl" />
+            <div
+              className="absolute inset-0 opacity-[0.05]"
+              style={{
+                backgroundImage: 'radial-gradient(circle, white 1px, transparent 1px)',
+                backgroundSize: '30px 30px',
+              }}
+            />
+          </div>
+
+          <div className="relative mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-8">
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 18 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="text-center"
+              transition={{ duration: 0.5 }}
+              className="mx-auto max-w-5xl text-center"
             >
-              <h1 className="mb-6 text-5xl font-bold tracking-tight lg:text-7xl">
-                Domain Registration
+              <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl bg-white/10 text-blue-200">
+                <Globe2 className="h-6 w-6" />
+              </div>
+              <p className="mt-5 text-sm font-bold uppercase tracking-[0.2em] text-blue-200">Domain search</p>
+              <h1 className="mt-3 text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl">
+                Find the domain you want
               </h1>
+              <p className="mx-auto mt-5 max-w-3xl text-base leading-relaxed text-white/80 sm:text-lg">
+                Enter the exact domain name you are considering. We will take you directly to the matching Turnkey storefront search results so you can review availability, alternatives and current pricing.
+              </p>
 
-              {/* Search Bar */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2, duration: 0.6 }}
-                className="mx-auto max-w-2xl"
-              >
-                <div className="relative">
-                  <div className="flex gap-2 rounded-2xl border-2 bg-background p-2 shadow-lg transition-shadow focus-within:shadow-xl">
-                    <div className="relative flex-1">
-                      <Search className="absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-muted-foreground" />
-                      <Input
-                        type="text"
-                        placeholder="Search for your domain..."
-                        className="h-14 border-0 pl-12 text-lg focus-visible:ring-0"
-                      />
-                    </div>
-                    <Button size="lg" className="h-14 rounded-xl px-8 text-base">
-                      Search
-                      <ArrowRight className="ml-2 h-5 w-5" />
-                    </Button>
-                  </div>
-                </div>
-              </motion.div>
+              <DomainSearch appearance="dark" className="mx-auto mt-8 max-w-4xl text-left" />
             </motion.div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Features Section */}
-      <section className="py-24">
-        <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="mb-16 text-center"
-          >
-            <p className="text-xl text-muted-foreground lg:text-2xl">
-              Each and every domain name comes with all you need to get online.
-            </p>
-          </motion.div>
-
-          <div className="mx-auto max-w-4xl space-y-8">
-            {features.map((feature, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1, duration: 0.5 }}
-              >
-                <Card className="border-2">
-                  <CardContent className="p-8">
-                    <h3 className="mb-3 text-2xl font-semibold">{feature.title}</h3>
-                    <p className="text-muted-foreground">{feature.description}</p>
-                  </CardContent>
-                </Card>
-              </motion.div>
+        <section className="border-b border-border bg-card py-8">
+          <div className="mx-auto grid max-w-[1440px] gap-5 px-4 sm:grid-cols-3 sm:px-6 lg:px-8">
+            {[
+              'Search results open on the JA Domain Hub storefront',
+              'Availability and pricing are confirmed by the provider platform',
+              'Purchases and renewals are managed through your secure account',
+            ].map((item) => (
+              <div key={item} className="flex items-start gap-3">
+                <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
+                <p className="text-sm font-medium leading-relaxed text-foreground">{item}</p>
+              </div>
             ))}
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Disclaimers Section */}
-      <section className="bg-muted/30 py-16">
-        <div className="container mx-auto px-4">
-          <div className="mx-auto max-w-4xl">
-            <h3 className="mb-6 text-2xl font-semibold">Domain Disclaimers</h3>
-            <div className="space-y-3 text-sm text-muted-foreground">
-              <p>
-                Special savings apply only to first year of registration. You must purchase entire
-                section to qualify for special savings.
+        <section className="py-14 sm:py-16 lg:py-20">
+          <div className="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-8">
+            <div className="mb-10 max-w-3xl">
+              <p className="text-sm font-bold uppercase tracking-[0.18em] text-primary">Included capabilities</p>
+              <h2 className="mt-3 text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+                Manage the domain after registration
+              </h2>
+              <p className="mt-4 leading-relaxed text-muted-foreground sm:text-lg">
+                The precise features and any charges depend on the selected domain, extension and provider offering shown during checkout.
               </p>
-              <p>
-                The final price may differ because of additional sales, fees, and promotions.
-              </p>
-              <p>
-                Products will automatically renew until cancelled. You may turn off the auto-renewal
-                feature by visiting your account.
-              </p>
-              <p>Change of registration may require a fee for certain domains.</p>
-              <p>Pricing excludes tax. ICANN information available at Wild West Domains, LLC.</p>
+            </div>
+
+            <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+              {features.map((feature, index) => (
+                <motion.div
+                  key={feature.title}
+                  initial={{ opacity: 0, y: 16 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: index * 0.04 }}
+                >
+                  <Card className="h-full">
+                    <CardContent className="p-6">
+                      <h3 className="text-lg font-bold text-card-foreground">{feature.title}</h3>
+                      <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{feature.description}</p>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              ))}
             </div>
           </div>
-        </div>
-      </section>
-    </div>
+        </section>
+
+        <section className="border-y border-border bg-secondary py-14 sm:py-16">
+          <div className="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-8">
+            <div className="mb-8 max-w-3xl">
+              <p className="text-sm font-bold uppercase tracking-[0.18em] text-primary">Related services</p>
+              <h2 className="mt-3 text-3xl font-bold tracking-tight text-foreground">Build around your domain</h2>
+            </div>
+
+            <div className="grid gap-5 md:grid-cols-3">
+              {relatedServices.map((service) => (
+                <a
+                  key={service.title}
+                  href={service.href}
+                  className="group rounded-2xl border border-border bg-card p-6 shadow-sm transition-all hover:-translate-y-1 hover:border-primary/30 hover:shadow-lg"
+                >
+                  <h3 className="text-lg font-bold text-card-foreground">{service.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{service.description}</p>
+                  <span className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-primary">
+                    View service
+                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  </span>
+                </a>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="py-10">
+          <div className="mx-auto max-w-[1440px] px-4 text-sm leading-relaxed text-muted-foreground sm:px-6 lg:px-8">
+            <p>
+              Domain availability and prices can change without notice. Registration is not complete until the provider platform confirms the order and payment. Products may renew automatically unless auto-renewal is disabled or the product is cancelled in accordance with the applicable terms. Taxes, registry charges and ICANN-related fees may apply where shown.
+            </p>
+          </div>
+        </section>
+      </div>
+    </>
   );
 }
