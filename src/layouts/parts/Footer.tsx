@@ -1,4 +1,4 @@
-import { Building2, Cookie, ExternalLink, Globe2, Mail, Phone, ShieldCheck } from 'lucide-react';
+import { Building2, Cookie, ExternalLink, Mail, Phone, ShieldCheck } from 'lucide-react';
 
 const linkClass = 'text-sm text-muted-foreground transition-colors hover:text-foreground';
 
@@ -10,13 +10,9 @@ export default function Footer() {
       <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-[1.25fr_repeat(3,minmax(0,1fr))]">
           <div>
-            <a href="/" className="mb-5 inline-flex items-center gap-3" aria-label="JA Domain Hub — home">
-              <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary text-primary-foreground shadow-md shadow-primary/20">
-                <Globe2 className="h-6 w-6" />
-              </span>
-              <span>
-                <span className="block font-heading text-lg font-extrabold tracking-tight text-foreground">JA DOMAIN HUB</span>
-                <span className="block text-[11px] font-semibold uppercase tracking-[0.14em] text-muted-foreground">A JA Group Services brand</span>
+            <a href="/" className="mb-5 inline-flex items-center" aria-label="JA Domain Hub — home">
+              <span className="font-heading text-xl font-extrabold tracking-tight text-foreground sm:text-2xl">
+                JA DOMAIN HUB
               </span>
             </a>
 
