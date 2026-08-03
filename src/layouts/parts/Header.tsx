@@ -14,31 +14,31 @@ import {
 
 const menuItems = {
   domains: [
-    { name: 'Domain Registration', description: 'Find and register your domain', href: 'https://shop.jadomainhub.jagroupservices.co.uk/products/domain-registration' },
-    { name: 'Domain Transfer', description: 'Move an existing domain', href: 'https://shop.jadomainhub.jagroupservices.co.uk/products/domain-transfer' },
+    { name: 'Domain Registration', description: 'Find and register your domain', href: 'https://store.jadomainhub.jagroupservices.co.uk/products/domain-registration' },
+    { name: 'Domain Transfer', description: 'Move an existing domain', href: 'https://store.jadomainhub.jagroupservices.co.uk/products/domain-transfer' },
     { name: 'Bulk Registration', description: 'Search for multiple domains', href: 'https://www.secureserver.net/domains/bulk-domain-search?plid=599857' },
     { name: 'Bulk Transfer', description: 'Transfer domains in bulk', href: 'https://www.secureserver.net/domains/bulk-domain-transfer.aspx?plid=599857' },
   ],
   websites: [
-    { name: 'Website Builder', description: 'Build using guided tools', href: 'https://shop.jadomainhub.jagroupservices.co.uk/products/website-builder' },
-    { name: 'WordPress', description: 'WordPress products and hosting', href: 'https://shop.jadomainhub.jagroupservices.co.uk/products/wordpress' },
+    { name: 'Website Builder', description: 'Build using guided tools', href: 'https://store.jadomainhub.jagroupservices.co.uk/products/website-builder' },
+    { name: 'WordPress', description: 'WordPress products and hosting', href: 'https://store.jadomainhub.jagroupservices.co.uk/products/wordpress' },
   ],
   hosting: [
-    { name: 'cPanel Hosting', description: 'Flexible shared web hosting', href: 'https://shop.jadomainhub.jagroupservices.co.uk/products/cpanel' },
-    { name: 'WordPress Hosting', description: 'Hosting made for WordPress', href: 'https://shop.jadomainhub.jagroupservices.co.uk/products/wordpress' },
-    { name: 'Web Hosting Plus', description: 'More resources and control', href: 'https://shop.jadomainhub.jagroupservices.co.uk/products/business' },
-    { name: 'VPS Hosting', description: 'Virtual private servers', href: 'https://shop.jadomainhub.jagroupservices.co.uk/products/vps' },
+    { name: 'cPanel Hosting', description: 'Flexible shared web hosting', href: 'https://store.jadomainhub.jagroupservices.co.uk/products/cpanel' },
+    { name: 'WordPress Hosting', description: 'Hosting made for WordPress', href: 'https://store.jadomainhub.jagroupservices.co.uk/products/wordpress' },
+    { name: 'Web Hosting Plus', description: 'More resources and control', href: 'https://store.jadomainhub.jagroupservices.co.uk/products/business' },
+    { name: 'VPS Hosting', description: 'Virtual private servers', href: 'https://store.jadomainhub.jagroupservices.co.uk/products/vps' },
   ],
   security: [
-    { name: 'Website Security', description: 'Protection and monitoring', href: 'https://shop.jadomainhub.jagroupservices.co.uk/products/website-security' },
-    { name: 'SSL Certificates', description: 'Secure your website traffic', href: 'https://shop.jadomainhub.jagroupservices.co.uk/products/ssl' },
-    { name: 'Managed SSL', description: 'SSL installation and management', href: 'https://shop.jadomainhub.jagroupservices.co.uk/products/ssl-managed' },
-    { name: 'Website Backup', description: 'Backup and restore options', href: 'https://shop.jadomainhub.jagroupservices.co.uk/products/website-backup' },
+    { name: 'Website Security', description: 'Protection and monitoring', href: 'https://store.jadomainhub.jagroupservices.co.uk/products/website-security' },
+    { name: 'SSL Certificates', description: 'Secure your website traffic', href: 'https://store.jadomainhub.jagroupservices.co.uk/products/ssl' },
+    { name: 'Managed SSL', description: 'SSL installation and management', href: 'https://store.jadomainhub.jagroupservices.co.uk/products/ssl-managed' },
+    { name: 'Website Backup', description: 'Backup and restore options', href: 'https://store.jadomainhub.jagroupservices.co.uk/products/website-backup' },
   ],
   more: [
-    { name: 'Email Marketing', description: 'Reach and retain customers', href: 'https://shop.jadomainhub.jagroupservices.co.uk/products/email-marketing' },
-    { name: 'SEO', description: 'Improve search visibility', href: 'https://shop.jadomainhub.jagroupservices.co.uk/products/seo' },
-    { name: 'Microsoft 365', description: 'Professional business email', href: 'https://shop.jadomainhub.jagroupservices.co.uk/products/microsoft-365' },
+    { name: 'Email Marketing', description: 'Reach and retain customers', href: 'https://store.jadomainhub.jagroupservices.co.uk/products/email-marketing' },
+    { name: 'SEO', description: 'Improve search visibility', href: 'https://store.jadomainhub.jagroupservices.co.uk/products/seo' },
+    { name: 'Microsoft 365', description: 'Professional business email', href: 'https://store.jadomainhub.jagroupservices.co.uk/products/microsoft-365' },
     { name: 'Managed Websites', description: 'A tailored service from JA Group Services', href: '/managed-websites' },
   ],
 };
