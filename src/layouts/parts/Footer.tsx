@@ -1,4 +1,4 @@
-import { Building2, Cookie, ExternalLink, Mail, Phone, ShieldCheck } from 'lucide-react';
+import { Building2, Cookie, ExternalLink, Headphones, Mail, Phone, ShieldCheck } from 'lucide-react';
 
 const linkClass = 'text-sm text-muted-foreground transition-colors hover:text-foreground';
 const storefrontTermsUrl =
@@ -19,10 +19,17 @@ export default function Footer() {
             </a>
 
             <p className="max-w-sm text-sm leading-relaxed text-muted-foreground">
-              Browse domain registration, hosting, email, security and website services before continuing to the authorised reseller storefront.
+              Browse domain registration, hosting, email, security and website services with first-line customer support provided by JA Group Services Ltd.
             </p>
 
-            <div className="mt-5 flex items-start gap-2 rounded-xl border border-border bg-muted/40 p-3 text-xs leading-relaxed text-muted-foreground">
+            <div className="mt-5 flex items-start gap-2 rounded-xl border border-primary/20 bg-primary/5 p-3 text-xs leading-relaxed text-muted-foreground">
+              <Headphones className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+              <span>
+                JA Group Services Ltd is your first point of contact for JA Domain Hub support. We investigate and assist first, then coordinate provider escalation where required.
+              </span>
+            </div>
+
+            <div className="mt-3 flex items-start gap-2 rounded-xl border border-border bg-muted/40 p-3 text-xs leading-relaxed text-muted-foreground">
               <ShieldCheck className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
               <span>
                 For storefront services, JA Domain Hub acts as an agent of Wild West Domains, LLC. JA Domain Hub is not itself an ICANN-accredited registrar.
@@ -46,14 +53,15 @@ export default function Footer() {
           <div>
             <h3 className="mb-4 text-xs font-semibold uppercase tracking-widest text-muted-foreground">Support &amp; Account</h3>
             <ul className="space-y-2.5">
+              <li><a href="/contact-us" className="text-sm font-semibold text-primary transition-colors hover:text-primary/80">Contact JA Support</a></li>
               <li><a href="https://store.jadomainhub.jagroupservices.co.uk" target="_blank" rel="noopener noreferrer" className={`${linkClass} inline-flex items-center gap-1`}>Open Storefront <ExternalLink className="h-3 w-3" /></a></li>
-              <li><a href="https://www.secureserver.net/help?pl_id=599857&prog_id=599857" target="_blank" rel="noopener noreferrer" className={`${linkClass} inline-flex items-center gap-1`}>Help Centre <ExternalLink className="h-3 w-3" /></a></li>
               <li><a href="https://account.secureserver.net/products?plid=599857" target="_blank" rel="noopener noreferrer" className={`${linkClass} inline-flex items-center gap-1`}>My Account <ExternalLink className="h-3 w-3" /></a></li>
+              <li><a href="https://www.secureserver.net/help?pl_id=599857&prog_id=599857" target="_blank" rel="noopener noreferrer" className={`${linkClass} inline-flex items-center gap-1`}>Provider Help Centre <ExternalLink className="h-3 w-3" /></a></li>
               <li><a href="https://www.secureserver.net/whois?plid=599857" target="_blank" rel="noopener noreferrer" className={`${linkClass} inline-flex items-center gap-1`}>WHOIS Lookup <ExternalLink className="h-3 w-3" /></a></li>
-              <li><a href="/contact-us" className={linkClass}>Contact Us</a></li>
             </ul>
 
             <div className="mt-7 space-y-2.5 border-t border-border pt-5">
+              <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">First-line customer support</p>
               <a href="tel:02038342790" className="flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground">
                 <Phone className="h-4 w-4 text-primary" />
                 020 3834 2790
@@ -103,7 +111,7 @@ export default function Footer() {
               <p className="text-xs leading-relaxed">Registered Address: 167–169 Great Portland Street, 5th Floor, London, W1W 5PF</p>
             </div>
             <p className="max-w-xl text-xs leading-relaxed lg:text-right">
-              Use of the storefront and purchases made through it are governed by the Wild West Domains/GoDaddy Universal Terms of Service and applicable product agreements. Managed Websites is a separate service supplied directly by JA Group Services Ltd under a written quotation or service agreement.
+              JA Group Services Ltd provides first-line customer support for JA Domain Hub. Use of the storefront and purchases made through it remain governed by the Wild West Domains/GoDaddy Universal Terms of Service and applicable product agreements. Managed Websites is supplied directly by JA Group Services Ltd under a written quotation or service agreement.
             </p>
           </div>
         </div>

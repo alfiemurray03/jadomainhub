@@ -1,6 +1,7 @@
 import { type ReactElement } from 'react';
 
 import DomainSupportTroubleshootingCentre from '@/components/DomainSupportTroubleshootingCentre';
+import FirstLineSupportBanner from '@/components/FirstLineSupportBanner';
 import ProductPageBar from '@/components/ProductPageBar';
 import Footer from '@/layouts/parts/Footer';
 import Header from '@/layouts/parts/Header';
@@ -19,6 +20,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
       <Header />
       <main className="flex-1 pt-16 md:pt-[68px]">
         <ProductPageBar />
+        <FirstLineSupportBanner />
         {children}
       </main>
       <Footer />
