@@ -1,0 +1,93 @@
+/* Site-wide mobile behaviour for every routed page. */
+
+@media (max-width: 639px) {
+  .site-page-content h1 {
+    font-size: clamp(2rem, 10vw, 2.75rem) !important;
+    line-height: 1.08 !important;
+    letter-spacing: -0.035em !important;
+  }
+
+  .site-page-content h2 {
+    font-size: clamp(1.65rem, 7.5vw, 2.15rem) !important;
+    line-height: 1.14 !important;
+  }
+
+  .site-page-content h3 {
+    font-size: clamp(1.15rem, 5.5vw, 1.5rem) !important;
+    line-height: 1.22 !important;
+  }
+
+  .site-page-content section {
+    padding-top: 3.5rem !important;
+    padding-bottom: 3.5rem !important;
+  }
+
+  .site-page-content .p-8,
+  .site-page-content .p-9,
+  .site-page-content .p-10,
+  .site-page-content .p-12 {
+    padding: 1.25rem !important;
+  }
+
+  .site-page-content .px-8,
+  .site-page-content .px-9,
+  .site-page-content .px-10,
+  .site-page-content .px-12 {
+    padding-left: 1.25rem !important;
+    padding-right: 1.25rem !important;
+  }
+
+  .site-page-content .mb-14,
+  .site-page-content .mb-16 {
+    margin-bottom: 2rem !important;
+  }
+
+  .site-page-content .gap-8,
+  .site-page-content .gap-10,
+  .site-page-content .gap-12,
+  .site-page-content .gap-14 {
+    gap: 1.5rem !important;
+  }
+
+  .site-page-content button,
+  .site-page-content a {
+    max-width: 100%;
+  }
+
+  .site-page-content button,
+  .site-page-content a[class*="rounded"] {
+    white-space: normal;
+    text-align: center;
+  }
+
+  .site-page-content [class*="grid-cols"] > *,
+  .site-page-content [class*="flex"] > * {
+    min-width: 0;
+  }
+
+  .site-page-content pre,
+  .site-page-content code {
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+  }
+
+  .site-page-content table {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+@media (max-width: 767px) {
+  section[role="dialog"] {
+    inset: 0 !important;
+    z-index: 81 !important;
+    width: 100vw !important;
+    height: 100dvh !important;
+    max-width: none !important;
+    max-height: none !important;
+    border-radius: 0 !important;
+  }
+}
