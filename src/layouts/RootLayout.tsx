@@ -7,9 +7,6 @@ import Footer from '@/layouts/parts/Footer';
 import Header from '@/layouts/parts/Header';
 import Website from '@/layouts/Website';
 
-/**
- * Root layout component that wraps all pages with consistent header and footer.
- */
 interface RootLayoutProps {
   children: ReactElement;
 }
@@ -21,7 +18,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
       <main className="flex-1 pt-16 md:pt-[68px]">
         <ProductPageBar />
         <FirstLineSupportBanner />
-        {children}
+        <div className="site-page-content min-w-0 overflow-x-clip">{children}</div>
       </main>
       <Footer />
       <DomainSupportTroubleshootingCentre />
