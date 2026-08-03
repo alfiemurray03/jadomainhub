@@ -16,7 +16,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <Website>
       <Header />
-      <main className="flex-1 pt-16 md:pt-[76px]">
+      <main className="flex-1 pt-16 md:pt-[68px]">
         {children}
       </main>
       <Footer />
