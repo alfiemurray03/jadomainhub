@@ -2,11 +2,8 @@ import { RouteObject } from 'react-router-dom';
 import { lazy } from 'react';
 import HomePage from './pages/index';
 
-// Lazy load components for code splitting (except HomePage for instant loading)
 const isDevelopment = import.meta.env.MODE === 'development';
 const NotFoundPage = isDevelopment ? lazy(() => import('../export-plugins/PageNotFound')) : lazy(() => import('./pages/_404'));
-
-// Lazy load all other pages
 const AboutUsPage = lazy(() => import('./pages/about-us'));
 const ContactUsPage = lazy(() => import('./pages/contact-us'));
 const ServicesPage = lazy(() => import('./pages/services'));
@@ -30,111 +27,37 @@ const TermsOfServicePage = lazy(() => import('./pages/terms-of-service'));
 const PrivacyPolicyPage = lazy(() => import('./pages/privacy-policy'));
 const CookiesPolicyPage = lazy(() => import('./pages/cookies-policy'));
 const ManagedWebsitesPage = lazy(() => import('./pages/managed-websites'));
+const JAGroupServicesIDPage = lazy(() => import('./pages/ja-group-services-id'));
 
 export const routes: RouteObject[] = [
-  {
-    path: '/',
-    element: <HomePage />,
-  },
-  {
-    path: '/about-us',
-    element: <AboutUsPage />,
-  },
-  {
-    path: '/contact-us',
-    element: <ContactUsPage />,
-  },
-  {
-    path: '/services',
-    element: <ServicesPage />,
-  },
-  {
-    path: '/products/domain-registration',
-    element: <DomainRegistrationPage />,
-  },
-  {
-    path: '/products/domain-transfer',
-    element: <DomainTransferPage />,
-  },
-  {
-    path: '/products/bulk-registration',
-    element: <BulkRegistrationPage />,
-  },
-  {
-    path: '/products/bulk-transfer',
-    element: <BulkTransferPage />,
-  },
-  {
-    path: '/products/website-builder',
-    element: <WebsiteBuilderPage />,
-  },
-  {
-    path: '/products/cpanel',
-    element: <CpanelPage />,
-  },
-  {
-    path: '/products/wordpress',
-    element: <WordPressPage />,
-  },
-  {
-    path: '/products/web-hosting-plus',
-    element: <WebHostingPlusPage />,
-  },
-  {
-    path: '/products/vps',
-    element: <VPSPage />,
-  },
-  {
-    path: '/products/website-security',
-    element: <WebsiteSecurityPage />,
-  },
-  {
-    path: '/products/ssl',
-    element: <SSLPage />,
-  },
-  {
-    path: '/products/ssl-managed',
-    element: <SSLManagedPage />,
-  },
-  {
-    path: '/products/website-backup',
-    element: <WebsiteBackupPage />,
-  },
-  {
-    path: '/products/email-marketing',
-    element: <EmailMarketingPage />,
-  },
-  {
-    path: '/products/seo',
-    element: <SEOPage />,
-  },
-  {
-    path: '/products/microsoft-365',
-    element: <Microsoft365Page />,
-  },
-  {
-    path: '/terms-of-service',
-    element: <TermsOfServicePage />,
-  },
-  {
-    path: '/privacy-policy',
-    element: <PrivacyPolicyPage />,
-  },
-  {
-    path: '/cookies-policy',
-    element: <CookiesPolicyPage />,
-  },
-  {
-    path: '/managed-websites',
-    element: <ManagedWebsitesPage />,
-  },
-  {
-    path: '*',
-    element: <NotFoundPage />,
-  },
+  { path: '/', element: <HomePage /> },
+  { path: '/about-us', element: <AboutUsPage /> },
+  { path: '/contact-us', element: <ContactUsPage /> },
+  { path: '/services', element: <ServicesPage /> },
+  { path: '/products/domain-registration', element: <DomainRegistrationPage /> },
+  { path: '/products/domain-transfer', element: <DomainTransferPage /> },
+  { path: '/products/bulk-registration', element: <BulkRegistrationPage /> },
+  { path: '/products/bulk-transfer', element: <BulkTransferPage /> },
+  { path: '/products/website-builder', element: <WebsiteBuilderPage /> },
+  { path: '/products/cpanel', element: <CpanelPage /> },
+  { path: '/products/wordpress', element: <WordPressPage /> },
+  { path: '/products/web-hosting-plus', element: <WebHostingPlusPage /> },
+  { path: '/products/vps', element: <VPSPage /> },
+  { path: '/products/website-security', element: <WebsiteSecurityPage /> },
+  { path: '/products/ssl', element: <SSLPage /> },
+  { path: '/products/ssl-managed', element: <SSLManagedPage /> },
+  { path: '/products/website-backup', element: <WebsiteBackupPage /> },
+  { path: '/products/email-marketing', element: <EmailMarketingPage /> },
+  { path: '/products/seo', element: <SEOPage /> },
+  { path: '/products/microsoft-365', element: <Microsoft365Page /> },
+  { path: '/terms-of-service', element: <TermsOfServicePage /> },
+  { path: '/privacy-policy', element: <PrivacyPolicyPage /> },
+  { path: '/cookies-policy', element: <CookiesPolicyPage /> },
+  { path: '/managed-websites', element: <ManagedWebsitesPage /> },
+  { path: '/ja-group-services-id', element: <JAGroupServicesIDPage /> },
+  { path: '*', element: <NotFoundPage /> },
 ];
 
-// Types for type-safe navigation
 export type Path = 
   | '/'
   | '/about-us'
@@ -159,6 +82,7 @@ export type Path =
   | '/terms-of-service'
   | '/privacy-policy'
   | '/cookies-policy'
-  | '/managed-websites';
+  | '/managed-websites'
+  | '/ja-group-services-id';
 
 export type Params = Record<string, string | undefined>;
