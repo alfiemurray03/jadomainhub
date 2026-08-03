@@ -118,17 +118,28 @@
     @apply border-border;
   }
 
+  html,
+  body,
+  #root {
+    width: 100%;
+    max-width: 100%;
+    min-height: 100%;
+  }
+
   html {
     scroll-behavior: smooth;
     font-size: 16px;
+    overflow-x: clip;
     -webkit-text-size-adjust: 100%;
     text-size-adjust: 100%;
   }
 
   body {
     @apply bg-background text-foreground;
+    min-width: 320px;
     min-height: 100vh;
     margin: 0;
+    overflow-x: clip;
     font-family: var(--font-sans);
     font-size: 1rem;
     line-height: 1.65;
@@ -139,6 +150,42 @@
     transition: background-color 180ms ease, color 180ms ease;
   }
 
+  main,
+  section,
+  article,
+  aside,
+  nav,
+  header,
+  footer,
+  div {
+    min-width: 0;
+  }
+
+  img,
+  picture,
+  video,
+  canvas,
+  iframe {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+
+  input,
+  select,
+  textarea,
+  button,
+  a {
+    min-width: 0;
+  }
+
+  input,
+  select,
+  textarea {
+    max-width: 100%;
+    font-size: 16px;
+  }
+
   h1,
   h2,
   h3,
@@ -146,14 +193,25 @@
   h5,
   h6 {
     color: hsl(var(--foreground));
+    overflow-wrap: anywhere;
     font-family: var(--font-heading) !important;
     font-weight: 700;
     line-height: 1.2;
     letter-spacing: -0.02em;
   }
 
+  p,
+  li,
+  a {
+    overflow-wrap: anywhere;
+  }
+
   p {
     line-height: 1.7;
+  }
+
+  table {
+    max-width: 100%;
   }
 
   :focus-visible {
@@ -174,7 +232,7 @@
 
 @layer components {
   .ja-section {
-    @apply py-20 lg:py-24;
+    @apply py-14 sm:py-16 lg:py-24;
   }
 
   .ja-container {
@@ -182,7 +240,7 @@
   }
 
   .ja-eyebrow {
-    @apply mb-3 text-sm font-bold uppercase tracking-[0.2em] text-primary;
+    @apply mb-3 text-xs font-bold uppercase tracking-[0.16em] text-primary sm:text-sm sm:tracking-[0.2em];
   }
 
   .ja-panel {
@@ -269,6 +327,41 @@
 .dark .text-slate-600,
 .dark .text-slate-700 {
   color: hsl(var(--muted-foreground)) !important;
+}
+
+@media (max-width: 639px) {
+  h1 {
+    line-height: 1.08;
+  }
+
+  h2 {
+    line-height: 1.14;
+  }
+
+  .container {
+    width: 100%;
+    max-width: 100%;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .prose,
+  .prose > * {
+    max-width: 100%;
+  }
+
+  .prose table,
+  [data-mobile-scroll] {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  section[id] {
+    scroll-margin-top: 5.5rem;
+  }
 }
 
 @media (min-width: 1280px) {
