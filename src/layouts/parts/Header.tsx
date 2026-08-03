@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
 import { ChevronDown, Menu, Phone, X } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+
 import CustomerWebsitesMenu, { MobileCustomerWebsitesMenu } from '@/components/CustomerWebsitesMenu';
 import ThemeToggle from '@/components/ThemeToggle';
+import { Button } from '@/components/ui/button';
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -11,45 +12,15 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from '@/components/ui/navigation-menu';
+import { productsForCategory, type ProductCategoryId } from '@/lib/product-catalogue';
 
-const menuItems = {
-  domains: [
-    { name: 'Domain Registration', description: 'Find and register your domain', href: 'https://store.jadomainhub.jagroupservices.co.uk/products/domain-registration' },
-    { name: 'Domain Transfer', description: 'Move an existing domain', href: 'https://store.jadomainhub.jagroupservices.co.uk/products/domain-transfer' },
-    { name: 'Bulk Registration', description: 'Search for multiple domains', href: 'https://www.secureserver.net/domains/bulk-domain-search?plid=599857' },
-    { name: 'Bulk Transfer', description: 'Transfer domains in bulk', href: 'https://www.secureserver.net/domains/bulk-domain-transfer.aspx?plid=599857' },
-  ],
-  websites: [
-    { name: 'Website Builder', description: 'Build using guided tools', href: 'https://store.jadomainhub.jagroupservices.co.uk/products/website-builder' },
-    { name: 'WordPress', description: 'WordPress products and hosting', href: 'https://store.jadomainhub.jagroupservices.co.uk/products/wordpress' },
-  ],
-  hosting: [
-    { name: 'cPanel Hosting', description: 'Flexible shared web hosting', href: 'https://store.jadomainhub.jagroupservices.co.uk/products/cpanel' },
-    { name: 'WordPress Hosting', description: 'Hosting made for WordPress', href: 'https://store.jadomainhub.jagroupservices.co.uk/products/wordpress' },
-    { name: 'Web Hosting Plus', description: 'More resources and control', href: 'https://store.jadomainhub.jagroupservices.co.uk/products/business' },
-    { name: 'VPS Hosting', description: 'Virtual private servers', href: 'https://store.jadomainhub.jagroupservices.co.uk/products/vps' },
-  ],
-  security: [
-    { name: 'Website Security', description: 'Protection and monitoring', href: 'https://store.jadomainhub.jagroupservices.co.uk/products/website-security' },
-    { name: 'SSL Certificates', description: 'Secure your website traffic', href: 'https://store.jadomainhub.jagroupservices.co.uk/products/ssl' },
-    { name: 'Managed SSL', description: 'SSL installation and management', href: 'https://store.jadomainhub.jagroupservices.co.uk/products/ssl-managed' },
-    { name: 'Website Backup', description: 'Backup and restore options', href: 'https://store.jadomainhub.jagroupservices.co.uk/products/website-backup' },
-  ],
-  more: [
-    { name: 'Email Marketing', description: 'Reach and retain customers', href: 'https://store.jadomainhub.jagroupservices.co.uk/products/email-marketing' },
-    { name: 'SEO', description: 'Improve search visibility', href: 'https://store.jadomainhub.jagroupservices.co.uk/products/seo' },
-    { name: 'Microsoft 365', description: 'Professional business email', href: 'https://store.jadomainhub.jagroupservices.co.uk/products/microsoft-365' },
-    { name: 'Managed Websites', description: 'A tailored service from JA Group Services', href: '/managed-websites' },
-  ],
-};
-
-const labels: Record<keyof typeof menuItems, string> = {
-  domains: 'Domains',
-  websites: 'Websites',
-  hosting: 'Hosting',
-  security: 'Security',
-  more: 'More Services',
-};
+const menuCategories: Array<{ id: ProductCategoryId; label: string }> = [
+  { id: 'domains', label: 'Domains' },
+  { id: 'websites', label: 'Websites' },
+  { id: 'hosting', label: 'Hosting' },
+  { id: 'security', label: 'Security' },
+  { id: 'marketing-email', label: 'More Services' },
+];
 
 const triggerClass =
   'rounded-xl bg-transparent px-2.5 py-2 text-[13px] font-medium text-muted-foreground transition-all duration-150 hover:bg-muted hover:text-foreground data-[state=open]:bg-muted data-[state=open]:text-foreground';
@@ -88,33 +59,45 @@ export default function Header() {
                   <a href="/" className={triggerClass}>Home</a>
                 </NavigationMenuLink>
               </NavigationMenuItem>
+              <NavigationMenuItem>
+                <NavigationMenuLink asChild>
+                  <a href="/services" className={triggerClass}>All Services</a>
+                </NavigationMenuLink>
+              </NavigationMenuItem>
 
-              {(Object.keys(menuItems) as Array<keyof typeof menuItems>).map((category) => (
-                <NavigationMenuItem key={category}>
-                  <NavigationMenuTrigger className={triggerClass}>{labels[category]}</NavigationMenuTrigger>
-                  <NavigationMenuContent>
-                    <ul className="grid w-[320px] gap-1.5 rounded-2xl border-border bg-popover p-2 text-popover-foreground shadow-xl">
-                      {menuItems[category].map((item) => {
-                        const isExternal = item.href.startsWith('http');
-                        return (
-                          <li key={item.name}>
+              {menuCategories.map((category) => {
+                const categoryProducts = productsForCategory(category.id);
+
+                return (
+                  <NavigationMenuItem key={category.id}>
+                    <NavigationMenuTrigger className={triggerClass}>{category.label}</NavigationMenuTrigger>
+                    <NavigationMenuContent>
+                      <ul className="grid w-[340px] gap-1.5 rounded-2xl border-border bg-popover p-2 text-popover-foreground shadow-xl">
+                        {categoryProducts.map((product) => (
+                          <li key={product.id}>
                             <NavigationMenuLink asChild>
                               <a
-                                href={item.href}
-                                {...(isExternal ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+                                href={product.localPath}
                                 className="block rounded-xl p-3 transition-colors hover:bg-muted focus:bg-muted"
                               >
-                                <span className="block text-sm font-semibold text-foreground">{item.name}</span>
-                                <span className="mt-0.5 block text-xs leading-relaxed text-muted-foreground">{item.description}</span>
+                                <span className="block text-sm font-semibold text-foreground">{product.shortTitle}</span>
+                                <span className="mt-0.5 block text-xs leading-relaxed text-muted-foreground">{product.description}</span>
                               </a>
                             </NavigationMenuLink>
                           </li>
-                        );
-                      })}
-                    </ul>
-                  </NavigationMenuContent>
-                </NavigationMenuItem>
-              ))}
+                        ))}
+                        <li className="border-t border-border pt-1.5">
+                          <NavigationMenuLink asChild>
+                            <a href={`/services#${category.id}`} className="block rounded-xl p-3 text-sm font-semibold text-primary transition-colors hover:bg-muted focus:bg-muted">
+                              View all {category.label.toLowerCase()} services
+                            </a>
+                          </NavigationMenuLink>
+                        </li>
+                      </ul>
+                    </NavigationMenuContent>
+                  </NavigationMenuItem>
+                );
+              })}
             </NavigationMenuList>
           </NavigationMenu>
 
@@ -158,37 +141,38 @@ export default function Header() {
             </a>
 
             <a href="/" onClick={closeMobileMenu} className="flex min-h-12 items-center rounded-xl px-3 py-3 text-sm font-medium text-foreground hover:bg-muted">Home</a>
+            <a href="/services" onClick={closeMobileMenu} className="flex min-h-12 items-center rounded-xl px-3 py-3 text-sm font-semibold text-primary hover:bg-muted">All Services &amp; Products</a>
 
-            {(Object.keys(menuItems) as Array<keyof typeof menuItems>).map((category) => (
-              <div key={category} className="rounded-2xl border border-border bg-muted/30 p-2">
-                <button
-                  type="button"
-                  onClick={() => setMobileDropdownOpen(mobileDropdownOpen === category ? null : category)}
-                  className="flex min-h-11 w-full items-center justify-between rounded-xl px-3 py-2 text-left text-sm font-semibold text-foreground hover:bg-muted"
-                >
-                  {labels[category]}
-                  <ChevronDown className={`h-4 w-4 transition-transform ${mobileDropdownOpen === category ? 'rotate-180' : ''}`} />
-                </button>
-                {mobileDropdownOpen === category && (
-                  <div className="space-y-1 pt-1">
-                    {menuItems[category].map((item) => {
-                      const isExternal = item.href.startsWith('http');
-                      return (
+            {menuCategories.map((category) => {
+              const categoryProducts = productsForCategory(category.id);
+
+              return (
+                <div key={category.id} className="rounded-2xl border border-border bg-muted/30 p-2">
+                  <button
+                    type="button"
+                    onClick={() => setMobileDropdownOpen(mobileDropdownOpen === category.id ? null : category.id)}
+                    className="flex min-h-11 w-full items-center justify-between rounded-xl px-3 py-2 text-left text-sm font-semibold text-foreground hover:bg-muted"
+                  >
+                    {category.label}
+                    <ChevronDown className={`h-4 w-4 transition-transform ${mobileDropdownOpen === category.id ? 'rotate-180' : ''}`} />
+                  </button>
+                  {mobileDropdownOpen === category.id && (
+                    <div className="space-y-1 pt-1">
+                      {categoryProducts.map((product) => (
                         <a
-                          key={item.name}
-                          href={item.href}
-                          {...(isExternal ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+                          key={product.id}
+                          href={product.localPath}
                           onClick={closeMobileMenu}
                           className="block rounded-xl px-3 py-2.5 text-sm text-muted-foreground hover:bg-muted hover:text-foreground"
                         >
-                          {item.name}
+                          {product.shortTitle}
                         </a>
-                      );
-                    })}
-                  </div>
-                )}
-              </div>
-            ))}
+                      ))}
+                    </div>
+                  )}
+                </div>
+              );
+            })}
 
             <a href="/about-us" onClick={closeMobileMenu} className="flex min-h-12 items-center rounded-xl px-3 py-3 text-sm font-medium text-foreground hover:bg-muted">About Us</a>
             <a href="/contact-us" onClick={closeMobileMenu} className="flex min-h-12 items-center rounded-xl px-3 py-3 text-sm font-medium text-foreground hover:bg-muted">Contact Us</a>
