@@ -10,7 +10,6 @@ import {
   Code2,
   CreditCard,
   FileSearch,
-  Gauge,
   Globe2,
   Headphones,
   LayoutTemplate,
