@@ -29,7 +29,6 @@ declare global {
   }
 }
 
-// Inline C2 tracking - loads script and tracks clicks/pageviews
 function initC2Tracking(): void {
   if (typeof window === 'undefined' || window.__SCC_INIT__) return;
   window.__SCC_INIT__ = true;
@@ -55,12 +54,9 @@ function initC2Tracking(): void {
     return w < 768 ? 'mobile' : w < 1024 ? 'tablet' : 'desktop';
   };
 
-  // Initial events
   track('airo.website.session', 'session', 'start', { page_path: location.pathname, referrer: document.referrer });
   track('airo.website.pageview', 'pageview', document.title, { page_path: location.pathname, referrer: document.referrer });
 
-  // Click tracking
-  // Capture phase (true) ensures we track clicks even if event.stopPropagation() is called
   document.addEventListener('click', (e) => {
     const el = (e.target as HTMLElement)?.closest('a, button, [role="button"]') as HTMLElement;
     if (!el) return;
@@ -91,7 +87,6 @@ function initC2Tracking(): void {
     });
   }, true);
 
-  // Route tracking
   let lastUrl = location.href;
   const trackPage = () => {
     if (location.href !== lastUrl) {
@@ -104,7 +99,6 @@ function initC2Tracking(): void {
   history.pushState = (...args) => { push.apply(history, args); setTimeout(trackPage, 0); };
   history.replaceState = (...args) => { replace.apply(history, args); setTimeout(trackPage, 0); };
 
-  // Load SCC script
   const h = location.hostname;
   const url = h === 'localhost' || h.includes('dev-airoapp')
     ? 'https://img1.dev-wsimg.com/signals/js/clients/scc-c2/scc-c2.js'
@@ -117,12 +111,6 @@ function initC2Tracking(): void {
   document.head.appendChild(script);
 }
 
-/**
- * Cookie banner component for C2 analytics consent
- *
- * Displays a consent banner for C2 analytics tracking. Manages user consent
- * preferences in localStorage and controls whether analytics scripts are loaded.
- */
 export default function CookieBanner() {
   const [showBanner, setShowBanner] = useState(false);
   const [showPreferences, setShowPreferences] = useState(false);
@@ -149,9 +137,7 @@ export default function CookieBanner() {
         setShowBanner(true);
       } else {
         setAnalyticsEnabled(consent.analytics);
-        if (consent.analytics) {
-          initC2Tracking();
-        }
+        if (consent.analytics) initC2Tracking();
       }
     } catch {
       localStorage.removeItem(COOKIE_CONSENT_KEY);
@@ -205,51 +191,49 @@ export default function CookieBanner() {
 
   return (
     <>
-      {/* Initial Banner */}
       {showBanner && (
         <div
-          className="fixed bottom-0 left-0 right-0 z-50 bg-white border-t border-gray-200 shadow-lg"
+          className="fixed inset-x-0 bottom-0 z-[100] max-h-[78dvh] overflow-y-auto border-t border-border bg-card text-card-foreground shadow-2xl"
+          style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}
           role="alertdialog"
           aria-live="polite"
           aria-label="Cookie consent banner"
           aria-describedby="cookie-banner-description"
         >
-          <div className="max-w-7xl mx-auto px-4 py-4 sm:px-6 lg:px-8">
-            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-              <div className="flex-1">
-                <h3 className="text-sm font-semibold text-gray-900 mb-1">Cookie Consent</h3>
-                <p id="cookie-banner-description" className="text-sm text-gray-600">
-                  We serve cookies. We use tools, such as cookies, to enable essential services and functionality on our site and to collect data on how visitors interact with our site, products and services. By clicking Accept, you agree to our use of these tools for advertising, analytics and support.{' '}
-                  <a href="https://www.godaddy.com/legal/agreements/privacy-policy" className="text-blue-600 hover:text-blue-800 underline" target="_blank" rel="noopener noreferrer">Learn more</a>
+          <div className="mx-auto max-w-7xl px-4 py-4 sm:px-6 lg:px-8">
+            <div className="flex flex-col items-stretch gap-4 lg:flex-row lg:items-center lg:justify-between">
+              <div className="min-w-0 flex-1">
+                <h3 className="mb-1 text-sm font-semibold text-foreground">Cookie consent</h3>
+                <p id="cookie-banner-description" className="text-xs leading-relaxed text-muted-foreground sm:text-sm">
+                  We use essential cookies to operate this website and optional analytics cookies to understand how the service is used. You can accept, decline or choose your preferences.{' '}
+                  <a href="/cookies-policy" className="font-semibold text-primary underline underline-offset-2">Read our Cookies Policy</a>
                 </p>
               </div>
-              <div className="flex items-center gap-3 flex-shrink-0">
-                <Button size="sm" variant="outline" onClick={() => setShowPreferences(true)} className="whitespace-nowrap">Preferences</Button>
-                <Button size="sm" variant="secondary" onClick={() => saveConsent(false)} className="whitespace-nowrap">Decline</Button>
-                <Button size="sm" onClick={() => saveConsent(true)} className="whitespace-nowrap" autoFocus>Accept</Button>
+              <div className="grid w-full grid-cols-1 gap-2 min-[400px]:grid-cols-3 lg:w-auto lg:flex lg:shrink-0">
+                <Button size="sm" variant="outline" onClick={() => setShowPreferences(true)} className="min-h-11 w-full whitespace-nowrap lg:w-auto">Preferences</Button>
+                <Button size="sm" variant="secondary" onClick={() => saveConsent(false)} className="min-h-11 w-full whitespace-nowrap lg:w-auto">Decline</Button>
+                <Button size="sm" onClick={() => saveConsent(true)} className="min-h-11 w-full whitespace-nowrap lg:w-auto" autoFocus>Accept</Button>
               </div>
             </div>
           </div>
         </div>
       )}
 
-      {/* Preferences Dialog */}
       <Dialog open={showPreferences} onOpenChange={setShowPreferences}>
-        <DialogContent className="sm:max-w-[500px]">
+        <DialogContent className="max-h-[90dvh] w-[calc(100%-2rem)] overflow-y-auto sm:max-w-[500px]">
           <DialogHeader>
-            <DialogTitle>Cookie Preferences</DialogTitle>
+            <DialogTitle>Cookie preferences</DialogTitle>
             <DialogDescription>
-              Manage your cookie preferences. You can enable or disable different types of cookies below.
+              Manage your cookie preferences. Essential cookies cannot be disabled.
             </DialogDescription>
           </DialogHeader>
 
-          <div className="space-y-6 py-4">
-            {/* Essential Cookies - Always On */}
-            <div className="flex items-start justify-between gap-4 rounded-lg border p-4">
-              <div className="flex-1">
-                <div className="flex items-center gap-2 mb-1">
-                  <Label className="text-base font-semibold">Essential Cookies</Label>
-                  <span className="text-xs bg-muted px-2 py-0.5 rounded">Always Active</span>
+          <div className="space-y-4 py-2 sm:space-y-6 sm:py-4">
+            <div className="flex flex-col gap-4 rounded-lg border p-4 min-[400px]:flex-row min-[400px]:items-start min-[400px]:justify-between">
+              <div className="min-w-0 flex-1">
+                <div className="mb-1 flex flex-wrap items-center gap-2">
+                  <Label className="text-base font-semibold">Essential cookies</Label>
+                  <span className="rounded bg-muted px-2 py-0.5 text-xs">Always active</span>
                 </div>
                 <p className="text-sm text-muted-foreground">
                   Required for the website to function properly. These cannot be disabled.
@@ -258,30 +242,25 @@ export default function CookieBanner() {
               <Switch checked={true} disabled />
             </div>
 
-            {/* Analytics Cookies */}
-            <div className="flex items-start justify-between gap-4 rounded-lg border p-4">
-              <div className="flex-1">
-                <Label htmlFor="analytics-toggle" className="text-base font-semibold cursor-pointer">
-                  Analytics Cookies
+            <div className="flex flex-col gap-4 rounded-lg border p-4 min-[400px]:flex-row min-[400px]:items-start min-[400px]:justify-between">
+              <div className="min-w-0 flex-1">
+                <Label htmlFor="analytics-toggle" className="cursor-pointer text-base font-semibold">
+                  Analytics cookies
                 </Label>
-                <p className="text-sm text-muted-foreground mt-1">
-                  Help us understand how visitors interact with our website by collecting and reporting information anonymously.
+                <p className="mt-1 text-sm text-muted-foreground">
+                  Help us understand how visitors interact with the website by collecting usage information.
                 </p>
               </div>
-              <Switch
-                id="analytics-toggle"
-                checked={analyticsEnabled}
-                onCheckedChange={setAnalyticsEnabled}
-              />
+              <Switch id="analytics-toggle" checked={analyticsEnabled} onCheckedChange={setAnalyticsEnabled} />
             </div>
           </div>
 
-          <DialogFooter className="gap-2">
-            <Button variant="outline" onClick={() => setShowPreferences(false)}>
+          <DialogFooter className="grid grid-cols-1 gap-2 min-[400px]:grid-cols-2 sm:flex">
+            <Button variant="outline" onClick={() => setShowPreferences(false)} className="min-h-11 w-full sm:w-auto">
               Cancel
             </Button>
-            <Button onClick={() => saveConsent(analyticsEnabled)}>
-              Save Preferences
+            <Button onClick={() => saveConsent(analyticsEnabled)} className="min-h-11 w-full sm:w-auto">
+              Save preferences
             </Button>
           </DialogFooter>
         </DialogContent>
