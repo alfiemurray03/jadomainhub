@@ -52,7 +52,7 @@ const labels: Record<keyof typeof menuItems, string> = {
 };
 
 const triggerClass =
-  'rounded-xl bg-transparent px-3 py-2 text-sm font-medium text-muted-foreground transition-all duration-150 hover:bg-muted hover:text-foreground data-[state=open]:bg-muted data-[state=open]:text-foreground';
+  'rounded-xl bg-transparent px-2.5 py-2 text-[13px] font-medium text-muted-foreground transition-all duration-150 hover:bg-muted hover:text-foreground data-[state=open]:bg-muted data-[state=open]:text-foreground';
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -73,16 +73,16 @@ export default function Header() {
 
   return (
     <header className="fixed left-0 right-0 top-0 z-50 border-b border-border bg-card/95 shadow-sm backdrop-blur-xl">
-      <div className="mx-auto max-w-[1500px] px-4 sm:px-5 lg:px-6 2xl:px-8">
-        <div className="flex h-16 items-center justify-between gap-2 md:h-[68px]">
+      <div className="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-8">
+        <div className="flex h-16 items-center justify-between gap-3 md:h-[68px]">
           <a href="/" className="group flex shrink-0 items-center" aria-label="JA Domain Hub — home">
             <span className="font-heading text-lg font-extrabold tracking-tight text-foreground sm:text-xl">
               JA DOMAIN HUB
             </span>
           </a>
 
-          <NavigationMenu className="hidden 2xl:flex">
-            <NavigationMenuList className="gap-0.5">
+          <NavigationMenu className="hidden xl:flex">
+            <NavigationMenuList className="gap-0">
               <NavigationMenuItem>
                 <NavigationMenuLink asChild>
                   <a href="/" className={triggerClass}>Home</a>
@@ -118,10 +118,10 @@ export default function Header() {
             </NavigationMenuList>
           </NavigationMenu>
 
-          <div className="hidden shrink-0 items-center gap-2 2xl:flex">
+          <div className="hidden shrink-0 items-center gap-2 xl:flex">
             <a
               href="tel:02038342790"
-              className="flex shrink-0 items-center gap-1.5 whitespace-nowrap rounded-xl border border-border bg-muted/70 px-3 py-2 text-xs font-semibold text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
+              className="hidden shrink-0 items-center gap-1.5 whitespace-nowrap rounded-xl border border-border bg-muted/70 px-3 py-2 text-xs font-semibold text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground 2xl:flex"
             >
               <Phone className="h-3.5 w-3.5 text-primary" />
               020 3834 2790
@@ -133,7 +133,7 @@ export default function Header() {
             <CustomerWebsitesMenu />
           </div>
 
-          <div className="flex shrink-0 items-center gap-2 2xl:hidden">
+          <div className="flex shrink-0 items-center gap-2 xl:hidden">
             <ThemeToggle />
             <button
               type="button"
@@ -150,9 +150,9 @@ export default function Header() {
       </div>
 
       {mobileMenuOpen && (
-        <div id="mobile-menu" className="absolute left-0 right-0 top-full max-h-[calc(100dvh-4rem)] overflow-y-auto border-t border-border bg-card shadow-2xl 2xl:hidden">
+        <div id="mobile-menu" className="absolute left-0 right-0 top-full max-h-[calc(100dvh-4rem)] overflow-y-auto border-t border-border bg-card shadow-2xl xl:hidden">
           <nav className="mx-auto flex max-w-7xl flex-col gap-1 px-4 py-4 sm:px-6" aria-label="Mobile navigation">
-            <a href="tel:02038342790" className="mb-2 flex min-h-12 items-center gap-2 whitespace-nowrap rounded-xl border border-border bg-muted px-4 py-3 text-sm font-semibold text-foreground">
+            <a href="tel:02038342790" className="mb-2 flex min-h-12 items-center gap-2 rounded-xl border border-border bg-muted px-4 py-3 text-sm font-semibold text-foreground">
               <Phone className="h-4 w-4 text-primary" />
               020 3834 2790
             </a>
