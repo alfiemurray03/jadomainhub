@@ -3,8 +3,8 @@ import ReactDOM from 'react-dom/client';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import App from './App';
 import './styles/globals.css';
+import './styles/mobile.css';
 
-// Register Service Worker for PWA
 import { HelmetProvider } from "@dr.pogodin/react-helmet";
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
@@ -16,7 +16,6 @@ if ('serviceWorker' in navigator) {
   });
 }
 
-// Add robots meta tag only in development mode
 if (import.meta.env.MODE === 'development') {
   const meta = document.createElement('meta');
   meta.name = 'robots';
@@ -27,9 +26,7 @@ const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
       staleTime: 1000 * 60 * 5,
-      // 5 minutes
       gcTime: 1000 * 60 * 10,
-      // 10 minutes (formerly cacheTime)
       retry: 1,
       refetchOnWindowFocus: false
     },
@@ -39,7 +36,6 @@ const queryClient = new QueryClient({
   }
 });
 
-// Support both client-side navigation and SSR hydration
 const rootElement = document.getElementById('app');
 if (!rootElement) throw new Error('Root element not found');
 const root = ReactDOM.createRoot(rootElement);
