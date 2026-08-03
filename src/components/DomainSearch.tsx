@@ -54,7 +54,7 @@ export default function DomainSearch({
         Search for a domain name
       </label>
       <div
-        className={`flex flex-col gap-2 rounded-2xl border p-2 shadow-lg sm:flex-row ${
+        className={`flex flex-col gap-2 rounded-2xl border p-1.5 shadow-lg sm:flex-row sm:p-2 ${
           isDark
             ? 'border-white/20 bg-white/10 backdrop-blur-md'
             : 'border-border bg-card'
@@ -62,7 +62,7 @@ export default function DomainSearch({
       >
         <div className="relative min-w-0 flex-1">
           <Search
-            className={`absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 ${
+            className={`absolute left-3.5 top-1/2 h-5 w-5 -translate-y-1/2 sm:left-4 ${
               isDark ? 'text-blue-200' : 'text-muted-foreground'
             }`}
           />
@@ -79,9 +79,9 @@ export default function DomainSearch({
               setDomain(event.target.value);
               if (error) setError('');
             }}
-            placeholder="Enter your domain, for example mybusiness.co.uk"
-            className={`w-full rounded-xl border-0 bg-transparent pl-12 pr-4 text-base outline-none placeholder:text-current/50 focus:ring-0 ${
-              compact ? 'h-12' : 'h-14'
+            placeholder="mybusiness.co.uk"
+            className={`h-12 w-full rounded-xl border-0 bg-transparent pl-11 pr-3 text-base outline-none placeholder:text-current/50 focus:ring-0 sm:pl-12 sm:pr-4 ${
+              compact ? 'sm:h-12' : 'sm:h-14'
             } ${isDark ? 'text-white' : 'text-foreground'}`}
             aria-describedby={error ? 'domain-search-error' : 'domain-search-help'}
             aria-invalid={Boolean(error)}
@@ -89,8 +89,8 @@ export default function DomainSearch({
         </div>
         <button
           type="submit"
-          className={`inline-flex shrink-0 items-center justify-center gap-2 rounded-xl px-6 font-bold transition-all ${
-            compact ? 'min-h-12' : 'min-h-14'
+          className={`inline-flex min-h-12 w-full shrink-0 items-center justify-center gap-2 rounded-xl px-5 font-bold transition-all sm:w-auto sm:px-6 ${
+            compact ? 'sm:min-h-12' : 'sm:min-h-14'
           } ${
             isDark
               ? 'bg-white text-[#0A1F44] hover:bg-blue-50'
@@ -98,7 +98,7 @@ export default function DomainSearch({
           }`}
         >
           Search Domains
-          <ArrowRight className="h-4 w-4" />
+          <ArrowRight className="h-4 w-4 shrink-0" />
         </button>
       </div>
       {error ? (
@@ -106,8 +106,8 @@ export default function DomainSearch({
           {error}
         </p>
       ) : (
-        <p id="domain-search-help" className={`mt-2 text-xs ${isDark ? 'text-white/60' : 'text-muted-foreground'}`}>
-          Your search will open securely on the JA Domain Hub reseller storefront with live availability and pricing.
+        <p id="domain-search-help" className={`mt-2 text-xs leading-relaxed ${isDark ? 'text-white/60' : 'text-muted-foreground'}`}>
+          Your search opens securely on the JA Domain Hub reseller storefront with live availability and pricing.
         </p>
       )}
     </form>
