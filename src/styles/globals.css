@@ -271,6 +271,17 @@
   color: hsl(var(--muted-foreground)) !important;
 }
 
+@media (min-width: 1280px) {
+  html {
+    font-size: 15px;
+  }
+
+  .max-w-7xl,
+  .container {
+    max-width: 1440px;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
