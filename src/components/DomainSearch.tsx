@@ -1,7 +1,7 @@
 import { FormEvent, useState } from 'react';
 import { ArrowRight, Search } from 'lucide-react';
 
-import { storefrontDomainSearchUrl } from '@/lib/product-catalogue';
+import { resellerDomainSearchUrl } from '@/lib/domain-search';
 
 interface DomainSearchProps {
   appearance?: 'light' | 'dark';
@@ -24,7 +24,8 @@ export default function DomainSearch({
       .trim()
       .replace(/^https?:\/\//i, '')
       .replace(/^www\./i, '')
-      .split('/')[0];
+      .split('/')[0]
+      .replace(/\.$/, '');
 
     if (!cleanedDomain) {
       setError('Enter the domain name you would like to search for.');
@@ -36,8 +37,13 @@ export default function DomainSearch({
       return;
     }
 
+    if (!/^[a-z0-9.-]+$/i.test(cleanedDomain)) {
+      setError('Enter a valid domain name using letters, numbers, dots or hyphens.');
+      return;
+    }
+
     setError('');
-    window.location.assign(storefrontDomainSearchUrl(cleanedDomain));
+    window.location.href = resellerDomainSearchUrl(cleanedDomain);
   };
 
   const isDark = appearance === 'dark';
@@ -101,7 +107,7 @@ export default function DomainSearch({
         </p>
       ) : (
         <p id="domain-search-help" className={`mt-2 text-xs ${isDark ? 'text-white/60' : 'text-muted-foreground'}`}>
-          You will continue to the JA Domain Hub storefront to view availability and current pricing.
+          Your search will open securely on the JA Domain Hub reseller storefront with live availability and pricing.
         </p>
       )}
     </form>
