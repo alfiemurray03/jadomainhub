@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { ChevronDown, Menu, Phone, X } from 'lucide-react';
 
+import BrandWordmark from '@/components/BrandWordmark';
 import CustomerWebsitesMenu, { MobileCustomerWebsitesMenu } from '@/components/CustomerWebsitesMenu';
 import ThemeToggle from '@/components/ThemeToggle';
 import { Button } from '@/components/ui/button';
@@ -46,10 +47,8 @@ export default function Header() {
     <header className="fixed left-0 right-0 top-0 z-50 border-b border-border bg-card/95 shadow-sm backdrop-blur-xl">
       <div className="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between gap-3 md:h-[68px]">
-          <a href="/" className="group flex shrink-0 items-center" aria-label="JA Domain Hub — home">
-            <span className="font-heading text-lg font-extrabold tracking-tight text-foreground sm:text-xl">
-              JA DOMAIN HUB
-            </span>
+          <a href="/" className="group flex shrink-0 items-center py-1" aria-label="JA Domain Hub — home">
+            <BrandWordmark className="text-lg transition-transform duration-200 group-hover:scale-[1.02] sm:text-xl" />
           </a>
 
           <NavigationMenu className="hidden xl:flex">
