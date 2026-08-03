@@ -1,5 +1,7 @@
 import { Building2, Cookie, ExternalLink, Headphones, Mail, Phone, ShieldCheck } from 'lucide-react';
 
+import BrandWordmark from '@/components/BrandWordmark';
+
 const linkClass = 'text-sm text-muted-foreground transition-colors hover:text-foreground';
 const storefrontTermsUrl =
   'https://store.jadomainhub.jagroupservices.co.uk/legal-agreement?id=utos';
@@ -12,10 +14,8 @@ export default function Footer() {
       <div className="mx-auto max-w-[1440px] px-4 py-14 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-[1.25fr_repeat(3,minmax(0,1fr))]">
           <div>
-            <a href="/" className="mb-5 inline-flex items-center" aria-label="JA Domain Hub — home">
-              <span className="font-heading text-xl font-extrabold tracking-tight text-foreground sm:text-2xl">
-                JA DOMAIN HUB
-              </span>
+            <a href="/" className="group mb-6 inline-flex items-center py-1" aria-label="JA Domain Hub — home">
+              <BrandWordmark className="text-xl transition-transform duration-200 group-hover:scale-[1.02] sm:text-2xl" />
             </a>
 
             <p className="max-w-sm text-sm leading-relaxed text-muted-foreground">
