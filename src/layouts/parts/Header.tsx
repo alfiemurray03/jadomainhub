@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { ChevronDown, Globe2, Menu, Phone, X } from 'lucide-react';
+import { ChevronDown, Menu, Phone, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import CustomerWebsitesMenu, { MobileCustomerWebsitesMenu } from '@/components/CustomerWebsitesMenu';
 import ThemeToggle from '@/components/ThemeToggle';
@@ -75,13 +75,9 @@ export default function Header() {
     <header className="fixed left-0 right-0 top-0 z-50 border-b border-border bg-card/95 shadow-sm backdrop-blur-xl">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between gap-3 md:h-[76px]">
-          <a href="/" className="group flex min-w-0 items-center gap-3" aria-label="JA Domain Hub — home">
-            <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-primary text-primary-foreground shadow-md shadow-primary/20">
-              <Globe2 className="h-5 w-5" />
-            </span>
-            <span className="min-w-0">
-              <span className="block truncate font-heading text-base font-extrabold tracking-tight text-foreground sm:text-lg">JA DOMAIN HUB</span>
-              <span className="hidden truncate text-[11px] font-medium uppercase tracking-[0.14em] text-muted-foreground sm:block">A JA Group Services brand</span>
+          <a href="/" className="group flex shrink-0 items-center" aria-label="JA Domain Hub — home">
+            <span className="font-heading text-xl font-extrabold tracking-tight text-foreground sm:text-2xl">
+              JA DOMAIN HUB
             </span>
           </a>
 
