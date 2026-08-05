@@ -26,3 +26,17 @@ jobs:
           echo "=== SOURCE FILES ==="
           find src public -type f -maxdepth 5 | sort
           echo "=== END SOURCE FILES ==="
+      - name: Upload source snapshot
+        uses: actions/upload-artifact@v4
+        with:
+          name: jadomainhub-source
+          path: |
+            src
+            public
+            index.html
+            package.json
+            tsconfig.json
+            vite.config.ts
+            tailwind.config.js
+          if-no-files-found: error
+          retention-days: 1
