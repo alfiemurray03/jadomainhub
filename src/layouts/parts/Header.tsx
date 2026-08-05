@@ -59,7 +59,7 @@ export default function Header() {
     <header className="fixed left-0 right-0 top-0 z-50 border-b border-border bg-card/95 shadow-sm backdrop-blur-xl">
       <div className="mx-auto max-w-[1540px] px-3 min-[380px]:px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between gap-2 md:h-[68px] md:gap-3">
-          <a href="/" className="group flex min-w-0 shrink items-center py-1" aria-label="JA Domain Hub — home">
+          <a href="/" className="group flex min-w-0 shrink items-center py-1" aria-label="Sousa Murray Domains — home">
             <BrandWordmark className="max-w-full text-[15px] transition-transform duration-200 group-hover:scale-[1.02] min-[360px]:text-base sm:text-xl" />
           </a>
 

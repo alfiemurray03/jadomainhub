@@ -29,7 +29,7 @@ export default function VPSHostingPage() {
 
   return (
     <div className="flex min-h-screen flex-col">
-      <title>VPS Hosting - JA Domain Hub</title>
+      <title>VPS Hosting - Sousa Murray Domains</title>
       <meta
         name="description"
         content="Virtual Private Server hosting with dedicated resources, high performance, and full control. Suitable for growing websites and applications."

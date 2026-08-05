@@ -1,26 +1,13 @@
 {
-  "name": "JA Domain Hub",
-  "short_name": "JA Domains",
-  "description": "Domain Registration, Web Hosting and Business Email",
+  "name": "Sousa Murray Domains",
+  "short_name": "SM Domains",
+  "description": "Domain registration support and authorised reseller services operated by JA Group Services Ltd.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#0066CC",
   "orientation": "portrait-primary",
-  "icons": [
-    {
-      "src": "/icon-192.png",
-      "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "any maskable"
-    },
-    {
-      "src": "/icon-512.png",
-      "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "any maskable"
-    }
-  ],
+  "icons": [],
   "categories": ["business", "productivity"],
   "screenshots": []
 }

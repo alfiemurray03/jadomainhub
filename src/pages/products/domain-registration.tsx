@@ -60,12 +60,12 @@ export default function DomainRegistrationPage() {
   return (
     <>
       <Helmet>
-        <title>Domain Registration &amp; Search | JA Domain Hub</title>
+        <title>Domain Registration &amp; Search | Sousa Murray Domains</title>
         <meta
           name="description"
-          content="Search for a domain name through JA Domain Hub and continue directly to availability results on the authorised reseller storefront."
+          content="Search for a domain name through Sousa Murray Domains and continue directly to availability results on the authorised reseller storefront."
         />
-        <link rel="canonical" href="https://jadomainhub.jagroupservices.co.uk/products/domain-registration" />
+        <link rel="canonical" href="https://sousamurraydomains.jagroupservices.co.uk/products/domain-registration" />
       </Helmet>
 
       <div className="min-h-screen bg-background text-foreground">
@@ -107,7 +107,7 @@ export default function DomainRegistrationPage() {
         <section className="border-b border-border bg-card py-8">
           <div className="mx-auto grid max-w-[1440px] gap-5 px-4 sm:grid-cols-3 sm:px-6 lg:px-8">
             {[
-              'Search results open on the JA Domain Hub storefront',
+              'Search results open on the Sousa Murray Domains storefront',
               'Availability and pricing are confirmed by the provider platform',
               'Purchases and renewals are managed through your secure account',
             ].map((item) => (

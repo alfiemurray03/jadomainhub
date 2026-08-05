@@ -107,7 +107,7 @@ export default function DomainSearch({
         </p>
       ) : (
         <p id="domain-search-help" className={`mt-2 text-xs leading-relaxed ${isDark ? 'text-white/60' : 'text-muted-foreground'}`}>
-          Your search opens securely on the JA Domain Hub reseller storefront with live availability and pricing.
+          Your search opens securely on the Sousa Murray Domains reseller storefront with live availability and pricing.
         </p>
       )}
     </form>

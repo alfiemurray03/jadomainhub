@@ -39,7 +39,7 @@ export default function CpanelHostingPage() {
 
   return (
     <div className="flex min-h-screen flex-col">
-      <title>cPanel Hosting - JA Domain Hub</title>
+      <title>cPanel Hosting - Sousa Murray Domains</title>
       <meta
         name="description"
         content="Professional cPanel hosting with fast performance, generous storage, and expert support. Suitable for websites and applications."

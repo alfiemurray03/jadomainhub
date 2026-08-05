@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://jadomainhub.jagroupservices.co.uk/sitemap.xml
+Sitemap: https://sousamurraydomains.jagroupservices.co.uk/sitemap.xml

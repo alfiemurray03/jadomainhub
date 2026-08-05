@@ -4,7 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 export default function WebHostingPlusPage() {
   return (
     <div className="min-h-screen">
-      <title>Web Hosting Plus - JA Domain Hub</title>
+      <title>Web Hosting Plus - Sousa Murray Domains</title>
       <meta name="description" content="Premium web hosting with enhanced performance, security, and support for your growing business." />
 
       {/* Hero Section */}

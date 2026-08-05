@@ -57,8 +57,8 @@ export default function JAGroupServicesIDPage() {
   return (
     <>
       <Helmet>
-        <title>JA Group Services ID | JA Domain Hub</title>
-        <meta name="description" content="View the JA Group Services identity connected to JA Domain Hub and open the central customer dashboard." />
+        <title>JA Group Services ID | Sousa Murray Domains</title>
+        <meta name="description" content="View the JA Group Services identity connected to Sousa Murray Domains and open the central customer dashboard." />
         <meta name="robots" content="noindex, nofollow" />
       </Helmet>
 
@@ -67,10 +67,10 @@ export default function JAGroupServicesIDPage() {
           <section className="overflow-hidden rounded-[28px] border border-border bg-card shadow-xl">
             <div className="bg-gradient-to-br from-slate-950 via-blue-950 to-blue-800 px-6 py-10 text-white sm:px-10 sm:py-12">
               <BrandWordmark className="mb-8 inline-flex rounded-xl bg-white px-3 py-2 text-lg" />
-              <p className="text-xs font-bold uppercase tracking-[0.18em] text-blue-200">JA Domain Hub connection</p>
+              <p className="text-xs font-bold uppercase tracking-[0.18em] text-blue-200">Sousa Murray Domains connection</p>
               <h1 className="mt-3 max-w-3xl text-3xl font-extrabold tracking-tight !text-white sm:text-5xl">Your JA Group Services ID</h1>
               <p className="mt-4 max-w-2xl text-base leading-7 text-blue-100 sm:text-lg">
-                JA Domain Hub uses your central JA Group Services identity. Personal information and security controls are managed from the central dashboard.
+                Sousa Murray Domains uses your central JA Group Services identity. Personal information and security controls are managed from the central dashboard.
               </p>
             </div>
 
@@ -87,7 +87,7 @@ export default function JAGroupServicesIDPage() {
                 <div className="grid gap-6 lg:grid-cols-[1.25fr_.75fr]">
                   <div>
                     <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/10 text-primary"><CircleUserRound className="h-7 w-7" /></div>
-                    <h2 className="mt-5 text-2xl font-extrabold text-foreground">Sign in to JA Domain Hub</h2>
+                    <h2 className="mt-5 text-2xl font-extrabold text-foreground">Sign in to Sousa Murray Domains</h2>
                     <p className="mt-3 max-w-xl leading-7 text-muted-foreground">
                       Use your JA Group Services ID to create a secure Domain Hub website session. This is separate from the external provider account used to manage purchased domains and products.
                     </p>
@@ -120,7 +120,7 @@ export default function JAGroupServicesIDPage() {
                       <p className="mt-1 text-sm text-muted-foreground">{session.user.email}</p>
                     </div>
                     <div className="inline-flex items-center gap-2 self-start rounded-full bg-emerald-100 px-4 py-2 text-sm font-bold text-emerald-800 dark:bg-emerald-950/60 dark:text-emerald-200">
-                      <ShieldCheck className="h-4 w-4" /> Active JA Domain Hub session
+                      <ShieldCheck className="h-4 w-4" /> Active Sousa Murray Domains session
                     </div>
                   </div>
 

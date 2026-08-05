@@ -16,7 +16,7 @@ import { motion } from 'motion/react';
 
 import { Button } from '@/components/ui/button';
 
-const siteUrl = 'https://jadomainhub.jagroupservices.co.uk';
+const siteUrl = 'https://sousamurraydomains.jagroupservices.co.uk';
 const storefrontUrl = 'https://store.jadomainhub.jagroupservices.co.uk';
 const storefrontTermsUrl = `${storefrontUrl}/legal-agreement?id=utos`;
 const accountUrl = 'https://account.secureserver.net/products?plid=599857';
@@ -36,8 +36,8 @@ const contents = [
   ['fees-payment', 'Fees, taxes and payment'],
   ['renewals-expiry', 'Subscriptions, renewals and expiry'],
   ['cancellation-refunds', 'Cancellation and refunds'],
-  ['managed-websites', 'Managed Websites service'],
-  ['managed-orders', 'Managed Website quotations and orders'],
+  ['managed-websites', 'Sousa Murray Sites status'],
+  ['managed-orders', 'Existing managed website arrangements'],
   ['customer-responsibilities', 'Customer responsibilities'],
   ['delivery-approval', 'Delivery, revisions and approval'],
   ['intellectual-property', 'Content and intellectual property'],
@@ -60,16 +60,16 @@ export default function TermsOfServicePage() {
   return (
     <>
       <Helmet>
-        <title>Terms of Service | JA Domain Hub</title>
+        <title>Terms of Service | Sousa Murray Domains</title>
         <meta
           name="description"
-          content="Terms governing the JA Domain Hub information website, reseller storefront services and Managed Websites supplied by JA Group Services Ltd."
+          content="Terms governing the Sousa Murray Domains information website and authorised reseller storefront services. Sousa Murray Sites has not yet launched."
         />
         <link rel="canonical" href={`${siteUrl}/terms-of-service`} />
-        <meta property="og:title" content="Terms of Service | JA Domain Hub" />
+        <meta property="og:title" content="Terms of Service | Sousa Murray Domains" />
         <meta
           property="og:description"
-          content="The contractual terms applying to JA Domain Hub website use, storefront products and Managed Websites."
+          content="The contractual terms applying to Sousa Murray Domains website use and authorised reseller products."
         />
         <meta property="og:url" content={`${siteUrl}/terms-of-service`} />
         <meta property="og:type" content="website" />
@@ -98,16 +98,13 @@ export default function TermsOfServicePage() {
             >
               <div className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.16em] text-blue-100 backdrop-blur-sm">
                 <Scale className="h-4 w-4" />
-                Effective 3 August 2026
+                Updated 5 August 2026
               </div>
               <h1 className="mt-5 text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl">
                 Terms of Service
               </h1>
               <p className="mt-5 max-w-4xl text-base leading-relaxed text-white/80 sm:text-lg">
-                These Terms govern use of the JA Domain Hub information website and the services
-                supplied directly by JA Group Services Ltd. Products purchased through the
-                authorised reseller storefront are also governed by the storefront Universal Terms
-                of Service and the agreement applying to the selected product.
+                These Terms govern use of the Sousa Murray Domains information website and the customer-support activities provided by JA Group Services Ltd. Products purchased through the authorised reseller storefront are also governed by the storefront Universal Terms of Service and the agreement applying to the selected product. Sousa Murray Sites has not yet launched and is not offered for general ordering under these Terms.
               </p>
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                 <Button asChild size="lg" className="bg-white font-bold text-[#0A1F44] hover:bg-blue-50">
@@ -137,7 +134,7 @@ export default function TermsOfServicePage() {
             <SummaryCard icon={Building2} label="Legal operator" value="JA Group Services Ltd" />
             <SummaryCard icon={Store} label="Storefront model" value="Agent of Wild West Domains, LLC" />
             <SummaryCard icon={FileText} label="Storefront products" value="Provider terms also apply" />
-            <SummaryCard icon={Wrench} label="Direct service" value="Managed Websites by quotation" />
+            <SummaryCard icon={Wrench} label="Forthcoming brand" value="Sousa Murray Sites — not yet launched" />
           </div>
         </section>
 
@@ -152,10 +149,7 @@ export default function TermsOfServicePage() {
                   <div>
                     <h2 className="text-xl font-bold sm:text-2xl">Important contractual distinction</h2>
                     <p className="mt-2 max-w-4xl leading-relaxed text-muted-foreground">
-                      JA Domain Hub provides product information, customer assistance and the
-                      separately quoted Managed Websites service. Domain, hosting, email, security,
-                      marketing and self-service website products purchased through the storefront
-                      are supplied under the storefront provider agreements. Those provider
+                      Sousa Murray Domains provides product information and customer assistance for authorised reseller services. Domain, hosting, email, security, marketing and self-service website products purchased through the storefront are supplied under the storefront provider agreements. Sousa Murray Sites is a separate forthcoming brand and has not yet launched. Those provider
                       agreements control the product, account, payment, renewal and technical terms
                       where they apply.
                     </p>
@@ -207,13 +201,12 @@ export default function TermsOfServicePage() {
               <TermsSection number="1" id="introduction" title="Introduction and acceptance">
                 <p>
                   These Terms of Service (the <strong>Terms</strong>) are issued by JA Group Services
-                  Ltd, trading through the JA Domain Hub brand. JA Group Services Ltd is registered
+                  Ltd, trading through the Sousa Murray Domains brand. JA Group Services Ltd is registered
                   in England and Wales under company number 16314179, with registered office at
                   167–169 Great Portland Street, 5th Floor, London, W1W 5PF.
                 </p>
                 <p>
-                  These Terms apply when you access {siteUrl.replace('https://', '')}, use a JA
-                  Domain Hub information or support feature, submit an enquiry, accept a quotation
+                  These Terms apply when you access {siteUrl.replace('https://', '')}, use a Sousa Murray Domains information or support feature, submit an enquiry, accept a quotation
                   or purchase a service supplied directly by JA Group Services Ltd.
                 </p>
                 <p>
@@ -228,15 +221,15 @@ export default function TermsOfServicePage() {
                   items={[
                     ['Account', 'the customer account used to purchase, access or manage a Storefront Product.'],
                     ['Customer, you or your', 'the individual, business, organisation or other legal person using the Website or Services.'],
-                    ['Direct Service', 'a service expressly supplied by JA Group Services Ltd, including Managed Websites.'],
-                    ['Managed Website', 'a website design, build, setup, launch, maintenance or management service supplied under a written quotation or Service Order.'],
+                    ['Direct Service', 'a service expressly supplied by JA Group Services Ltd under a separately signed written agreement.'],
+                    ['Managed Website', 'an existing website service supplied under a separately signed written quotation or Service Order; Sousa Murray Sites has not yet launched for general ordering.'],
                     ['Provider', 'Wild West Domains, LLC, GoDaddy or another provider involved in supplying or administering a Storefront Product.'],
                     ['Provider Terms', 'the storefront Universal Terms of Service and all product-specific agreements, policies and notices applying to a Storefront Product.'],
                     ['Service Order', 'our accepted quotation, order summary, statement of work or other written confirmation describing a Direct Service.'],
                     ['Services', 'the Website, support activities, Direct Services and access facilitated to Storefront Products, as the context requires.'],
                     ['Storefront', `the authorised reseller storefront at ${storefrontUrl.replace('https://', '')} and associated provider systems.`],
                     ['Storefront Product', 'a domain, hosting, website, email, security, marketing or related product purchased through the Storefront.'],
-                    ['Website', `the JA Domain Hub information website at ${siteUrl.replace('https://', '')}.`],
+                    ['Website', `the Sousa Murray Domains information website at ${siteUrl.replace('https://', '')}.`],
                     ['Working Day', 'Monday to Friday, excluding bank holidays in England.'],
                   ]}
                 />
@@ -290,7 +283,7 @@ export default function TermsOfServicePage() {
                 <p>
                   The Website allows customers to browse information about domains, hosting,
                   self-service website products, SSL and security, backups, Microsoft 365, email
-                  marketing, search-engine optimisation and Managed Websites.
+                  marketing and search-engine optimisation. The Website may also display a coming-soon notice for Sousa Murray Sites.
                 </p>
                 <p>
                   We grant you a limited, revocable and non-transferable permission to access the
@@ -326,8 +319,8 @@ export default function TermsOfServicePage() {
 
               <TermsSection number="7" id="storefront-services" title="Storefront services and provider relationship">
                 <p>
-                  For services offered through the Storefront, JA Domain Hub acts as an agent of
-                  Wild West Domains, LLC within the applicable reseller arrangement. JA Domain Hub
+                  For services offered through the Storefront, Sousa Murray Domains acts as an agent of
+                  Wild West Domains, LLC within the applicable reseller arrangement. Sousa Murray Domains
                   is not itself a domain registry or an ICANN-accredited registrar.
                 </p>
                 <p>
@@ -423,10 +416,7 @@ export default function TermsOfServicePage() {
                   taxes are additional where identified.
                 </p>
                 <p>
-                  Managed Website payment may be collected through a secure Stripe checkout link
-                  sent after scope and price are agreed. We are not required to reserve resources,
-                  start work, release deliverables or continue recurring work until all sums due at
-                  that stage have cleared.
+                  Payment for an existing Direct Service may be collected through a secure Stripe checkout link where this is stated in the applicable Service Order. We are not required to continue work or release deliverables until sums due under that existing agreement have cleared.
                 </p>
                 <p>
                   If a business customer pays late, we may suspend work and may claim statutory
@@ -475,43 +465,27 @@ export default function TermsOfServicePage() {
                 </p>
               </TermsSection>
 
-              <TermsSection number="14" id="managed-websites" title="Managed Websites service">
+              <TermsSection number="14" id="managed-websites" title="Sousa Murray Sites status">
                 <p>
-                  Managed Websites is delivered directly by JA Group Services Ltd and promoted
-                  through JA Domain Hub. It is separate from the self-service Storefront catalogue
-                  and is available only after enquiry, scoping and written quotation.
+                  Sousa Murray Sites is the approved forthcoming brand for Managed Website Services operated by JA Group Services Ltd. It is still being built and has not yet launched for general ordering.
                 </p>
-                <p>A Managed Website may include, where specified in the Service Order:</p>
-                <ul>
-                  <li>website planning, visual design and page layouts;</li>
-                  <li>website build, configuration and responsive implementation;</li>
-                  <li>forms, booking tools, integrations or other agreed functionality;</li>
-                  <li>content entry, migration or limited content preparation;</li>
-                  <li>domain, DNS, hosting, security and launch configuration;</li>
-                  <li>ongoing maintenance, updates, monitoring or customer support.</li>
-                </ul>
                 <p>
-                  Nothing is included merely because it is technically possible or mentioned during
-                  an early discussion. The Service Order defines the agreed deliverables and
-                  exclusions.
+                  Information describing possible future features is provided for transparency only. It is not an offer, quotation, service commitment or confirmation that JA Group Services Ltd has accepted new work.
+                </p>
+                <p>
+                  The launch date, service scope, pricing, payment arrangements, support commitments and applicable contractual terms will be published or agreed only when the service is ready and formally approved for operation.
                 </p>
               </TermsSection>
 
-              <TermsSection number="15" id="managed-orders" title="Managed Website quotations and orders">
+              <TermsSection number="15" id="managed-orders" title="Existing managed website arrangements">
                 <p>
-                  We will review your requirements and may request a brief, content, access details,
-                  technical information or a discovery meeting before quoting. A quotation is valid
-                  for the period stated and may be withdrawn before acceptance.
+                  A customer with an existing Managed Website arrangement or a previously acknowledged enquiry should contact JA Group Services Ltd using the central support route and provide the relevant project, customer or enquiry reference.
                 </p>
                 <p>
-                  A Direct Service contract is formed when we confirm acceptance of your order in
-                  writing and receive any required deposit or payment, unless the Service Order
-                  states another formation point.
+                  Any existing service remains governed by its own accepted quotation, Service Order or other written agreement. Nothing on this coming-soon page changes an existing customer contract or creates a new one.
                 </p>
                 <p>
-                  Estimates based on incomplete or inaccurate information may be revised. Any work
-                  outside scope requires a written change request, revised quotation or additional
-                  charge before it is undertaken.
+                  New general Managed Website orders are not accepted through Sousa Murray Domains while Sousa Murray Sites remains under development.
                 </p>
               </TermsSection>
 
@@ -599,15 +573,12 @@ export default function TermsOfServicePage() {
 
               <TermsSection number="20" id="maintenance-support" title="Maintenance and support">
                 <p>
-                  General JA Domain Hub support provides reasonable assistance with enquiries and
+                  General Sousa Murray Domains support provides reasonable assistance with enquiries and
                   directing customers to the correct route. It does not give us power to override a
                   Provider decision or alter a Storefront Product outside our authorised access.
                 </p>
                 <p>
-                  Ongoing Managed Website maintenance is included only where stated in the Service
-                  Order. Maintenance normally covers the listed routine tasks and does not include
-                  redesigns, new pages, new functionality, content projects, emergency recovery or
-                  remediation of unauthorised third-party changes unless agreed.
+                  For an existing Managed Website arrangement, maintenance is included only where stated in the applicable Service Order. The scope and exclusions remain governed by that existing written agreement.
                 </p>
                 <p>
                   Support hours, response targets and communication channels are targets rather than
@@ -657,7 +628,7 @@ export default function TermsOfServicePage() {
 
               <TermsSection number="23" id="data-confidentiality" title="Data protection and confidentiality">
                 <p>
-                  We process personal data in accordance with the JA Domain Hub Privacy Policy and
+                  We process personal data in accordance with the Sousa Murray Domains Privacy Policy and
                   applicable data-protection law. Providers and other third parties may process data
                   under their own privacy notices and data-processing terms.
                 </p>
@@ -779,7 +750,7 @@ export default function TermsOfServicePage() {
               <TermsSection number="29" id="complaints-notices" title="Complaints and notices">
                 <p>
                   General enquiries may be sent to{' '}
-                  <a href="mailto:jadomainhub@jagroupservices.co.uk">jadomainhub@jagroupservices.co.uk</a>.
+                  <a href="mailto:contact@jagroupservices.co.uk">contact@jagroupservices.co.uk</a>.
                   Formal complaints about JA Group Services Ltd or support we have provided may be
                   sent to{' '}
                   <a href="mailto:complaints@jagroupservices.co.uk">complaints@jagroupservices.co.uk</a>.
@@ -841,7 +812,7 @@ export default function TermsOfServicePage() {
           <div className="mx-auto flex max-w-[1440px] flex-col gap-7 px-4 sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-8">
             <div className="max-w-3xl">
               <p className="text-sm font-bold uppercase tracking-[0.18em] text-primary">Need clarification?</p>
-              <h2 className="mt-2 text-3xl font-bold tracking-tight">Speak to JA Domain Hub before ordering</h2>
+              <h2 className="mt-2 text-3xl font-bold tracking-tight">Speak to Sousa Murray Domains before ordering a reseller product</h2>
               <p className="mt-3 leading-relaxed text-muted-foreground">
                 We can explain whether a service is supplied through the Storefront or delivered
                 directly by JA Group Services Ltd. We cannot provide independent legal advice about

@@ -12,18 +12,18 @@ type FormStatus = 'idle' | 'submitting' | 'success' | 'error';
 
 function initialEnquiryType(): string {
   if (typeof window === 'undefined') return '';
-  return new URLSearchParams(window.location.search).get('enquiry') === 'managed-website'
-    ? 'Managed website'
+  return new URLSearchParams(window.location.search).get('enquiry') === 'existing-managed-website'
+    ? 'Existing managed website arrangement'
     : '';
 }
 
 export default function ContactUsPage() {
-  const site = 'https://jadomainhub.jagroupservices.co.uk';
+  const site = 'https://sousamurraydomains.jagroupservices.co.uk';
   const [status, setStatus] = useState<FormStatus>('idle');
   const [errorMsg, setErrorMsg] = useState('');
   const [enquiryType, setEnquiryType] = useState(initialEnquiryType);
   const honeypotRef = useRef<HTMLInputElement>(null);
-  const isManagedWebsiteEnquiry = enquiryType === 'Managed website';
+  const isManagedWebsiteEnquiry = enquiryType === 'Existing managed website arrangement';
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -55,8 +55,8 @@ export default function ContactUsPage() {
             messages_attributes: [{ body: message }],
             data: {
               __gd_contact_form_title: isManagedWebsiteEnquiry
-                ? 'Managed Website Enquiry — JA Domain Hub'
-                : 'Contact Us — JA Domain Hub',
+                ? 'Existing Managed Website Support — JA Group Services Ltd'
+                : 'Contact Us — Sousa Murray Domains',
               'Enquiry type': enquiryType,
             },
           },
@@ -80,26 +80,26 @@ export default function ContactUsPage() {
   return (
     <div className="flex min-h-screen flex-col">
       <Helmet>
-        <title>{isManagedWebsiteEnquiry ? 'Request a Managed Website Quotation' : 'Contact JA Domain Hub Support'}</title>
+        <title>{isManagedWebsiteEnquiry ? 'Existing Managed Website Support' : 'Contact Sousa Murray Domains Support'}</title>
         <meta
           name="description"
           content={
             isManagedWebsiteEnquiry
-              ? 'Tell JA Group Services Ltd about your Managed Website requirements and request a tailored quotation.'
-              : 'Contact JA Group Services Ltd, the first-line customer support provider for JA Domain Hub products and services.'
+              ? 'Contact JA Group Services Ltd about an existing Managed Website arrangement or a previously acknowledged enquiry.'
+              : 'Contact JA Group Services Ltd, the first-line customer support provider for Sousa Murray Domains products and services.'
           }
         />
         <link rel="canonical" href={`${site}/contact-us`} />
         <meta
           property="og:title"
-          content={isManagedWebsiteEnquiry ? 'Request a Managed Website Quotation' : 'Contact JA Domain Hub Support'}
+          content={isManagedWebsiteEnquiry ? 'Existing Managed Website Support' : 'Contact Sousa Murray Domains Support'}
         />
         <meta
           property="og:description"
           content={
             isManagedWebsiteEnquiry
-              ? 'Start a tailored Managed Website enquiry with JA Group Services Ltd.'
-              : 'JA Group Services Ltd is the first point of contact for JA Domain Hub customer support.'
+              ? 'Contact JA Group Services Ltd about an existing Managed Website arrangement.'
+              : 'JA Group Services Ltd is the first point of contact for Sousa Murray Domains customer support.'
           }
         />
         <meta property="og:url" content={`${site}/contact-us`} />
@@ -118,16 +118,16 @@ export default function ContactUsPage() {
               <div className="mx-auto mb-5 inline-flex max-w-full items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-3 py-2 text-xs font-semibold leading-relaxed text-primary sm:px-4 sm:text-sm">
                 {isManagedWebsiteEnquiry ? <Building2 className="h-4 w-4 shrink-0" /> : <Headphones className="h-4 w-4 shrink-0" />}
                 <span>{isManagedWebsiteEnquiry
-                  ? 'Managed Websites by JA Group Services Ltd'
+                  ? 'Existing Managed Website support'
                   : 'First-line support from JA Group Services Ltd'}</span>
               </div>
               <h1 className="mb-4 text-3xl font-bold tracking-tight sm:text-4xl lg:text-6xl">
-                {isManagedWebsiteEnquiry ? 'Request a Managed Website quotation' : 'Contact Support'}
+                {isManagedWebsiteEnquiry ? 'Existing Managed Website support' : 'Contact Support'}
               </h1>
               <p className="text-base leading-relaxed text-muted-foreground sm:text-lg lg:text-xl">
                 {isManagedWebsiteEnquiry
-                  ? 'Tell us about your organisation, the website you need and your preferred timescale. We will review the project and explain the recommended next step.'
-                  : 'Contact us first for help with JA Domain Hub products and services. We will investigate, assist and coordinate provider escalation where required.'}
+                  ? 'Use this route only for an existing Managed Website arrangement or a previously acknowledged enquiry. Sousa Murray Sites has not yet launched for general ordering.'
+                  : 'Contact us first for help with Sousa Murray Domains products and services. We will investigate, assist and coordinate provider escalation where required.'}
               </p>
             </motion.div>
           </div>
@@ -147,11 +147,11 @@ export default function ContactUsPage() {
               <Card className="border-2">
                 <CardContent className="p-5 sm:p-8">
                   <h2 className="mb-2 text-xl font-bold sm:text-2xl">
-                    {isManagedWebsiteEnquiry ? 'Tell us about your website project' : 'Send a Support Request'}
+                    {isManagedWebsiteEnquiry ? 'Tell us about the existing arrangement' : 'Send a Support Request'}
                   </h2>
                   <p className="mb-6 text-sm leading-relaxed text-muted-foreground">
                     {isManagedWebsiteEnquiry
-                      ? 'Include the purpose of the website, expected pages, important features, existing domain or website, available content and any target launch date.'
+                      ? 'Include the existing customer, project or enquiry reference and explain what support or follow-up you need.'
                       : 'Tell JA Group Services what is happening. We will review the issue and manage the next step with you.'}
                   </p>
 
@@ -164,7 +164,7 @@ export default function ContactUsPage() {
                       <CheckCircle className="h-12 w-12 text-primary" />
                       <div>
                         <p className="text-lg font-semibold">
-                          {isManagedWebsiteEnquiry ? 'Website enquiry sent' : 'Support request sent'}
+                          {isManagedWebsiteEnquiry ? 'Support request sent' : 'Support request sent'}
                         </p>
                         <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
                           JA Group Services will review your message and respond during office hours (Mon–Fri, 9am–5pm GMT).
@@ -212,7 +212,7 @@ export default function ContactUsPage() {
                           <option value="Domain registration">Domain registration</option>
                           <option value="Domain transfer">Domain transfer</option>
                           <option value="Web hosting">Web hosting</option>
-                          <option value="Managed website">Managed website</option>
+                          <option value="Existing managed website arrangement">Existing managed website arrangement</option>
                           <option value="Business email">Business email</option>
                           <option value="SSL certificate">SSL certificate</option>
                           <option value="Billing or account">Billing or account</option>
@@ -229,7 +229,7 @@ export default function ContactUsPage() {
                           name="message"
                           placeholder={
                             isManagedWebsiteEnquiry
-                              ? 'Tell us about the organisation, website, important features, existing systems and preferred launch date...'
+                              ? 'Include the existing project or enquiry reference and explain what help you need...'
                               : 'Tell us what is happening and what help you need...'
                           }
                           rows={isManagedWebsiteEnquiry ? 8 : 5}
@@ -254,7 +254,7 @@ export default function ContactUsPage() {
                         ) : (
                           <>
                             <Send className="mr-2 h-4 w-4 shrink-0" />
-                            {isManagedWebsiteEnquiry ? 'Send Website Enquiry' : 'Send Support Request'}
+                            Send Support Request
                           </>
                         )}
                       </Button>
@@ -278,16 +278,16 @@ export default function ContactUsPage() {
                     </div>
                     <h3 className="mb-1 text-lg font-bold">JA Group Services — First-line Support</h3>
                     <p className="mb-4 text-xs leading-relaxed text-muted-foreground">
-                      Your first point of contact for service, domain, hosting, billing, account and Managed Website enquiries.
+                      Your first point of contact for Sousa Murray Domains support and existing Managed Website arrangements.
                     </p>
                     <div className="space-y-1">
                       <a href="tel:02038342790" className="flex min-h-11 items-center gap-3 text-sm text-muted-foreground transition-colors hover:text-foreground">
                         <Phone className="h-4 w-4 shrink-0 text-primary" />
                         020 3834 2790
                       </a>
-                      <a href="mailto:jadomainhub@jagroupservices.co.uk" className="flex min-h-11 items-center gap-3 break-all text-sm text-muted-foreground transition-colors hover:text-foreground">
+                      <a href="mailto:contact@jagroupservices.co.uk" className="flex min-h-11 items-center gap-3 break-all text-sm text-muted-foreground transition-colors hover:text-foreground">
                         <Mail className="h-4 w-4 shrink-0 text-primary" />
-                        <span>jadomainhub@jagroupservices.co.uk</span>
+                        <span>contact@jagroupservices.co.uk</span>
                       </a>
                       <div className="flex min-h-11 items-center gap-3 text-sm text-muted-foreground">
                         <Clock className="h-4 w-4 shrink-0 text-primary" />

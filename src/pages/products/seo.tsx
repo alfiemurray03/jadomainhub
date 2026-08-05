@@ -5,7 +5,7 @@ import { Search, TrendingUp, Target } from 'lucide-react';
 export default function SEOPage() {
   return (
     <div className="min-h-screen">
-      <title>SEO Services - JA Domain Hub</title>
+      <title>SEO Services - Sousa Murray Domains</title>
       <meta name="description" content="Improve your search engine rankings and drive more organic traffic with professional SEO services." />
 
       {/* Hero Section */}

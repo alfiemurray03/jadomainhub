@@ -38,7 +38,7 @@ export default function WordPressHostingPage() {
 
   return (
     <div className="flex min-h-screen flex-col">
-      <title>WordPress Hosting - JA Domain Hub</title>
+      <title>WordPress Hosting - Sousa Murray Domains</title>
       <meta
         name="description"
         content="Managed WordPress hosting optimised for speed, security, and performance. Expert support and automatic updates included."

@@ -39,7 +39,7 @@ export default function Microsoft365Page() {
 
   return (
     <div className="flex min-h-screen flex-col">
-      <title>Microsoft 365 - JA Domain Hub</title>
+      <title>Microsoft 365 - Sousa Murray Domains</title>
       <meta
         name="description"
         content="Professional email and productivity tools with Microsoft 365. Get custom email, Office apps, and 1TB cloud storage."

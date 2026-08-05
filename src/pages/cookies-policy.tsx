@@ -4,10 +4,10 @@ import { Card, CardContent } from '@/components/ui/card';
 export default function CookiesPolicyPage() {
   return (
     <div className="flex min-h-screen flex-col">
-      <title>Cookies Policy - JA Domain Hub</title>
+      <title>Cookies Policy - Sousa Murray Domains</title>
       <meta
         name="description"
-        content="Cookies Policy for JA Domain Hub. Learn about how we use cookies and similar technologies on our website."
+        content="Cookies Policy for Sousa Murray Domains. Learn about how we use cookies and similar technologies on our website."
       />
 
       {/* Hero Section */}
@@ -48,7 +48,7 @@ export default function CookiesPolicyPage() {
 
                   <h2>2. How We Use Cookies</h2>
                   <p>
-                    JA Domain Hub uses cookies to:
+                    Sousa Murray Domains uses cookies to:
                   </p>
                   <ul>
                     <li>Keep you signed in to your account</li>
