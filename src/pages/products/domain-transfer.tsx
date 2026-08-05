@@ -39,10 +39,10 @@ export default function DomainTransferPage() {
 
   return (
     <div className="flex min-h-screen flex-col">
-      <title>Domain Transfer - JA Domain Hub</title>
+      <title>Domain Transfer - Sousa Murray Domains</title>
       <meta
         name="description"
-        content="Transfer your domain to JA Domain Hub. Easy process, expert support, and keep your remaining registration time."
+        content="Transfer your domain to Sousa Murray Domains. Easy process, expert support, and keep your remaining registration time."
       />
 
       {/* Hero Section with Search */}

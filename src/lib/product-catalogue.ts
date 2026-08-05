@@ -19,6 +19,7 @@ import {
   Zap,
 } from 'lucide-react';
 
+// The provider-hosted storefront remains on its existing operational URL until the approved DNS migration is completed.
 export const STOREFRONT_URL = 'https://store.jadomainhub.jagroupservices.co.uk';
 export const RESELLER_ID = '599857';
 
@@ -34,6 +35,7 @@ export interface ProductDefinition {
   purchaseUrl: string | null;
   icon: LucideIcon;
   featured?: boolean;
+  comingSoon?: boolean;
 }
 
 export interface ProductCategory {
@@ -51,7 +53,7 @@ export const productCategories: ProductCategory[] = [
   {
     id: 'websites',
     label: 'Websites',
-    description: 'Build a website yourself or request a tailored managed website service.',
+    description: 'Explore self-service website products. Sousa Murray Sites is a separate forthcoming managed website brand and has not yet launched.',
   },
   {
     id: 'hosting',
@@ -126,13 +128,13 @@ export const products: ProductDefinition[] = [
   {
     id: 'managed-websites',
     category: 'websites',
-    title: 'Managed Website Service',
-    shortTitle: 'Managed Websites',
-    description: 'A tailored website design, setup and management service delivered directly by JA Group Services Ltd.',
+    title: 'Sousa Murray Sites',
+    shortTitle: 'Sites — Coming soon',
+    description: 'A forthcoming managed website service operated by JA Group Services Ltd. Sousa Murray Sites is still being built and has not yet launched.',
     localPath: '/managed-websites',
     purchaseUrl: null,
     icon: Wrench,
-    featured: true,
+    comingSoon: true,
   },
   {
     id: 'cpanel',

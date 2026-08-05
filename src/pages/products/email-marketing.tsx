@@ -5,7 +5,7 @@ import { Mail, Users, TrendingUp } from 'lucide-react';
 export default function EmailMarketingPage() {
   return (
     <div className="min-h-screen">
-      <title>Email Marketing - JA Domain Hub</title>
+      <title>Email Marketing - Sousa Murray Domains</title>
       <meta name="description" content="Grow your business with professional email marketing. Create campaigns, build your audience, and track results." />
 
       {/* Hero Section */}

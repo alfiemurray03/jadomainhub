@@ -4,7 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 export default function BulkRegistrationPage() {
   return (
     <div className="min-h-screen">
-      <title>Bulk Domain Registration - JA Domain Hub</title>
+      <title>Bulk Domain Registration - Sousa Murray Domains</title>
       <meta name="description" content="Register multiple domains at once with our bulk domain registration service. Save time and manage your domain portfolio efficiently." />
 
       {/* Hero Section */}

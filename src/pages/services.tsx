@@ -1,5 +1,5 @@
 import { Helmet } from '@dr.pogodin/react-helmet';
-import { ArrowRight, BadgeCheck, ExternalLink, Search } from 'lucide-react';
+import { ArrowRight, BadgeCheck, Clock3, ExternalLink, Search } from 'lucide-react';
 import { motion } from 'motion/react';
 
 import DomainSearch from '@/components/DomainSearch';
@@ -10,12 +10,12 @@ export default function ServicesPage() {
   return (
     <>
       <Helmet>
-        <title>Services &amp; Products | JA Domain Hub</title>
+        <title>Services &amp; Products | Sousa Murray Domains</title>
         <meta
           name="description"
-          content="Browse every JA Domain Hub domain, website, hosting, security, marketing and email service before continuing to the authorised reseller storefront."
+          content="Browse domain, website, hosting, security, marketing and email products through Sousa Murray Domains. Sousa Murray Sites is shown separately as coming soon."
         />
-        <link rel="canonical" href="https://jadomainhub.jagroupservices.co.uk/services" />
+        <link rel="canonical" href="https://sousamurraydomains.jagroupservices.co.uk/services" />
       </Helmet>
 
       <div className="min-h-screen bg-background text-foreground">
@@ -44,7 +44,7 @@ export default function ServicesPage() {
                 Browse before you buy
               </h1>
               <p className="mt-5 max-w-3xl text-base leading-relaxed text-white/80 sm:text-lg">
-                Review every service available through JA Domain Hub, understand what it is for and then continue to the matching storefront page when you are ready to view plans, availability or current pricing.
+                Review the domain and related reseller services available through Sousa Murray Domains before continuing to the authorised storefront. Sousa Murray Sites is a separate forthcoming brand and has not yet launched.
               </p>
 
               <DomainSearch appearance="dark" compact className="mt-8 max-w-4xl" />
@@ -61,7 +61,7 @@ export default function ServicesPage() {
               <div>
                 <p className="font-bold text-foreground">One clear customer journey</p>
                 <p className="mt-1 text-sm text-muted-foreground">
-                  Learn on JA Domain Hub first. Purchase and account management take place on the authorised reseller platform.
+                  Learn on Sousa Murray Domains first. Purchase and account management for reseller products take place on the authorised provider platform.
                 </p>
               </div>
             </div>
@@ -100,7 +100,7 @@ export default function ServicesPage() {
                   </div>
 
                   <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
-                    {categoryProducts.map(({ id, icon: Icon, title, description, localPath }, index) => (
+                    {categoryProducts.map(({ id, icon: Icon, title, description, localPath, comingSoon }, index) => (
                       <motion.a
                         key={id}
                         href={localPath}
@@ -110,13 +110,20 @@ export default function ServicesPage() {
                         transition={{ duration: 0.35, delay: index * 0.04 }}
                         className="group flex h-full flex-col rounded-2xl border border-border bg-card p-6 text-card-foreground shadow-sm transition-all duration-200 hover:-translate-y-1 hover:border-primary/30 hover:shadow-lg"
                       >
-                        <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-primary/10">
-                          <Icon className="h-5 w-5 text-primary" />
+                        <div className="flex items-start justify-between gap-3">
+                          <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-primary/10">
+                            <Icon className="h-5 w-5 text-primary" />
+                          </div>
+                          {comingSoon && (
+                            <span className="inline-flex items-center gap-1 rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-xs font-bold text-primary">
+                              <Clock3 className="h-3.5 w-3.5" /> Coming soon
+                            </span>
+                          )}
                         </div>
                         <h3 className="mt-5 text-xl font-bold text-card-foreground">{title}</h3>
                         <p className="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground">{description}</p>
                         <span className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-primary">
-                          View service details
+                          {comingSoon ? 'View launch information' : 'View service details'}
                           <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                         </span>
                       </motion.a>
@@ -136,7 +143,7 @@ export default function ServicesPage() {
               </div>
               <h2 className="mt-5 text-3xl font-bold tracking-tight text-foreground">Not sure which service you need?</h2>
               <p className="mt-3 max-w-3xl leading-relaxed text-muted-foreground sm:text-lg">
-                Contact JA Domain Hub with what you are trying to achieve. We can explain the relevant route and whether the service is self-service or delivered directly by JA Group Services Ltd.
+                Contact Sousa Murray Domains for help identifying the appropriate domain or reseller product route. Sousa Murray Sites has not launched and is not currently accepting general orders through this website.
               </p>
             </div>
             <Button asChild size="lg">

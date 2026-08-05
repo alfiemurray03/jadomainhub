@@ -8,7 +8,7 @@ export default function PrivacyPolicyPage() {
 
   return (
     <div className="flex min-h-screen items-center justify-center">
-      <title>Privacy Policy - JA Domain Hub</title>
+      <title>Privacy Policy - Sousa Murray Domains</title>
       <div className="text-center">
         <p className="text-lg text-muted-foreground">Redirecting to Privacy Policy...</p>
       </div>

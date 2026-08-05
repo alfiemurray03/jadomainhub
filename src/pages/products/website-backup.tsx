@@ -5,7 +5,7 @@ import { Database, Clock, RotateCcw } from 'lucide-react';
 export default function WebsiteBackupPage() {
   return (
     <div className="min-h-screen">
-      <title>Website Backup - JA Domain Hub</title>
+      <title>Website Backup - Sousa Murray Domains</title>
       <meta name="description" content="Protect your website with automatic daily backups. Restore your site quickly in case of data loss or security incidents." />
 
       {/* Hero Section */}

@@ -18,7 +18,7 @@ import { motion } from 'motion/react';
 
 import { Button } from '@/components/ui/button';
 
-const site = 'https://jadomainhub.jagroupservices.co.uk';
+const site = 'https://sousamurraydomains.jagroupservices.co.uk';
 const storefront = 'https://store.jadomainhub.jagroupservices.co.uk';
 const universalTerms = `${storefront}/legal-agreement?id=utos`;
 
@@ -34,11 +34,11 @@ const serviceRoles: Array<{
     eyebrow: 'Operated by',
     title: 'JA Group Services Ltd',
     description:
-      'JA Group Services Ltd operates the JA Domain Hub brand, this information website and the main customer-support route.',
+      'JA Group Services Ltd operates the Sousa Murray Domains brand, this information website and the main customer-support route.',
     points: [
       'Company registered in England and Wales',
       'Company number 16314179',
-      'Responsible for the JA Domain Hub website and brand',
+      'Responsible for the Sousa Murray Domains website and brand',
     ],
   },
   {
@@ -46,7 +46,7 @@ const serviceRoles: Array<{
     eyebrow: 'Storefront services',
     title: 'Wild West Domains reseller platform',
     description:
-      'For products offered through the Turnkey storefront, JA Domain Hub acts as an agent of Wild West Domains, LLC under the applicable reseller arrangements.',
+      'For products offered through the Turnkey storefront, Sousa Murray Domains acts as an agent of Wild West Domains, LLC under the applicable reseller arrangements.',
     points: [
       'Domains, hosting, email and security products',
       'Current plans, pricing and checkout on the storefront',
@@ -55,14 +55,14 @@ const serviceRoles: Array<{
   },
   {
     icon: Wrench,
-    eyebrow: 'Delivered directly',
-    title: 'Managed Websites',
+    eyebrow: 'Forthcoming brand',
+    title: 'Sousa Murray Sites',
     description:
-      'Managed Websites is a separate, tailored service supplied directly by JA Group Services Ltd rather than through the Turnkey catalogue.',
+      'Sousa Murray Sites is the approved forthcoming brand for Managed Website Services operated by JA Group Services Ltd. It is still being built and has not yet launched.',
     points: [
-      'Requirements reviewed before quotation',
-      'Custom pricing based on project scope',
-      'Written quotation or service agreement before payment',
+      'Separate from Sousa Murray Domains',
+      'Not currently available for general ordering',
+      'Launch information will be published when approved',
     ],
   },
 ];
@@ -82,19 +82,19 @@ const principles: Array<{
     icon: Globe2,
     title: 'Browse before buying',
     description:
-      'Customers can review products on JA Domain Hub first, then continue to the matching storefront page when ready.',
+      'Customers can review products on Sousa Murray Domains first, then continue to the matching storefront page when ready.',
   },
   {
     icon: Headphones,
     title: 'Practical support routes',
     description:
-      'The website separates general JA Domain Hub assistance from platform-level support for existing products.',
+      'The website separates general Sousa Murray Domains assistance from platform-level support for existing products.',
   },
   {
     icon: Scale,
     title: 'Legal transparency',
     description:
-      'Storefront products, direct services, privacy information and customer support are presented as distinct responsibilities.',
+      'Storefront products, future managed services, privacy information and customer support are presented as distinct responsibilities.',
   },
 ];
 
@@ -102,16 +102,16 @@ export default function AboutUsPage() {
   return (
     <>
       <Helmet>
-        <title>About JA Domain Hub | Our Company and Service Model</title>
+        <title>About Sousa Murray Domains | Our Company and Service Model</title>
         <meta
           name="description"
-          content="Learn how JA Domain Hub is operated by JA Group Services Ltd, how the Wild West Domains reseller storefront works and how Managed Websites is delivered directly."
+          content="Learn how Sousa Murray Domains is operated by JA Group Services Ltd, how the authorised reseller storefront works and how Sousa Murray Sites will remain a separate forthcoming brand."
         />
         <link rel="canonical" href={`${site}/about-us`} />
-        <meta property="og:title" content="About JA Domain Hub | Our Company and Service Model" />
+        <meta property="og:title" content="About Sousa Murray Domains | Our Company and Service Model" />
         <meta
           property="og:description"
-          content="A clear explanation of the company, storefront and directly delivered services behind JA Domain Hub."
+          content="A clear explanation of the company, authorised reseller storefront and forthcoming Sousa Murray Sites brand."
         />
         <meta property="og:url" content={`${site}/about-us`} />
         <meta property="og:type" content="website" />
@@ -138,12 +138,12 @@ export default function AboutUsPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
             >
-              <p className="text-sm font-bold uppercase tracking-[0.2em] text-blue-200">About JA Domain Hub</p>
+              <p className="text-sm font-bold uppercase tracking-[0.2em] text-blue-200">About Sousa Murray Domains</p>
               <h1 className="mt-4 max-w-4xl text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl">
                 A clearer way to choose and manage digital services
               </h1>
               <p className="mt-6 max-w-3xl text-base leading-relaxed text-white/80 sm:text-lg">
-                JA Domain Hub brings product information, customer-support routes and an authorised reseller storefront together under one recognisable service operated by JA Group Services Ltd.
+                Sousa Murray Domains brings product information, customer-support routes and an authorised reseller storefront together under one recognisable service operated by JA Group Services Ltd.
               </p>
 
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
@@ -159,7 +159,7 @@ export default function AboutUsPage() {
                   variant="outline"
                   className="min-h-12 border-white/35 bg-white/5 px-7 font-semibold text-white hover:bg-white/10 hover:text-white"
                 >
-                  <a href="/contact-us">Contact JA Domain Hub</a>
+                  <a href="/contact-us">Contact Sousa Murray Domains</a>
                 </Button>
               </div>
             </motion.div>
@@ -169,7 +169,7 @@ export default function AboutUsPage() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
               className="overflow-hidden rounded-2xl border border-white/15 bg-white/10 shadow-2xl backdrop-blur-md"
-              aria-label="JA Domain Hub at a glance"
+              aria-label="Sousa Murray Domains at a glance"
             >
               <div className="border-b border-white/15 px-6 py-5">
                 <p className="text-xs font-bold uppercase tracking-[0.18em] text-blue-200">At a glance</p>
@@ -179,7 +179,7 @@ export default function AboutUsPage() {
                 <HeroFact icon={Building2} label="Brand operator" value="JA Group Services Ltd" />
                 <HeroFact icon={Store} label="Storefront model" value="Authorised reseller platform" />
                 <HeroFact icon={BadgeCheck} label="Registrar disclosure" value="Wild West Domains, LLC" />
-                <HeroFact icon={Wrench} label="Direct service" value="Managed Websites" />
+                <HeroFact icon={Wrench} label="Forthcoming brand" value="Sousa Murray Sites — Coming soon" />
               </div>
             </motion.aside>
           </div>
@@ -201,7 +201,7 @@ export default function AboutUsPage() {
                 Different services, one clear customer journey
               </h2>
               <p className="mt-4 text-base leading-relaxed text-muted-foreground sm:text-lg">
-                The website helps customers understand their options first. The next step depends on whether the selected service is supplied through the storefront or delivered directly by JA Group Services Ltd.
+                The website helps customers understand reseller products before continuing to the provider storefront. Sousa Murray Sites is presented separately as a forthcoming brand and is not yet available for general ordering.
               </p>
             </div>
 
@@ -305,10 +305,10 @@ export default function AboutUsPage() {
                     Storefront products are governed by the applicable provider agreements
                   </h2>
                   <p className="mt-4 max-w-4xl leading-relaxed text-white/75 sm:text-lg">
-                    For services offered through the Turnkey storefront, JA Domain Hub acts as an agent of Wild West Domains, LLC. Storefront use and purchases are governed by the Universal Terms of Service and the product-specific agreements applying to the selected service.
+                    For services offered through the Turnkey storefront, Sousa Murray Domains acts as an agent of Wild West Domains, LLC. Storefront use and purchases are governed by the Universal Terms of Service and the product-specific agreements applying to the selected service.
                   </p>
                   <p className="mt-4 max-w-4xl text-sm leading-relaxed text-white/60">
-                    Wild West Domains, LLC is the registrar of record for domain registrations supplied through the reseller programme, except where another affiliated ICANN-accredited registrar is identified. JA Domain Hub is not itself a registry or an ICANN-accredited registrar.
+                    Wild West Domains, LLC is the registrar of record for domain registrations supplied through the reseller programme, except where another affiliated ICANN-accredited registrar is identified. Sousa Murray Domains is not itself a registry or an ICANN-accredited registrar.
                   </p>
                 </div>
 
@@ -325,7 +325,7 @@ export default function AboutUsPage() {
                     variant="outline"
                     className="border-white/35 bg-white/5 font-semibold text-white hover:bg-white/10 hover:text-white"
                   >
-                    <a href="/terms-of-service">JA Domain Hub Terms</a>
+                    <a href="/terms-of-service">Sousa Murray Domains Terms</a>
                   </Button>
                 </div>
               </div>
@@ -341,18 +341,18 @@ export default function AboutUsPage() {
                 Get help from the right place
               </h2>
               <p className="mt-4 leading-relaxed text-muted-foreground sm:text-lg">
-                General enquiries can come to JA Domain Hub. Existing storefront products also have a dedicated platform-support route for account and technical assistance.
+                General enquiries can come to Sousa Murray Domains. Existing storefront products also have a dedicated platform-support route for account and technical assistance.
               </p>
             </div>
 
             <div className="grid gap-5 lg:grid-cols-2">
               <SupportCard
                 icon={Mail}
-                eyebrow="JA Domain Hub"
+                eyebrow="Sousa Murray Domains"
                 title="General enquiries and service guidance"
-                description="Contact the JA Domain Hub customer-support route for general questions, service guidance and Managed Websites enquiries."
+                description="Contact the Sousa Murray Domains customer-support route for domain and reseller service guidance, or for support with an existing Managed Website arrangement."
                 actions={[
-                  { label: 'jadomainhub@jagroupservices.co.uk', href: 'mailto:jadomainhub@jagroupservices.co.uk', icon: Mail },
+                  { label: 'contact@jagroupservices.co.uk', href: 'mailto:contact@jagroupservices.co.uk', icon: Mail },
                   { label: '020 3834 2790', href: 'tel:02038342790', icon: Phone },
                 ]}
               />
@@ -392,10 +392,10 @@ export default function AboutUsPage() {
             >
               <p className="text-sm font-bold uppercase tracking-[0.18em] text-white/65">Your next step</p>
               <h2 className="mx-auto mt-3 max-w-3xl text-3xl font-bold text-white sm:text-4xl lg:text-5xl">
-                Explore the full JA Domain Hub service range
+                Explore the full Sousa Murray Domains service range
               </h2>
               <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-white/75 sm:text-lg">
-                Browse every available service on JA Domain Hub first, then continue to the correct storefront or enquiry route when you are ready.
+                Browse every available service on Sousa Murray Domains first, then continue to the correct storefront or enquiry route when you are ready.
               </p>
               <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
                 <Button asChild size="lg" className="min-h-12 bg-white px-7 font-bold text-primary hover:bg-blue-50">

@@ -54,7 +54,7 @@ type Guide = {
 };
 
 const API = '/api/customer-service';
-const DEFAULT_NAME = 'JA Domain Hub Support Assistant';
+const DEFAULT_NAME = 'Sousa Murray Domains Support Assistant';
 const DEFAULT_APPEARANCE: Required<AppearanceConfig> = {
   accentColour: '#047857',
   launcherColour: '#047857',
@@ -295,7 +295,7 @@ export default function DomainSupportTroubleshootingCentre() {
         pagePath: window.location.pathname,
         pageTitle: document.title,
         serviceContext: {
-          website: 'JA Domain Hub',
+          website: 'Sousa Murray Domains',
           supportModel: 'godaddy_informed_self_service_first',
           guideId: guide.id,
           guideTitle: guide.title,
@@ -317,7 +317,7 @@ export default function DomainSupportTroubleshootingCentre() {
       const summary = [
         `Support topic: ${selected.title}`,
         `Guide used: ${selected.sourceTitle}`,
-        `Guide reviewed by JA Domain Hub: ${selected.reviewed}`,
+        `Guide reviewed by Sousa Murray Domains: ${selected.reviewed}`,
         `Completed checks: ${completedSteps.length ? completedSteps.map((step, index) => `${index + 1}. ${step}`).join(' | ') : 'None marked as completed'}`,
         `Customer description: ${description.trim() || 'No additional description supplied'}`,
       ].join('\n');
@@ -327,7 +327,7 @@ export default function DomainSupportTroubleshootingCentre() {
         body: JSON.stringify({
           externalMessageId: makeId('troubleshooting'),
           senderType: 'customer',
-          senderName: 'JA Domain Hub customer',
+          senderName: 'Sousa Murray Domains customer',
           body: summary,
           metadata: { guideId: selected.id, completedStepCount: completedSteps.length, pagePath: window.location.pathname },
         }),
@@ -417,7 +417,7 @@ export default function DomainSupportTroubleshootingCentre() {
                   <div className="mb-3 flex items-center gap-2"><BookOpen className="h-4 w-4" style={{ color: appearance.accentColour }} /><strong className="text-sm">Troubleshooting checks</strong></div>
                   <div className="space-y-2">{selected.steps.map((step, index) => <label key={step} className="flex cursor-pointer gap-3 border border-slate-200 p-3 text-xs leading-5" style={{ borderRadius: Math.max(4, cardRadius - 4) }}><input type="checkbox" checked={completed.includes(index)} onChange={() => toggleStep(index)} className="mt-1 h-4 w-4" style={{ accentColor: appearance.accentColour }} /><span>{step}</span></label>)}</div>
                   <a href={selected.sourceUrl} target="_blank" rel="noopener noreferrer" className="mt-4 flex items-center justify-between border px-3 py-3 text-xs font-semibold" style={{ borderRadius: Math.max(4, cardRadius - 4), borderColor: `${appearance.accentColour}55`, backgroundColor: `${appearance.accentColour}12`, color: appearance.panelTextColour }}><span><strong className="block">Official supporting guide</strong>{selected.sourceTitle}</span><ExternalLink className="h-4 w-4 shrink-0" /></a>
-                  <p className="mt-2 text-[10px] leading-4 opacity-60">JA Domain Hub explanation last reviewed {selected.reviewed}. The official provider page may be updated independently.</p>
+                  <p className="mt-2 text-[10px] leading-4 opacity-60">Sousa Murray Domains explanation last reviewed {selected.reviewed}. The official provider page may be updated independently.</p>
                 </div>
 
                 {!resolved && !adviserRequested && <div className="grid gap-2 sm:grid-cols-2"><button type="button" onClick={() => setResolved(true)} className="flex items-center justify-center gap-2 px-4 py-3 text-xs font-bold text-white" style={{ borderRadius: Math.max(4, cardRadius - 4), backgroundColor: appearance.accentColour }}><CheckCircle2 className="h-4 w-4" />The issue is resolved</button><button type="button" onClick={() => document.getElementById('domain-support-description')?.focus()} className="flex items-center justify-center gap-2 border border-slate-300 px-4 py-3 text-xs font-bold" style={{ borderRadius: Math.max(4, cardRadius - 4) }}><UserRound className="h-4 w-4" />I still need help</button></div>}

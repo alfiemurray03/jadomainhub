@@ -4,8 +4,8 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 export default function BulkTransferPage() {
   return (
     <div className="min-h-screen">
-      <title>Bulk Domain Transfer - JA Domain Hub</title>
-      <meta name="description" content="Transfer multiple domains to JA Domain Hub at once. Streamline your domain portfolio management with our bulk transfer service." />
+      <title>Bulk Domain Transfer - Sousa Murray Domains</title>
+      <meta name="description" content="Transfer multiple domains to Sousa Murray Domains at once. Streamline your domain portfolio management with our bulk transfer service." />
 
       {/* Hero Section */}
       <section className="bg-gradient-to-b from-primary/5 to-background py-20">

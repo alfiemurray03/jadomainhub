@@ -5,7 +5,7 @@ import { Lock, Shield, Check } from 'lucide-react';
 export default function SSLPage() {
   return (
     <div className="min-h-screen">
-      <title>SSL Certificates - JA Domain Hub</title>
+      <title>SSL Certificates - Sousa Murray Domains</title>
       <meta name="description" content="Secure your website with SSL certificates. Protect customer data, boost SEO rankings, and build trust with HTTPS encryption." />
 
       {/* Hero Section */}

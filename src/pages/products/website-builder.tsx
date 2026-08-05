@@ -4,7 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 export default function WebsiteBuilderPage() {
   return (
     <div className="min-h-screen">
-      <title>Website Builder - JA Domain Hub</title>
+      <title>Website Builder - Sousa Murray Domains</title>
       <meta name="description" content="Build your professional website with our easy-to-use drag-and-drop website builder. No coding required." />
 
       {/* Hero Section */}

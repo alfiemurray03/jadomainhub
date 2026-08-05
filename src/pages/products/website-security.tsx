@@ -5,7 +5,7 @@ import { Shield, Lock, Eye } from 'lucide-react';
 export default function WebsiteSecurityPage() {
   return (
     <div className="min-h-screen">
-      <title>Website Security - JA Domain Hub</title>
+      <title>Website Security - Sousa Murray Domains</title>
       <meta name="description" content="Protect your website with comprehensive security solutions including malware scanning, firewall protection, and security monitoring." />
 
       {/* Hero Section */}

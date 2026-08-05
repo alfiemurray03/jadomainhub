@@ -5,7 +5,7 @@ import { Settings, Clock, Shield } from 'lucide-react';
 export default function SSLManagedPage() {
   return (
     <div className="min-h-screen">
-      <title>Managed SSL Service - JA Domain Hub</title>
+      <title>Managed SSL Service - Sousa Murray Domains</title>
       <meta name="description" content="Hassle-free SSL management with automatic installation, renewal, and monitoring. Let us handle your SSL certificates." />
 
       {/* Hero Section */}

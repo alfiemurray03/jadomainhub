@@ -1,10 +1,7 @@
-// Service Worker for JA Domain Hub on Cloudflare Pages
-const CACHE_NAME = 'ja-domain-hub-v3';
+// Service Worker for Sousa Murray Domains on Cloudflare Pages
+const CACHE_NAME = 'sousa-murray-domains-v1';
 const CORE_ASSETS = [
   '/',
-  '/favicon.png',
-  '/icon-192.png',
-  '/icon-512.png',
   '/manifest.json'
 ];
 

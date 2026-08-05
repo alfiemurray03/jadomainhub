@@ -4,6 +4,7 @@ import {
   ArrowRight,
   BadgeCheck,
   Building2,
+  Clock3,
   ExternalLink,
   Globe2,
   Headphones,
@@ -20,7 +21,7 @@ import DomainSearch from '@/components/DomainSearch';
 import { Button } from '@/components/ui/button';
 import { products, STOREFRONT_URL } from '@/lib/product-catalogue';
 
-const site = 'https://jadomainhub.jagroupservices.co.uk';
+const site = 'https://sousamurraydomains.jagroupservices.co.uk';
 const featuredProducts = products.filter((product) => product.featured);
 
 const benefits = [
@@ -32,12 +33,12 @@ const benefits = [
   {
     icon: Headphones,
     title: 'Clear support routes',
-    description: 'Use JA Domain Hub for customer enquiries and provider support for platform-level technical assistance.',
+    description: 'Use Sousa Murray Domains for customer enquiries and provider support for platform-level technical assistance.',
   },
   {
     icon: Building2,
     title: 'Operated by a UK company',
-    description: 'JA Domain Hub is operated by JA Group Services Ltd, registered in England and Wales.',
+    description: 'Sousa Murray Domains is operated by JA Group Services Ltd, registered in England and Wales.',
   },
   {
     icon: LockKeyhole,
@@ -49,7 +50,7 @@ const benefits = [
 const steps = [
   {
     number: '01',
-    title: 'Browse on JA Domain Hub',
+    title: 'Browse on Sousa Murray Domains',
     description: 'Read about the relevant domain, hosting, email, security or website service on this website.',
   },
   {
@@ -65,7 +66,7 @@ const steps = [
   {
     number: '04',
     title: 'Manage and get support',
-    description: 'Use the provider account area and the appropriate JA Domain Hub or platform support route.',
+    description: 'Use the provider account area and the appropriate Sousa Murray Domains or platform support route.',
   },
 ];
 
@@ -73,16 +74,16 @@ export default function HomePage() {
   return (
     <>
       <Helmet>
-        <title>JA Domain Hub | Domains, Hosting, Email and Website Services</title>
+        <title>Sousa Murray Domains | Domains, Hosting, Email and Website Services</title>
         <meta
           name="description"
-          content="Search for a domain and browse domain registration, hosting, business email, SSL and website services through JA Domain Hub before continuing to the authorised reseller storefront."
+          content="Search for a domain and browse authorised reseller-based domain, hosting, email, security and self-service website products through Sousa Murray Domains."
         />
         <link rel="canonical" href={`${site}/`} />
-        <meta property="og:title" content="JA Domain Hub | Domains, Hosting, Email and Website Services" />
+        <meta property="og:title" content="Sousa Murray Domains | Domains, Hosting, Email and Website Services" />
         <meta
           property="og:description"
-          content="Search domains and browse every JA Domain Hub product before continuing to the authorised reseller storefront."
+          content="Search domains and browse Sousa Murray Domains reseller products before continuing to the authorised provider storefront."
         />
         <meta property="og:url" content={`${site}/`} />
         <meta property="og:type" content="website" />
@@ -112,7 +113,7 @@ export default function HomePage() {
                 transition={{ duration: 0.5 }}
               >
                 <div className="mb-5 inline-flex items-center gap-2 border-l-2 border-blue-400 pl-3 text-xs font-bold uppercase tracking-[0.2em] text-blue-200 sm:text-sm">
-                  Domains · Hosting · Email · Website Services
+                  Domains · Hosting · Email · Reseller Services
                 </div>
 
                 <h1 className="max-w-4xl text-4xl font-extrabold leading-tight tracking-tight text-white sm:text-5xl lg:text-[3.4rem]">
@@ -120,7 +121,7 @@ export default function HomePage() {
                 </h1>
 
                 <p className="mt-5 max-w-3xl text-base leading-relaxed text-white/80 sm:text-lg">
-                  Search for the domain name you want, browse every available product on JA Domain Hub and continue to the authorised reseller storefront only when you are ready.
+                  Search for the domain name you want, review the available reseller products through Sousa Murray Domains and continue to the authorised provider storefront only when you are ready.
                 </p>
 
                 <DomainSearch appearance="dark" className="mt-7 max-w-4xl" />
@@ -138,7 +139,7 @@ export default function HomePage() {
                     variant="outline"
                     className="min-h-12 border-white/35 bg-white/5 px-7 font-semibold text-white hover:bg-white/10 hover:text-white"
                   >
-                    <a href="/managed-websites">Managed Website Service</a>
+                    <a href="/managed-websites">Sousa Murray Sites — Coming soon</a>
                   </Button>
                 </div>
               </motion.div>
@@ -148,12 +149,12 @@ export default function HomePage() {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5, delay: 0.1 }}
                 className="overflow-hidden rounded-2xl border border-white/15 bg-white/10 shadow-2xl backdrop-blur-md"
-                aria-label="JA Domain Hub quick access"
+                aria-label="Sousa Murray Domains quick access"
               >
                 <div className="border-b border-white/15 px-5 py-5 sm:px-6">
                   <p className="text-xs font-bold uppercase tracking-[0.18em] text-blue-200">Quick access</p>
                   <h2 className="mt-2 text-2xl font-bold text-white">Browse before purchasing</h2>
-                  <p className="mt-2 text-sm leading-relaxed text-white/65">These links stay on JA Domain Hub so customers can understand the service first.</p>
+                  <p className="mt-2 text-sm leading-relaxed text-white/65">These links stay on Sousa Murray Domains so customers can understand the reseller service first.</p>
                 </div>
 
                 <div className="divide-y divide-white/10">
@@ -197,7 +198,7 @@ export default function HomePage() {
               <SectionHeading
                 eyebrow="Featured services"
                 title="Start with the service that matches your goal"
-                description="Every card opens a JA Domain Hub information page first. The product page then provides the correct route to the storefront or enquiry process."
+                description="Every card opens a Sousa Murray Domains information page first. Reseller product pages then provide the correct route to the authorised storefront. Sousa Murray Sites is shown separately as coming soon."
                 className="mb-0"
               />
               <Button asChild variant="outline" className="shrink-0">
@@ -209,7 +210,7 @@ export default function HomePage() {
             </div>
 
             <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
-              {featuredProducts.map(({ id, icon: Icon, title, description, localPath }, index) => (
+              {featuredProducts.map(({ id, icon: Icon, title, description, localPath, comingSoon }, index) => (
                 <motion.a
                   key={id}
                   href={localPath}
@@ -219,13 +220,20 @@ export default function HomePage() {
                   transition={{ duration: 0.4, delay: index * 0.04 }}
                   className="group flex h-full flex-col rounded-2xl border border-border bg-card p-6 text-card-foreground shadow-sm transition-all duration-200 hover:-translate-y-1 hover:border-primary/30 hover:shadow-lg"
                 >
-                  <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-primary/10">
-                    <Icon className="h-5 w-5 text-primary" />
+                  <div className="flex items-start justify-between gap-3">
+                    <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-primary/10">
+                      <Icon className="h-5 w-5 text-primary" />
+                    </div>
+                    {comingSoon && (
+                      <span className="inline-flex items-center gap-1 rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-xs font-bold text-primary">
+                        <Clock3 className="h-3.5 w-3.5" /> Coming soon
+                      </span>
+                    )}
                   </div>
                   <h3 className="mt-5 text-xl font-bold text-card-foreground">{title}</h3>
                   <p className="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground">{description}</p>
                   <span className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-primary">
-                    View service details
+                    {comingSoon ? 'View launch information' : 'View service details'}
                     <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                   </span>
                 </motion.a>
@@ -239,7 +247,7 @@ export default function HomePage() {
             <SectionHeading
               eyebrow="How it works"
               title="A clear route from research to purchase"
-              description="JA Domain Hub explains the service, the storefront provides live product selection and checkout, and the account area handles ongoing product management."
+              description="Sousa Murray Domains explains the reseller service, the provider storefront supplies live product selection and checkout, and the provider account area handles ongoing product management."
             />
 
             <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
@@ -272,16 +280,16 @@ export default function HomePage() {
               viewport={{ once: true }}
               transition={{ duration: 0.42 }}
             >
-              <p className="text-sm font-bold uppercase tracking-[0.18em] text-primary">Why JA Domain Hub</p>
+              <p className="text-sm font-bold uppercase tracking-[0.18em] text-primary">Why Sousa Murray Domains</p>
               <h2 className="mt-3 text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
                 Provider-backed products with a clear company behind the service
               </h2>
               <p className="mt-5 leading-relaxed text-muted-foreground sm:text-lg">
-                JA Domain Hub combines established reseller systems with the governance, customer-service routes and accountability of JA Group Services Ltd.
+                Sousa Murray Domains combines established reseller systems with the governance, customer-service routes and accountability of JA Group Services Ltd.
               </p>
               <Button asChild variant="outline" className="mt-7 min-h-11 border-primary font-semibold text-primary hover:bg-primary/10">
                 <a href="/about-us">
-                  About JA Domain Hub
+                  About Sousa Murray Domains
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </a>
               </Button>
@@ -329,7 +337,7 @@ export default function HomePage() {
                 Browse the catalogue or open the storefront
               </h2>
               <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-white/75 sm:text-lg">
-                Review product information on JA Domain Hub first, or continue directly to the storefront when you already know what you need.
+                Review product information on Sousa Murray Domains first, or continue to the authorised storefront when you already know which reseller product you need.
               </p>
               <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
                 <Button asChild size="lg" className="min-h-12 bg-white px-7 font-bold text-primary hover:bg-blue-50">

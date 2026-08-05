@@ -2,7 +2,7 @@ import { ArrowRight, Headphones, Phone } from 'lucide-react';
 
 export default function FirstLineSupportBanner() {
   return (
-    <section className="border-b border-primary/15 bg-primary/5" aria-label="JA Domain Hub customer support">
+    <section className="border-b border-primary/15 bg-primary/5" aria-label="Sousa Murray Domains customer support">
       <div className="mx-auto flex max-w-[1440px] flex-col gap-3 px-4 py-3 sm:gap-4 sm:px-6 sm:py-4 lg:flex-row lg:items-center lg:justify-between lg:px-8">
         <div className="flex min-w-0 items-start gap-3">
           <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary text-primary-foreground shadow-sm sm:h-10 sm:w-10">
@@ -17,7 +17,7 @@ export default function FirstLineSupportBanner() {
                 Contact us first. We will investigate and manage any provider escalation needed.
               </span>
               <span className="hidden sm:inline">
-                Contact us first for help with JA Domain Hub products and services. We will investigate,
+                Contact us first for help with Sousa Murray Domains products and services. We will investigate,
                 assist and coordinate escalation with Wild West Domains, GoDaddy or another underlying
                 provider when provider-level action is required.
               </span>
