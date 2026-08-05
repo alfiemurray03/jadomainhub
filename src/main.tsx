@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import App from './App';
+import { installPublicBrandScrubber } from './lib/public-brand-scrubber';
 import './styles/globals.css';
 import './styles/mobile.css';
 
@@ -44,3 +45,5 @@ root.render(<HelmetProvider><React.StrictMode>
       <App />
     </QueryClientProvider>
   </React.StrictMode></HelmetProvider>);
+
+installPublicBrandScrubber();
